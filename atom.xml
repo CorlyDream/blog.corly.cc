@@ -373,11 +373,11 @@
     
       <category term="算法" scheme="http://corly.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
-    
       <category term="计算机几何" scheme="http://corly.cc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%87%A0%E4%BD%95/"/>
     
       <category term="极角" scheme="http://corly.cc/tags/%E6%9E%81%E8%A7%92/"/>
+    
+      <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
     
   </entry>
   
@@ -409,9 +409,9 @@
     
       <category term="算法" scheme="http://corly.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="计算几何学" scheme="http://corly.cc/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E5%AD%A6/"/>
-    
       <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
+    
+      <category term="计算几何学" scheme="http://corly.cc/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E5%AD%A6/"/>
     
   </entry>
   
