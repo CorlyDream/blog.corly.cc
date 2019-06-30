@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/favicon.32_32.png?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="概念 定义对象间的一种一对多的关系，当一个对象的状态发生变化时，所有依赖它的对象都得到通知并自动更新。  概述 在许多设计中，经常涉及多个对象都对一个对象中的数据变化感兴趣，而且这多个对象都希望跟踪那个特殊对象中的数据变化。例如，某些寻找工作的人对求职中心的职业需求信息的变化非常关心，这时求职者可以登记到求职中心的“求职者”列表中，求职中心就会及时通知他所需要的最新的职业需求信息。 观察者模式是关">
+<meta name="keywords" content="编程思想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="观察者模式">
+<meta property="og:url" content="http://corly.cc/2015/07/18/观察者模式/index.html">
+<meta property="og:site_name" content="corly note">
+<meta property="og:description" content="概念 定义对象间的一种一对多的关系，当一个对象的状态发生变化时，所有依赖它的对象都得到通知并自动更新。  概述 在许多设计中，经常涉及多个对象都对一个对象中的数据变化感兴趣，而且这多个对象都希望跟踪那个特殊对象中的数据变化。例如，某些寻找工作的人对求职中心的职业需求信息的变化非常关心，这时求职者可以登记到求职中心的“求职者”列表中，求职中心就会及时通知他所需要的最新的职业需求信息。 观察者模式是关">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://corly.cc/usr/uploads/2015/07/946384518.jpg">
+<meta property="og:updated_time" content="2019-04-20T12:16:07.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="观察者模式">
+<meta name="twitter:description" content="概念 定义对象间的一种一对多的关系，当一个对象的状态发生变化时，所有依赖它的对象都得到通知并自动更新。  概述 在许多设计中，经常涉及多个对象都对一个对象中的数据变化感兴趣，而且这多个对象都希望跟踪那个特殊对象中的数据变化。例如，某些寻找工作的人对求职中心的职业需求信息的变化非常关心，这时求职者可以登记到求职中心的“求职者”列表中，求职中心就会及时通知他所需要的最新的职业需求信息。 观察者模式是关">
+<meta name="twitter:image" content="http://corly.cc/usr/uploads/2015/07/946384518.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="corly note" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://corly.cc/2015/07/18/观察者模式/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>观察者模式 | corly note</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">corly note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/18/观察者模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="corly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="corly note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">观察者模式
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-07-18 10:30:00" itemprop="dateCreated datePublished" datetime="2015-07-18T10:30:00+08:00">2015-07-18</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>定义对象间的一种一对多的关系，当一个对象的状态发生变化时，所有依赖它的对象都得到通知并自动更新。</p>
+</blockquote>
+<p><strong>概述</strong></p>
+<p>在许多设计中，经常涉及多个对象都对一个对象中的数据变化感兴趣，而且这多个对象都希望跟踪那个特殊对象中的数据变化。例如，某些寻找工作的人对求职中心的职业需求信息的变化非常关心，这时求职者可以登记到求职中心的“求职者”列表中，求职中心就会及时通知他所需要的最新的职业需求信息。</p>
+<p>观察者模式是关于多个对象想知道一个对象中数据变化情况的一种成熟的模式。观察者模式中有―个称作“主题”的对象和若干称作“观察者”的对象，“主题”和“观察者”之间是一种一对多的依赖关系，当主题的状态发生变化时，所有观察者都得到通知。前面所述的“求职中心”相当于观察者模式的“主题”；每个“求职者”相当于观察者模式的一个具体“观察者”。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><p>观察者模式的结构中包括四种角色。</p>
+<ul>
+<li><p>主题（Suject）：主题是一个接口，该接口规定了具体主题需要实现的方法，比如，添加、删除观察者以及观察者更新数据的方法。</p>
+</li>
+<li><p>观察者（Observer）：观察者是一个接口，该接口规定了具体观察者用来更新数据的方法。</p>
+</li>
+<li><p>具体主题（ConcreteSuject）：具体主题是实现主题接口类的一个实例，该实例包含有可以经常发生变化的数据。具体主题需使用一个集合，比如ArrayList，存放观察者的引用，以便数据变化时通知具体观察者。</p>
+</li>
+<li><p>具体观察者（ConcreteObserver）：具体观察者是实现观察者接口类的个实例。具体观察者包含有可以存放具体主题引用的主题接口变量，以便具体观察者让具体主题将自己的引用添加到具体主题的集合中，使自己成为它的观察者，或让这个具体主题将自己从具体主题的集合中删除，使自己不再是它的观察者。</p>
+</li>
+</ul>
+<h3 id="UML-类图"><a href="#UML-类图" class="headerlink" title="UML 类图"></a>UML 类图</h3><p><img src="http://corly.cc/usr/uploads/2015/07/946384518.jpg" alt="observerPattern.jpg"></p>
+<h3 id="结构描述"><a href="#结构描述" class="headerlink" title="结构描述"></a>结构描述</h3><p><strong>1.主题</strong></p>
+<p>主题接口规定了具体主题需要实现的添加、删除观察者以及通过观察者更新数据的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.观察者</strong></p>
+<p>观察者是一个接口，该接口规定了具体观察者用来更新数据的方法。对于本问题具体观察者都通过实现hearTelephone()方法来更新数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hearTelephone</span><span class="params">(String heardMess)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.具体主题</strong></p>
+<p>主题接口规定了具体主题需要实现的通知观察者更新数据的notifyObserver()方法，具体主题通过实现该方法来通知具体观察者。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeekJobCenter</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	String mess;</span><br><span class="line">	<span class="keyword">boolean</span> changed;</span><br><span class="line">	ArrayList&lt;Observer&gt; personList; <span class="comment">//存放观察者引用的数组线性表</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SeekJobCenter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		personList = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">		mess = <span class="string">""</span>;</span><br><span class="line">		changed = <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!personList.contains(o)) &#123;</span><br><span class="line">			personList.add(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (personList.contains(o)) &#123;</span><br><span class="line">			personList.remove(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (changed) &#123;	<span class="comment">//通知所有观察者</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personList.size(); i++) &#123;</span><br><span class="line">				personList.get(i).hearTelephone(mess);</span><br><span class="line">			&#125;</span><br><span class="line">			changed = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveNewMess</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (str.equals(mess)) &#123;</span><br><span class="line">			changed = <span class="keyword">false</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			mess = str;</span><br><span class="line">			changed = <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.具体观察者</strong></p>
+<p>本问题中。实现观察者接口Observer的类有两个：一个是UnivercityStudent类，另一个是HaiGui。 UniversityStudent类的实例调用hearTelephone(String heardMess)方法时，会将参数引用的字符串保存到一个文件中。HaiGui类的实例调用hearTelephone(String heardMess)方法时，如果参数引用的字符串中包含有“java”或“软件”，就将信息保存到一个文件中。UniversityStudent 和HaiGui类的代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UnivercityStudent.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UniversityStudent</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Subject subject;</span><br><span class="line">	File myFile;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">UniversityStudent</span><span class="params">(Subject subject, String fileName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = subject;</span><br><span class="line">		subject.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		myFile = <span class="keyword">new</span> File(fileName);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hearTelephone</span><span class="params">(String heardMess)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			RandomAccessFile out = <span class="keyword">new</span> RandomAccessFile(myFile, <span class="string">"rw"</span>);	</span><br><span class="line">			out.seek(out.length());</span><br><span class="line">			<span class="keyword">byte</span>[] b = heardMess.getBytes();</span><br><span class="line">			out.write(b);</span><br><span class="line">			System.out.print(<span class="string">"我是一个大学生，"</span>);</span><br><span class="line">			System.out.println(<span class="string">"我向文件"</span>+myFile.getName()+<span class="string">"写入如下内容："</span>);</span><br><span class="line">			System.out.println(heardMess);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//HaiGui.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HaiGui</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Subject subject;</span><br><span class="line">	File myFile;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HaiGui</span><span class="params">(Subject subject, String fileName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = subject;</span><br><span class="line">		subject.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		myFile = <span class="keyword">new</span> File(fileName);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hearTelephone</span><span class="params">(String heardMess)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">boolean</span> boo = heardMess.contains(<span class="string">"java"</span>) || heardMess.contains(<span class="string">"软件"</span>);</span><br><span class="line">			<span class="keyword">if</span> (boo) &#123;</span><br><span class="line">				RandomAccessFile out = <span class="keyword">new</span> RandomAccessFile(myFile, <span class="string">"rw"</span>);</span><br><span class="line">				out.seek(out.length());</span><br><span class="line">				<span class="keyword">byte</span>[] b = heardMess.getBytes();</span><br><span class="line">				out.write(b);</span><br><span class="line">				System.out.print(<span class="string">"我是一个海归，"</span>);</span><br><span class="line">				System.out.println(<span class="string">"我向文件"</span>+myFile.getName()+<span class="string">"写入如下内容:"</span>);</span><br><span class="line">				System.out.println(heardMess);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				System.out.println(<span class="string">"我是海归，这次信息中没有我需要的信息。"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="模式的使用"><a href="#模式的使用" class="headerlink" title="模式的使用"></a>模式的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	SeekJobCenter center = <span class="keyword">new</span> SeekJobCenter(); <span class="comment">//具体主题center</span></span><br><span class="line">	UniversityStudent zhang = <span class="keyword">new</span> UniversityStudent(center, <span class="string">"A.txt"</span>);</span><br><span class="line">	HaiGui wang = <span class="keyword">new</span> HaiGui(center, <span class="string">"B.txt"</span>);</span><br><span class="line">	center.giveNewMess(<span class="string">"腾辉公司需8个java程序员"</span>);</span><br><span class="line">	center.notifyObservers();</span><br><span class="line">	center.giveNewMess(<span class="string">"仁和公司需要9个动画设计师"</span>);</span><br><span class="line">	center.notifyObservers();</span><br><span class="line">	center.giveNewMess(<span class="string">"xx公司需要4个电工"</span>);</span><br><span class="line">	center.notifyObservers();</span><br><span class="line">	center.giveNewMess(<span class="string">"xx公司需要4个电工"</span>);  <span class="comment">//信息不是最新的</span></span><br><span class="line">	center.notifyObservers();		<span class="comment">//观察者不会执行更新操作	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>具体主题和具体观察者是松耦合关系。由于具体主题（Subject）接口仅仅依赖于观察者（Observer）接口，因此具体主题只是知道它的观察者是实现观察者（Observer）接口的某个类的实例，但不需要知道具体是哪个类，同样，由于观察者仅仅依赖于主题（Subject）接口，因此具体观察者只是知道它依赖的主题是实现主题（Subject）接口的某个类的实例，但不需要知道具体是哪个类。</p>
+</li>
+<li><p>观察模式满足“开闭原则”。主题（Subject）接口仅仅依赖于观察者（Observer）接口，这样，就可以让创建具体主题的类也仅仅是依赖于观察者（Observer）接口，因此如果增加新的实现观察者（Observer）接口的类，不必修改创建具体主题的类的代码，同样，创建具体观察者的类仅仅依赖于主题（Subject）接口，如果增加新的实现主题（Subject）接口的类，也不必修改创建具体观察者类的代码。</p>
+</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li><p>当以一个对象的数据更新时需要通知其他对象，但这个对象又不希望和被通知的那些对象形成紧耦合。</p>
+</li>
+<li><p>当一个对象的数据更新时，这个对象也要让其他对象也各自更新自己的数据，但这个对象不知道具体有多少对象需要更新数据。</p>
+</li>
+</ul>
+<p><em>举例</em></p>
+<blockquote>
+<ol>
+<li><a href="http://corly.cc/archives/369.html">观察者与多主题</a></li>
+<li><a href="http://corly.cc/archives/376.html">统计文本中的单词和数字</a></li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/编程思想/" rel="tag"># 编程思想</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/16/命令模式举例-模拟小电器/" rel="next" title="命令模式举例-模拟小电器">
+                <i class="fa fa-chevron-left"></i> 命令模式举例-模拟小电器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/20/观察者与多主题/" rel="prev" title="观察者与多主题">
+                观察者与多主题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">corly</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构与使用"><span class="nav-number">2.</span> <span class="nav-text">结构与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML-类图"><span class="nav-number">2.1.</span> <span class="nav-text">UML 类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构描述"><span class="nav-number">2.2.</span> <span class="nav-text">结构描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模式的使用"><span class="nav-number">2.3.</span> <span class="nav-text">模式的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">4.</span> <span class="nav-text">使用场景</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">corly</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '4603e8cb330c3bcec4e4',
+    clientSecret: 'fbdfd960cbce0f362ecc245824bd1ad113329092',
+    repo: 'corly.cc',
+    owner: 'CorlyDream',
+    admin: ['CorlyDream'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/favicon.32_32.png?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="cat ：由第一行开始显示文件内容。tac ：从最后一行开始显示，可以看出tac是cat的倒写形式。nl ：显示的时候顺便输出行号。more ：一页一页地显示文件内容。less ：与more类似，但比more更好的是，它可以往前翻页。head ：只看头几行。tail ：只看结尾几行。od ：以二进制的方式读取文件内容。  一、直接查看文件内容cat [-AbEnTv] 文件: -A ：相当于-v">
+<meta name="keywords" content="文件查阅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux文件内容查阅">
+<meta property="og:url" content="http://corly.cc/2015/07/29/Linux文件内容查阅/index.html">
+<meta property="og:site_name" content="corly note">
+<meta property="og:description" content="cat ：由第一行开始显示文件内容。tac ：从最后一行开始显示，可以看出tac是cat的倒写形式。nl ：显示的时候顺便输出行号。more ：一页一页地显示文件内容。less ：与more类似，但比more更好的是，它可以往前翻页。head ：只看头几行。tail ：只看结尾几行。od ：以二进制的方式读取文件内容。  一、直接查看文件内容cat [-AbEnTv] 文件: -A ：相当于-v">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-20T12:16:07.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux文件内容查阅">
+<meta name="twitter:description" content="cat ：由第一行开始显示文件内容。tac ：从最后一行开始显示，可以看出tac是cat的倒写形式。nl ：显示的时候顺便输出行号。more ：一页一页地显示文件内容。less ：与more类似，但比more更好的是，它可以往前翻页。head ：只看头几行。tail ：只看结尾几行。od ：以二进制的方式读取文件内容。  一、直接查看文件内容cat [-AbEnTv] 文件: -A ：相当于-v">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="corly note" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://corly.cc/2015/07/29/Linux文件内容查阅/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux文件内容查阅 | corly note</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">corly note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/29/Linux文件内容查阅/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="corly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="corly note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux文件内容查阅
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-07-29 17:07:00" itemprop="dateCreated datePublished" datetime="2015-07-29T17:07:00+08:00">2015-07-29</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>cat ：由第一行开始显示文件内容。<br>tac ：从最后一行开始显示，可以看出tac是cat的倒写形式。<br>nl ：显示的时候顺便输出行号。<br>more ：一页一页地显示文件内容。<br>less ：与more类似，但比more更好的是，它可以往前翻页。<br>head ：只看头几行。<br>tail ：只看结尾几行。<br>od ：以二进制的方式读取文件内容。</p>
+</blockquote>
+<h2 id="一、直接查看文件内容"><a href="#一、直接查看文件内容" class="headerlink" title="一、直接查看文件内容"></a>一、直接查看文件内容</h2><h3 id="cat-AbEnTv-文件"><a href="#cat-AbEnTv-文件" class="headerlink" title="cat [-AbEnTv] 文件"></a>cat [-AbEnTv] 文件</h3><p>: -A ：相当于-vET的整合参数。可以列出一些特殊字符，而不是空白；<br>-b ：列出行号，仅针对非空白行做行号显示；<br>-E ：将结尾的断行字符显示出来；<br>-n ：打印行号，连同空白行也有行号；<br>-T ：将 Tab 按键以 ^I 显示出来；<br>-v ：列出一些看不出来的特殊字符。</p>
+<h3 id="tac-文件"><a href="#tac-文件" class="headerlink" title="tac 文件"></a>tac 文件</h3><p>tac与cat相反，它是由最后一行到第一行反向在屏幕上显示出来。</p>
+<h3 id="nl-bnw-文件"><a href="#nl-bnw-文件" class="headerlink" title="nl [-bnw] 文件"></a>nl [-bnw] 文件</h3><blockquote>
+<p>-b ：指定行号指定的方式，主要有两种：</p>
+<blockquote>
+<p>-b a ：表示不论是否有空行，也同样列出行号（类似cat -n）；<br>-b t ：如果有空行，空的那一行不列出行号（默认值）。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>-n ：列出行号表示的方法，主要有三种：</p>
+<blockquote>
+<p>-n ln ：行号在屏幕最左方显示；<br>  -n rn ：行号在自己字段的最右方显示，且不加 0；<br>  -n rz ：行号在自己字段的最右方显示，且加 0；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>–w：行号占用的位数。</p>
+</blockquote>
+<pre><code>[root@localhost ~]# nl -n rz -w 3 anaconda-ks.cfg 
+001    #version=RHEL7
+002    # System authorization information
+003    auth --enableshadow --passalgo=sha512
+......
+</code></pre><h2 id="二、可翻页查看"><a href="#二、可翻页查看" class="headerlink" title="二、可翻页查看"></a>二、可翻页查看</h2><h3 id="more-文件"><a href="#more-文件" class="headerlink" title="more 文件"></a>more 文件</h3><p>如果more后面接的文件内容行数大于屏幕输出的行数时，最后一行会显示出目前显示的百分比，而且还可以在最后一行输入一些命令。</p>
+<blockquote>
+<p><strong>空格键</strong> ：代表向下翻页；<br><strong>Enter</strong> ：向下滚动一行；<br><strong>/字符串</strong> ：向下查询“字符串”这个关键字；<br><strong>:f</strong> ：立刻显示出文件名以及目前显示的行数；<br><strong>q</strong> ：立刻离开more<br><strong>b或ctrl-b</strong> ：往回翻页，这个操作只对文件有用，对管道无用</p>
+</blockquote>
+<h3 id="less-文件"><a href="#less-文件" class="headerlink" title="less 文件"></a>less 文件</h3><p>less的用法比more更有弹性。</p>
+<blockquote>
+<p><strong>空格键</strong> ：向下翻动一页<br><strong>PageDown</strong> ：向下翻动一页<br><strong>/字符串</strong> ：向下查询“字符串”这个关键字；<br><strong>?字符串</strong> ：向上查询“字符串”这个关键字；<br><strong>n</strong> ：重复前一个查询（与 / 或 ? 有关）<br><strong>N</strong> ：反向重复前一个查询（与 / 或 ? 有关）<br><strong>q</strong> ：立刻离开less</p>
+</blockquote>
+<h2 id="三、数据选取"><a href="#三、数据选取" class="headerlink" title="三、数据选取"></a>三、数据选取</h2><h3 id="head-n-number-文件"><a href="#head-n-number-文件" class="headerlink" title="head [-n number] 文件"></a>head [-n number] 文件</h3><blockquote>
+<p>取出前面几行。<br><strong>-n</strong> ：后面接数字，代表显示几行的意思，默认显示前10行</p>
+</blockquote>
+<p>后面100行数据都不打印，只打印前面几行</p>
+<blockquote>
+<p>head -n -100 /tmp/test.log</p>
+</blockquote>
+<h3 id="tail-n-number-文件"><a href="#tail-n-number-文件" class="headerlink" title="tail [-n number] 文件"></a>tail [-n number] 文件</h3><blockquote>
+<p>取出后面几行。<br><strong>-n</strong> ：后面接数字，代表显示几行的意思<br><strong>-f</strong> ：表示持续检测后面所接的文件名，直到按下 Ctrl+c 才会结束检测。</p>
+</blockquote>
+<p>如果不知道文件有几行只想列出100行以后的数据：</p>
+<blockquote>
+<p>tail -n +100 /tmp/test.log</p>
+</blockquote>
+<p>假如我要显示文件的第11行到20行：</p>
+<blockquote>
+<p>head -n 20 /tmp/test.log | tail -n 10</p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/文件查阅/" rel="tag"># 文件查阅</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/28/Linux文件与目录管理/" rel="next" title="Linux文件与目录管理">
+                <i class="fa fa-chevron-left"></i> Linux文件与目录管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/01/中介者模式/" rel="prev" title="中介者模式">
+                中介者模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">corly</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、直接查看文件内容"><span class="nav-number">1.</span> <span class="nav-text">一、直接查看文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat-AbEnTv-文件"><span class="nav-number">1.1.</span> <span class="nav-text">cat [-AbEnTv] 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tac-文件"><span class="nav-number">1.2.</span> <span class="nav-text">tac 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nl-bnw-文件"><span class="nav-number">1.3.</span> <span class="nav-text">nl [-bnw] 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、可翻页查看"><span class="nav-number">2.</span> <span class="nav-text">二、可翻页查看</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#more-文件"><span class="nav-number">2.1.</span> <span class="nav-text">more 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less-文件"><span class="nav-number">2.2.</span> <span class="nav-text">less 文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、数据选取"><span class="nav-number">3.</span> <span class="nav-text">三、数据选取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#head-n-number-文件"><span class="nav-number">3.1.</span> <span class="nav-text">head [-n number] 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tail-n-number-文件"><span class="nav-number">3.2.</span> <span class="nav-text">tail [-n number] 文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">corly</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '4603e8cb330c3bcec4e4',
+    clientSecret: 'fbdfd960cbce0f362ecc245824bd1ad113329092',
+    repo: 'corly.cc',
+    owner: 'CorlyDream',
+    admin: ['CorlyDream'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

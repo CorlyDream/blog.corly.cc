@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/favicon.32_32.png?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="安装Solr从https://lucene.apache.org 下载Solr包。 我这里下载的版本是5.5的，官方给的启动方式：  /solr-5.3.1:$ bin/solr start -e cloud -noprompt  这里 -e cloud 是官方给的示例，如果不想用官方的示例，自己创建可以用如下方式  solr-5.5.0 bin/solr start -noprompt   //">
+<meta name="keywords" content="Solr,lucene">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据导入Solr">
+<meta property="og:url" content="http://corly.cc/2016/03/15/MySQL数据导入Solr/index.html">
+<meta property="og:site_name" content="corly note">
+<meta property="og:description" content="安装Solr从https://lucene.apache.org 下载Solr包。 我这里下载的版本是5.5的，官方给的启动方式：  /solr-5.3.1:$ bin/solr start -e cloud -noprompt  这里 -e cloud 是官方给的示例，如果不想用官方的示例，自己创建可以用如下方式  solr-5.5.0 bin/solr start -noprompt   //">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://corly.cc/uploads/2016/03/3264429745.png">
+<meta property="og:image" content="http://corly.cc/uploads/2016/03/1614188231.png">
+<meta property="og:updated_time" content="2019-04-20T12:16:07.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL数据导入Solr">
+<meta name="twitter:description" content="安装Solr从https://lucene.apache.org 下载Solr包。 我这里下载的版本是5.5的，官方给的启动方式：  /solr-5.3.1:$ bin/solr start -e cloud -noprompt  这里 -e cloud 是官方给的示例，如果不想用官方的示例，自己创建可以用如下方式  solr-5.5.0 bin/solr start -noprompt   //">
+<meta name="twitter:image" content="http://corly.cc/uploads/2016/03/3264429745.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="corly note" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://corly.cc/2016/03/15/MySQL数据导入Solr/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MySQL数据导入Solr | corly note</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">corly note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://corly.cc/2016/03/15/MySQL数据导入Solr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="corly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="corly note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySQL数据导入Solr
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-15 10:53:00" itemprop="dateCreated datePublished" datetime="2016-03-15T10:53:00+08:00">2016-03-15</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="安装Solr"><a href="#安装Solr" class="headerlink" title="安装Solr"></a>安装Solr</h2><p>从<a href="https://lucene.apache.org" target="_blank" rel="noopener">https://lucene.apache.org</a> 下载Solr包。</p>
+<p>我这里下载的版本是5.5的，官方给的启动方式：</p>
+<blockquote>
+<p>/solr-5.3.1:$ bin/solr start -e cloud -noprompt</p>
+</blockquote>
+<p>这里 <strong>-e cloud</strong> 是官方给的示例，如果不想用官方的示例，自己创建可以用如下方式</p>
+<blockquote>
+<p>solr-5.5.0 bin/solr start -noprompt</p>
+</blockquote>
+<blockquote>
+<p>//然后自己创建一个collection<br>solr-5.5.0 bin/solr create -c recruiting</p>
+</blockquote>
+<p>新建的collection的存放位置：<strong>solr-5.5.0/server/solr/recruiting/</strong></p>
+<h2 id="添加中文分词"><a href="#添加中文分词" class="headerlink" title="添加中文分词"></a>添加中文分词</h2><p>这里使用 <strong>mmseg4j</strong> 分词，下载地址：<a href="https://github.com/chenlb/mmseg4j-solr" target="_blank" rel="noopener">https://github.com/chenlb/mmseg4j-solr</a></p>
+<p>将下载的jar包，移动到WEB-INF/lib下</p>
+<blockquote>
+<p>solr-5.5.0 mv ~/Downloads/mmseg4j-* ./server/solr-webapp/webapp/WEB-INF/lib  </p>
+</blockquote>
+<p>修改新建的collection下的conf下的<strong>schema.xml</strong>文件，这时你发现并没有这个配置文件，但是你会发现有个managed-schema文件，打开一看里面有如下内容：<em>This is the Solr schema file. This file should be named “schema.xml” and should be in the conf directory under the solr home(i.e. ./solr/conf/schema.xml by default)</em></p>
+<p>所以将<strong>managed-schema</strong>文件重命名为<strong>schema.xml</strong>，修改配置文件，添加中文分词。</p>
+<blockquote>
+<p>solr-5.5.0 vim server/solr/recruiting/conf/schema.xml </p>
+</blockquote>
+<p>添加如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"mmseg4j_complex"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span> <span class="attr">positionIncrementGap</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">analyzer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"com.chenlb.mmseg4j.solr.MMSegTokenizerFactory"</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">mode</span>=<span class="string">"complex"</span> <span class="attr">dicPath</span>=<span class="string">"dic"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">"mmseg4j_maxword"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span> <span class="attr">positionIncrementGap</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">analyzer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"com.chenlb.mmseg4j.solr.MMSegTokenizerFactory"</span> <span class="attr">mode</span>=<span class="string">"max-word"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldtype</span> <span class="attr">name</span>=<span class="string">"mmseg4j_simple"</span> <span class="attr">class</span>=<span class="string">"solr.TextField"</span> <span class="attr">positionIncrementGap</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">analyzer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">"com.chenlb.mmseg4j.solr.MMSegTokenizerFactory"</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">mode</span>=<span class="string">"simple"</span> <span class="attr">dicPath</span>=<span class="string">"dic"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldtype</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面添加了三个filedType，他们组要的区别为：</p>
+<ul>
+<li>mmseg4j_simple 使用Simple分词方法</li>
+<li>mmseg4j_complex Complex 加了四个规则过虑</li>
+<li>mmseg4j_maxword 默认。在complex基础上实现了最多分词(max-word)。“很好听” -&gt; “很好|好听”; “中华人民共和国” -&gt; “中华|华人|共和|国”; “中国人民银行” -&gt; “中国|人民|银行”。</li>
+</ul>
+<p>成功运行后如下：</p>
+<p><img src="/uploads/2016/03/3264429745.png" alt="Solr中文分词"></p>
+<h2 id="从MySQL数据库中导入数据"><a href="#从MySQL数据库中导入数据" class="headerlink" title="从MySQL数据库中导入数据"></a>从MySQL数据库中导入数据</h2><p>在schema.xml中添加field,默认有一个id字段，然后再添加你数据库中的字段。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">type</span>=<span class="string">"mmseg4j_complex"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"major"</span> <span class="attr">type</span>=<span class="string">"mmseg4j_complex"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"content"</span> <span class="attr">type</span>=<span class="string">"mmseg4j_complex"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">stored</span>=<span class="string">"true"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>name: 数据源字段名，搜索时使用到。</li>
+<li>type: 搜索的类型名，例如我们配置的mmseg4j,这个对应filedType中的name。不需要分词的字符串类型，写上string即可。</li>
+<li>indexed：是否被索引，只有设置为true的字段才能进行搜索排序分片(earchable, sortable, facetable)。</li>
+<li>stored：是否存储内容，如果不需要存储字段值，尽量设置为false以提高效率。</li>
+<li>multiValued：是否为多值类型，SOLR允许配置多个数据源字段存储到一个搜索字段中。多个值必须为true，否则有可能抛出异常。</li>
+</ul>
+<p><em>题外话</em></p>
+<blockquote>
+<p><strong>copyField节点</strong><br>如果我们的搜索需要搜索多个字段该怎么办呢？这时候，我们就可以使用copyField。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"name"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"address"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"description"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"city"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"district_name"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"merchantCategory_name"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"bank_name"</span> <span class="attr">dest</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>我们将所有的中文分词字段全部拷贝至all中，当我们进行全文检索是，只用搜索all字段就OK了。<br><strong>注意</strong>，这里的目标字段必须支持多值，最好不要存储，因为他只是做搜索。indexed为true，stored为false。</p>
+</blockquote>
+<p>修改<strong>solrconfig.xml</strong>文件，位置<em>solr-5.5.0/server/solr/recruiting/conf/solrconfig.xml</em>。 添加如下配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">requestHandler</span> <span class="attr">name</span>=<span class="string">"/dataimport"</span> </span></span><br><span class="line"><span class="tag">     <span class="attr">class</span>=<span class="string">"org.apache.solr.handler.dataimport.DataImportHandler"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lst</span> <span class="attr">name</span>=<span class="string">"defaults"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">str</span> <span class="attr">name</span>=<span class="string">"config"</span>&gt;</span>data-config.xml<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lst</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">requestHandler</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在solr-5.5.0/server/solr/recruiting/conf/ 下创建data-config.xml 文件，配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dataConfig</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"JdbcDataSource"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">driver</span>=<span class="string">"com.mysql.jdbc.Driver"</span> </span></span><br><span class="line"><span class="tag">		<span class="attr">url</span>=<span class="string">"jdbc:mysql://localhost/recruiting"</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">user</span>=<span class="string">"root"</span> <span class="attr">password</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">document</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">"requireds"</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">query</span>=<span class="string">"SELECT id,title,major,content FROM recruiting.requireds"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">name</span>=<span class="string">"id"</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"title"</span> <span class="attr">name</span>=<span class="string">"title"</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"major"</span> <span class="attr">name</span>=<span class="string">"major"</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">"content"</span> <span class="attr">name</span>=<span class="string">"content"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">document</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataConfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将<strong>solr-dataimporthandler</strong>和<strong>mysql-connector</strong>两个jar包拷贝到solr-5.5.0/server/solr-webapp/webapp/WEB-INF/lib当中。</p>
+<blockquote>
+<p>solr-5.5.0 cp dist/solr-dataimporthandler-5.5.0.jar server/solr-webapp/webapp/WEB-INF/lib<br>solr-5.5.0 mv ~/Downloads/mysql-connector-java-5.1.38.jar ./server/solr-webapp/webapp/WEB-INF/lib</p>
+</blockquote>
+<p>重启服务bin/solr restart，选择当前core为recruiting，然后点击dataimport，如果配置正确，就会出现如下图，点击Execute就可以了</p>
+<p><img src="/uploads/2016/03/1614188231.png" alt="dataimport.png"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Solr/" rel="tag"># Solr</a>
+          
+            <a href="/tags/lucene/" rel="tag"># lucene</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/13/linux job control，工作管理/" rel="next" title="linux job control，工作管理">
+                <i class="fa fa-chevron-left"></i> linux job control，工作管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/03/解决eclipse空格上屏/" rel="prev" title="解决eclipse空格上屏">
+                解决eclipse空格上屏 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">corly</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">52</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Solr"><span class="nav-number">1.</span> <span class="nav-text">安装Solr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加中文分词"><span class="nav-number">2.</span> <span class="nav-text">添加中文分词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从MySQL数据库中导入数据"><span class="nav-number">3.</span> <span class="nav-text">从MySQL数据库中导入数据</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">corly</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '4603e8cb330c3bcec4e4',
+    clientSecret: 'fbdfd960cbce0f362ecc245824bd1ad113329092',
+    repo: 'corly.cc',
+    owner: 'CorlyDream',
+    admin: ['CorlyDream'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
