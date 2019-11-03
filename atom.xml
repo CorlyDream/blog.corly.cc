@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>corly note</title>
+  <title>CoderMeng</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://corly.cc/"/>
-  <updated>2019-04-20T12:16:07.591Z</updated>
+  <updated>2019-11-03T07:56:13.827Z</updated>
   <id>http://corly.cc/</id>
   
   <author>
-    <name>corly</name>
+    <name>CoderMeng</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu安装macOS 时间机器</title>
+    <link href="http://corly.cc/2019/11/03/Ubuntu%E5%AE%89%E8%A3%85macOS-%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8/"/>
+    <id>http://corly.cc/2019/11/03/Ubuntu安装macOS-时间机器/</id>
+    <published>2019-11-03T03:51:16.000Z</published>
+    <updated>2019-11-03T07:56:13.827Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装avahi-daemon&quot;&gt;&lt;a href=&quot;#安装avahi-daemon&quot; class=&quot;headerlink&quot; title=&quot;安装avahi-daemon&quot;&gt;&lt;/a&gt;安装avahi-daemon&lt;/h2&gt;&lt;p&gt;这个软件可以再局域网中广播，让 mac
+        
+      
+    
+    </summary>
+    
+      <category term="linux" scheme="http://corly.cc/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://corly.cc/tags/linux/"/>
+    
+      <category term="ubuntu" scheme="http://corly.cc/tags/ubuntu/"/>
+    
+      <category term="macos" scheme="http://corly.cc/tags/macos/"/>
+    
+      <category term="时间机器" scheme="http://corly.cc/tags/%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>数据流重定向（Redirection）</title>
@@ -373,11 +405,11 @@
     
       <category term="算法" scheme="http://corly.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
+      <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
+    
       <category term="计算机几何" scheme="http://corly.cc/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%87%A0%E4%BD%95/"/>
     
       <category term="极角" scheme="http://corly.cc/tags/%E6%9E%81%E8%A7%92/"/>
-    
-      <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
     
   </entry>
   
@@ -409,9 +441,9 @@
     
       <category term="算法" scheme="http://corly.cc/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
-    
       <category term="计算几何学" scheme="http://corly.cc/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E5%AD%A6/"/>
+    
+      <category term="叉积" scheme="http://corly.cc/tags/%E5%8F%89%E7%A7%AF/"/>
     
   </entry>
   
@@ -550,32 +582,6 @@
     
     
       <category term="文件查找" scheme="http://corly.cc/tags/%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中介者模式</title>
-    <link href="http://corly.cc/2015/08/01/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://corly.cc/2015/08/01/中介者模式/</id>
-    <published>2015-08-01T10:51:00.000Z</published>
-    <updated>2019-04-20T12:16:07.479Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="设计模式" scheme="http://corly.cc/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="编程思想" scheme="http://corly.cc/tags/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
     
   </entry>
   
