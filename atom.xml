@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://corly.cc/"/>
-  <updated>2019-11-03T07:56:13.827Z</updated>
+  <updated>2019-11-03T07:58:47.584Z</updated>
   <id>http://corly.cc/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://corly.cc/2019/11/03/Ubuntu%E5%AE%89%E8%A3%85macOS-%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8/"/>
     <id>http://corly.cc/2019/11/03/Ubuntu安装macOS-时间机器/</id>
     <published>2019-11-03T03:51:16.000Z</published>
-    <updated>2019-11-03T07:56:13.827Z</updated>
+    <updated>2019-11-03T07:58:47.584Z</updated>
     
     <summary type="html">
     
@@ -35,12 +35,12 @@
     
     </summary>
     
-      <category term="linux" scheme="http://corly.cc/categories/linux/"/>
+      <category term="Linux" scheme="http://corly.cc/categories/Linux/"/>
     
-    
-      <category term="linux" scheme="http://corly.cc/tags/linux/"/>
     
       <category term="ubuntu" scheme="http://corly.cc/tags/ubuntu/"/>
+    
+      <category term="Linux" scheme="http://corly.cc/tags/Linux/"/>
     
       <category term="macos" scheme="http://corly.cc/tags/macos/"/>
     
