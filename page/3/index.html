@@ -1,105 +1,49 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.8.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.2">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.1.2">
-
-
-  <link rel="mask-icon" href="/favicon.32_32.png?v=7.1.2" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('http://corly.cc').hostname,
     root: '/',
     scheme: 'Pisces',
-    version: '7.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: true,
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
-    fastclick: false,
+    mediumzoom: false,
     lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
-
-
-  
-
-
-
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="CoderMeng">
@@ -109,21 +53,17 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoderMeng">
 
+<link rel="canonical" href="http://corly.cc/page/3/">
 
 
-  <link rel="alternate" href="/atom.xml" title="CoderMeng" type="application/atom+xml">
-
-
-
-  
-  
-  <link rel="canonical" href="http://corly.cc/page/3/">
-
-
-
-<script id="page.configurations">
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
   };
 </script>
 
@@ -135,15 +75,8 @@
 
 
 
-
-
-
-
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -152,9 +85,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -168,231 +100,248 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
-    
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">CoderMeng</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
 
-
 <nav class="site-nav">
   
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-archives">
 
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+  </ul>
 
-      
-      
-    </ul>
-  
-
-  
-
-  
 </nav>
-
-
-
-  
-
-
-
 </div>
     </header>
 
     
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
           
+
+          <div class="content">
             
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/08/03/Linux文件查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/08/03/Linux文件查找/" class="post-title-link" itemprop="url">Linux文件查找</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-08-03 10:51:00" itemprop="dateCreated datePublished" datetime="2015-08-03T10:51:00+08:00">2015-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
 
           
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
+
+        </div>
+      </header>
+
     
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
+          <p>在 Linux 下通常 find 不很常用的，因为速度慢（find是直接查找硬盘），通常我们都是先使用 whereis 或者是 locate 来检查，如果真的找不到了，才以 find 来搜寻。 为什么呢？这是因为 Linux 系统会将系统内的所有文件都记录在一个数据库文件里面， 而当使用 whereis 或者是 locate 时，都会以此数据库文件的内容为准， 因此，有的时后你还会发现使用这两个运行档时，会找到已经被删除的文件，而且也找不到最新的刚刚创建的文件，这就是因为这两个命令是由数据库当中的结果去查找文件的所在，更多与这个数据库有关的说明，请参考 locate 命令。</p>
+<h2 id="whereis-bmsu-文件或目录名"><a href="#whereis-bmsu-文件或目录名" class="headerlink" title="whereis [-bmsu] 文件或目录名"></a>whereis [-bmsu] 文件或目录名</h2><pre><code>-b    :只找 binary 格式的文件
+-m    :只找在说明档 manual 路径下的文件
+-s    :只找 source 来源文件
+-u    :搜寻不在上述三个项目当中的其他特殊文件
+</code></pre><h2 id="locate-ir-keyword"><a href="#locate-ir-keyword" class="headerlink" title="locate [-ir] keyword"></a>locate [-ir] keyword</h2><pre><code>-i  ：忽略大小写的差异；
+-r  ：后面可接正规表示法的显示方式
+</code></pre><p>使用locate的时候可以直接在后面输入文件的部分名称就能够得到结果。但是，这个命令寻找的数据是由已创建的数据库 /var/lib/mlocate 里面的数据查找到的，而数据库默认每天执行一次（每个distribution不同），所以当你新建文件后查找该文件，那么 locate 会告诉你“找不到”，因为必须跟新数据库。</p>
+<p>我们可以使用 <strong>updatedb</strong> 这个命令，它根据 /etc/updatedb.conf 的设置去查找文件系统盘内的文件名，并跟新 /var/lib/mlocate 内的数据库文件。</p>
+<h2 id="find-PATH-option-action"><a href="#find-PATH-option-action" class="headerlink" title="find [PATH] [option] [action]"></a>find [PATH] [option] [action]</h2><h3 id="1-与时间有关的选项"><a href="#1-与时间有关的选项" class="headerlink" title="1. 与时间有关的选项"></a>1. 与时间有关的选项</h3><p>共有 -atime, -ctime 与 -mtime ，以 -mtime 说明</p>
+<pre><code>-mtime  n ：n 为数字，意义为在 n 天之前的“一天之内”被更动过内容的文件；
+-mtime +n ：列出在 n 天之前(不含 n 天本身)被更动过内容的文件档名；
+-mtime -n ：列出在 n 天之内(含 n 天本身)被更动过内容的文件档名。
+-newer file ：file 为一个存在的文件，列出比 file 还要新的文件档名
+</code></pre><h3 id="2-与使用者或群组名称有关的参数"><a href="#2-与使用者或群组名称有关的参数" class="headerlink" title="2. 与使用者或群组名称有关的参数"></a>2. 与使用者或群组名称有关的参数</h3><pre><code>-uid n ：n 为数字，这个数字是使用者的帐号 ID，亦即 UID ，这个 UID 是记录在
+        /etc/passwd 里面与帐号名称对应的数字。这方面我们会在第四篇介绍。
+-gid n ：n 为数字，这个数字是群组名称的 ID，亦即 GID，这个 GID 记录在
+        /etc/group，相关的介绍我们会第四篇说明～
+-user name ：name 为使用者帐号名称喔！例如 dmtsai 
+-group name：name 为群组名称喔，例如 users ；
+-nouser    ：寻找文件的拥有者不存在 /etc/passwd 的人！
+-nogroup   ：寻找文件的拥有群组不存在於 /etc/group 的文件！
+            当你自行安装软件时，很可能该软件的属性当中并没有文件拥有者，
+            这是可能的！在这个时候，就可以使用 -nouser 与 -nogroup 搜寻。
+</code></pre><h3 id="3-与文件权限及名称有关的参数"><a href="#3-与文件权限及名称有关的参数" class="headerlink" title="3. 与文件权限及名称有关的参数"></a>3. 与文件权限及名称有关的参数</h3><pre><code>-name filename：搜寻文件名称为 filename 的文件；
+-size [+-]SIZE：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：
+               c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB
+               还要大的文件，就是“ -size +50k ”
+-type TYPE    ：搜寻文件的类型为 TYPE 的，类型主要有：一般正规文件 (f),
+               装置文件 (b, c), 目录 (d), 连结档 (l), socket (s), 
+               及 FIFO (p) 等属性。
+-perm mode  ：搜寻文件权限“刚好等於” mode 的文件，这个 mode 为类似 chmod
+             的属性值，举例来说， -rwsr-xr-x 的属性为 4755 ！
+-perm -mode ：搜寻文件权限“必须要全部囊括 mode 的权限”的文件，举例来说，
+             我们要搜寻 -rwxr--r-- ，亦即 0744 的文件，使用 -perm -0744，
+             当一个文件的权限为 -rwsr-xr-x ，亦即 4755 时，也会被列出来，
+             因为 -rwsr-xr-x 的属性已经囊括了 -rwxr--r-- 的属性了。
+-perm +mode ：搜寻文件权限“包含任一 mode 的权限”的文件，举例来说，我们搜寻
+             -rwxr-xr-x ，亦即 -perm +755 时，但一个文件属性为 -rw-------
+             也会被列出来，因为他有 -rw.... 的属性存在！
+</code></pre><p>###4. 额外可进行的动作</p>
+<pre><code>-exec command ：command 为其他命令，-exec 后面可再接额外的命令来处理搜寻到的结果。
+-print        ：将结果列印到萤幕上，这个动作是默认动作！
+</code></pre><p>将找到的文件使用 ls -l 列出来～</p>
+<blockquote>
+<p>find / -perm +755 -exec ls -l {} \;<br> <strong>☞</strong> 那个 -exec 后面的 ls -l 就是额外的命令，命令不支持命令别名， 所以仅能使用 ls -l 不可以使用 ll 。</p>
+</blockquote>
+<ul>
+<li>{} 代表的是“由 find 找到的内容”，find 的结果会被放置到 {} 位置中；</li>
+<li>-exec 一直到 \; 是关键字，代表 find 额外动作的开始 (-exec) 到结束 (\;) ，在这中间的就是 find 命令内的额外动作。 在本例中就是“ ls -l {} ”；</li>
+<li>因为“ ; ”在 bash 环境下是有特殊意义的，因此利用反斜线来转义。</li>
+</ul>
+<p>另外，find还可以使用通配符来查找文件。</p>
+<blockquote>
+<p>find /etc -name ‘*httpd*‘</p>
+</blockquote>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
   
 
+        
   
   
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/08/01/中介者模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/08/01/中介者模式/" class="post-title-link" itemprop="url">中介者模式</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/08/01/中介者模式/" class="post-title-link" itemprop="url">中介者模式</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-08-01 18:51:00" itemprop="dateCreated datePublished" datetime="2015-08-01T18:51:00+08:00">2015-08-01</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -400,181 +349,112 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>用一个中介者对象来封装一系列对象的交互。中介者使个对象不需要显示的互相引用，从而使其耦合松散，而且可以独立第改变他们之间的交互。</p>
+<p>中介者模式是封装了一系列的对象交互的成熟模式，其关键是将对象之间的交互封装在称作中介者的对象中，中介者使每个对象不需要显示的相互引用，这些对象只包括中介者的引用。当系统中某个对象需要和系统中的另一个对象进行交互的时候，只需要将自己的请求通知中介者即可。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><ul>
+<li><p>中介者（Mediator）：中介者是一个接口，该接口定义了用于同事（Colleague）对象之间进行通信的方法。</p>
+</li>
+<li><p>具体中介者（ConcreteMediator）：具体中介者是实现中介者接口的类。具体中介者需要包含所有具体同事的引用，并通过实现中介者接口中的方法来满足具体同事之间的通信请求。</p>
+</li>
+<li><p>同事（Colleague）：一个接口，规定具体同事需要实现的方法。</p>
+</li>
+<li><p>具体同事（ConcreteColleague）：实现同事接口的类。具体同事需要包含具体中介者的引用，一个具体同事需要和其他具体同事交互时，只需将自己的请求通知给它所包含的具体中介者即可。</p>
+</li>
+</ul>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="/uploads/2015/08/2649850761.jpg" alt="Mediator.jpg"></p>
+<h3 id="结构的描述"><a href="#结构的描述" class="headerlink" title="结构的描述"></a>结构的描述</h3><p>以下通过一个简单的例子来描述中介者模式中所涉及的各个角色。</p>
+<p>古代相互交战的 A、B、C 三方，想通过一个中介者调停之间的战火。A、B、C 三方分别需要中介者向其他两方传达信息。</p>
+<p><strong>1.同事</strong></p>
+<p>本问题中同事接口定义了具体同事，即交战双方需要实现的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Colleague</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveMess</span><span class="params">(String [] mess)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiverMess</span><span class="params">(String mess)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.具体中介者</strong></p>
+<p>本问题中并不需要中介者接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteMediator</span> </span>&#123;</span><br><span class="line">	ColleagueA colleagueA;</span><br><span class="line">	ColleagueB colleagueB;</span><br><span class="line">	ColleagueC colleagueC;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerColleagueA</span><span class="params">(ColleagueA colleagueA)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.colleagueA = colleagueA;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerColleagueB</span><span class="params">(ColleagueB colleagueB)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.colleagueB = colleagueB;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerColleagueC</span><span class="params">(ColleagueC colleagueC)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.colleagueC = colleagueC;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliverMess</span><span class="params">(Colleague colleague, String[] mess)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (colleague == colleagueA) &#123;</span><br><span class="line">			colleagueB.receiverMess(colleague.getName() + mess[<span class="number">0</span>]);</span><br><span class="line">			colleagueC.receiverMess(colleague.getName() + mess[<span class="number">1</span>]);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (colleague == colleagueB) &#123;</span><br><span class="line">			colleagueA.receiverMess(colleague.getName() + mess[<span class="number">0</span>]);</span><br><span class="line">			colleagueC.receiverMess(colleague.getName() + mess[<span class="number">1</span>]);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (colleague == colleagueC) &#123;</span><br><span class="line">			colleagueA.receiverMess(colleague.getName() + mess[<span class="number">0</span>]);</span><br><span class="line">			colleagueB.receiverMess(colleague.getName() + mess[<span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.具体同事</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ColleagueA.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ColleagueA</span> <span class="keyword">implements</span> <span class="title">Colleague</span> </span>&#123;</span><br><span class="line">	ConcreteMediator mediator;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColleagueA</span><span class="params">(ConcreteMediator mediator)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.mediator = mediator;</span><br><span class="line">		mediator.registerColleagueA(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveMess</span><span class="params">(String[] mess)</span> </span>&#123;</span><br><span class="line">		mediator.deliverMess(<span class="keyword">this</span>, mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiverMess</span><span class="params">(String mess)</span> </span>&#123;</span><br><span class="line">		System.out.println(name+<span class="string">"收到的信息："</span>);</span><br><span class="line">		System.out.println(<span class="string">"\t"</span> + mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ColleagueB.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ColleagueB</span> <span class="keyword">implements</span> <span class="title">Colleague</span> </span>&#123;</span><br><span class="line">	ConcreteMediator mediator;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColleagueB</span><span class="params">(ConcreteMediator mediator)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.mediator = mediator;</span><br><span class="line">		mediator.registerColleagueB(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveMess</span><span class="params">(String[] mess)</span> </span>&#123;</span><br><span class="line">		mediator.deliverMess(<span class="keyword">this</span>, mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiverMess</span><span class="params">(String mess)</span> </span>&#123;</span><br><span class="line">		System.out.println(name+<span class="string">"收到的信息："</span>);</span><br><span class="line">		System.out.println(<span class="string">"\t"</span> + mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ColleagueC.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ColleagueC</span> <span class="keyword">implements</span> <span class="title">Colleague</span> </span>&#123;</span><br><span class="line">	ConcreteMediator mediator;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ColleagueC</span><span class="params">(ConcreteMediator mediator)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.mediator = mediator;</span><br><span class="line">		mediator.registerColleagueC(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveMess</span><span class="params">(String[] mess)</span> </span>&#123;</span><br><span class="line">		mediator.deliverMess(<span class="keyword">this</span>, mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiverMess</span><span class="params">(String mess)</span> </span>&#123;</span><br><span class="line">		System.out.println(name+<span class="string">"收到的信息："</span>);</span><br><span class="line">		System.out.println(<span class="string">"\t"</span> + mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4.模式的使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">	ConcreteMediator mediator = <span class="keyword">new</span> ConcreteMediator();</span><br><span class="line">	ColleagueA colleagueA = <span class="keyword">new</span> ColleagueA(mediator);</span><br><span class="line">	ColleagueB colleagueB = <span class="keyword">new</span> ColleagueB(mediator);</span><br><span class="line">	ColleagueC colleagueC = <span class="keyword">new</span> ColleagueC(mediator);</span><br><span class="line">	colleagueA.setName(<span class="string">"A国"</span>);</span><br><span class="line">	colleagueB.setName(<span class="string">"B国"</span>);</span><br><span class="line">	colleagueC.setName(<span class="string">"C国"</span>);</span><br><span class="line">	String[] messA = &#123;<span class="string">"要求归还曾抢夺的100斤土豆"</span>, <span class="string">"要求归还曾抢夺的10头牛"</span>&#125;;</span><br><span class="line">	colleagueA.giveMess(messA);</span><br><span class="line">	String[] messB = &#123;<span class="string">"要求归还曾抢夺的10只公鸡"</span>, <span class="string">"要求归还曾抢夺的15匹马"</span>&#125;;</span><br><span class="line">	colleagueB.giveMess(messB);</span><br><span class="line">	String[] messC = &#123;<span class="string">"要求归还曾抢夺的300斤小麦"</span>, <span class="string">"要求归还曾抢夺的50头驴"</span>&#125;;</span><br><span class="line">	colleagueC.giveMess(messC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>可以避免许多的对象为了之间的相互通信而相互的显示引用。</p>
+</li>
+<li><p>可以通过中介者将原本分布于多个对象之间的交互行为集中在一起。当这些对象之间需要改变之间的通信行为时，只需使用一个具体中介者即可，不必修改具体同事的代码，即这些同事可被重用。</p>
+</li>
+<li><p>具体中介者使得各个具体同事完全解耦，修改任何一个具体同事的代码不会影响到其他同事。</p>
+</li>
+<li><p>具体中介者集中了同事之间的交互细节，使用户比较清楚地知道整个系统中的同事是如何交互的。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注：</strong> 由于具体中介者集中了同事之间如何交互的细节，可能使具体中介者变得复杂，增加了维护难度。</p>
+</blockquote>
 
-      
-        
-          
-            <p>
-              概念用一个中介者对象来封装一系列对象的交互。中介者使个对象不需要显示的互相引用，从而使其耦合松散，而且可以独立第改变他们之间的交互。
-中介者模式是封装了一系列的对象交互的成熟模式，其关键是将对象之间的交互封装在称作中介者的对象中，中介者使每个对象不需要显示的相互引用，这些对象只包括中介者的引用。当系
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/08/01/中介者模式/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/29/Linux文件内容查阅/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/29/Linux文件内容查阅/" class="post-title-link" itemprop="url">Linux文件内容查阅</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/29/Linux文件内容查阅/" class="post-title-link" itemprop="url">Linux文件内容查阅</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-29 17:07:00" itemprop="dateCreated datePublished" datetime="2015-07-29T17:07:00+08:00">2015-07-29</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -582,181 +462,125 @@
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <blockquote>
+<p>cat ：由第一行开始显示文件内容。<br>tac ：从最后一行开始显示，可以看出tac是cat的倒写形式。<br>nl ：显示的时候顺便输出行号。<br>more ：一页一页地显示文件内容。<br>less ：与more类似，但比more更好的是，它可以往前翻页。<br>head ：只看头几行。<br>tail ：只看结尾几行。<br>od ：以二进制的方式读取文件内容。</p>
+</blockquote>
+<h2 id="一、直接查看文件内容"><a href="#一、直接查看文件内容" class="headerlink" title="一、直接查看文件内容"></a>一、直接查看文件内容</h2><h3 id="cat-AbEnTv-文件"><a href="#cat-AbEnTv-文件" class="headerlink" title="cat [-AbEnTv] 文件"></a>cat [-AbEnTv] 文件</h3><p>: -A ：相当于-vET的整合参数。可以列出一些特殊字符，而不是空白；<br>-b ：列出行号，仅针对非空白行做行号显示；<br>-E ：将结尾的断行字符显示出来；<br>-n ：打印行号，连同空白行也有行号；<br>-T ：将 Tab 按键以 ^I 显示出来；<br>-v ：列出一些看不出来的特殊字符。</p>
+<h3 id="tac-文件"><a href="#tac-文件" class="headerlink" title="tac 文件"></a>tac 文件</h3><p>tac与cat相反，它是由最后一行到第一行反向在屏幕上显示出来。</p>
+<h3 id="nl-bnw-文件"><a href="#nl-bnw-文件" class="headerlink" title="nl [-bnw] 文件"></a>nl [-bnw] 文件</h3><blockquote>
+<p>-b ：指定行号指定的方式，主要有两种：</p>
+<blockquote>
+<p>-b a ：表示不论是否有空行，也同样列出行号（类似cat -n）；<br>-b t ：如果有空行，空的那一行不列出行号（默认值）。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>-n ：列出行号表示的方法，主要有三种：</p>
+<blockquote>
+<p>-n ln ：行号在屏幕最左方显示；<br>  -n rn ：行号在自己字段的最右方显示，且不加 0；<br>  -n rz ：行号在自己字段的最右方显示，且加 0；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>–w：行号占用的位数。</p>
+</blockquote>
+<pre><code>[root@localhost ~]# nl -n rz -w 3 anaconda-ks.cfg 
+001    #version=RHEL7
+002    # System authorization information
+003    auth --enableshadow --passalgo=sha512
+......
+</code></pre><h2 id="二、可翻页查看"><a href="#二、可翻页查看" class="headerlink" title="二、可翻页查看"></a>二、可翻页查看</h2><h3 id="more-文件"><a href="#more-文件" class="headerlink" title="more 文件"></a>more 文件</h3><p>如果more后面接的文件内容行数大于屏幕输出的行数时，最后一行会显示出目前显示的百分比，而且还可以在最后一行输入一些命令。</p>
+<blockquote>
+<p><strong>空格键</strong> ：代表向下翻页；<br><strong>Enter</strong> ：向下滚动一行；<br><strong>/字符串</strong> ：向下查询“字符串”这个关键字；<br><strong>:f</strong> ：立刻显示出文件名以及目前显示的行数；<br><strong>q</strong> ：立刻离开more<br><strong>b或ctrl-b</strong> ：往回翻页，这个操作只对文件有用，对管道无用</p>
+</blockquote>
+<h3 id="less-文件"><a href="#less-文件" class="headerlink" title="less 文件"></a>less 文件</h3><p>less的用法比more更有弹性。</p>
+<blockquote>
+<p><strong>空格键</strong> ：向下翻动一页<br><strong>PageDown</strong> ：向下翻动一页<br><strong>/字符串</strong> ：向下查询“字符串”这个关键字；<br><strong>?字符串</strong> ：向上查询“字符串”这个关键字；<br><strong>n</strong> ：重复前一个查询（与 / 或 ? 有关）<br><strong>N</strong> ：反向重复前一个查询（与 / 或 ? 有关）<br><strong>q</strong> ：立刻离开less</p>
+</blockquote>
+<h2 id="三、数据选取"><a href="#三、数据选取" class="headerlink" title="三、数据选取"></a>三、数据选取</h2><h3 id="head-n-number-文件"><a href="#head-n-number-文件" class="headerlink" title="head [-n number] 文件"></a>head [-n number] 文件</h3><blockquote>
+<p>取出前面几行。<br><strong>-n</strong> ：后面接数字，代表显示几行的意思，默认显示前10行</p>
+</blockquote>
+<p>后面100行数据都不打印，只打印前面几行</p>
+<blockquote>
+<p>head -n -100 /tmp/test.log</p>
+</blockquote>
+<h3 id="tail-n-number-文件"><a href="#tail-n-number-文件" class="headerlink" title="tail [-n number] 文件"></a>tail [-n number] 文件</h3><blockquote>
+<p>取出后面几行。<br><strong>-n</strong> ：后面接数字，代表显示几行的意思<br><strong>-f</strong> ：表示持续检测后面所接的文件名，直到按下 Ctrl+c 才会结束检测。</p>
+</blockquote>
+<p>如果不知道文件有几行只想列出100行以后的数据：</p>
+<blockquote>
+<p>tail -n +100 /tmp/test.log</p>
+</blockquote>
+<p>假如我要显示文件的第11行到20行：</p>
+<blockquote>
+<p>head -n 20 /tmp/test.log | tail -n 10</p>
+</blockquote>
 
-      
-        
-          
-            <p>
-              
-cat ：由第一行开始显示文件内容。tac ：从最后一行开始显示，可以看出tac是cat的倒写形式。nl ：显示的时候顺便输出行号。more ：一页一页地显示文件内容。less ：与more类似，但比more更好的是，它可以往前翻页。head ：只看头几行。tail ：只看结尾几行。od ：以二进
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/29/Linux文件内容查阅/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/28/Linux文件与目录管理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/28/Linux文件与目录管理/" class="post-title-link" itemprop="url">Linux文件与目录管理</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/28/Linux文件与目录管理/" class="post-title-link" itemprop="url">Linux文件与目录管理</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-28 15:40:00" itemprop="dateCreated datePublished" datetime="2015-07-28T15:40:00+08:00">2015-07-28</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -764,186 +588,122 @@ cat ：由第一行开始显示文件内容。tac ：从最后一行开始显示
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="一、目录的相关操作"><a href="#一、目录的相关操作" class="headerlink" title="一、目录的相关操作"></a>一、目录的相关操作</h2><p>特殊的目录</p>
+<blockquote>
+<p><strong>.</strong>  代表当前目录<br><strong>..</strong> 代表上一层目录<br><strong>-</strong> 代表前一个工作目录<br><strong>~</strong> 代表“目前用户身份”所在的主文件<br><strong>~account</strong> 代表account这个用户的主文件夹（account是用户名）</p>
+</blockquote>
+<p>下面我们就来谈一谈几个常见的处理目录的命令：</p>
+<blockquote>
+<p><strong>cd</strong> ：切换目录（change direcotry）<br><strong>pwd</strong> ：显示当前目录（print working directory）<br><strong>mkdir</strong> ：新建一个新的目录（make directory）<br><strong>rmdir</strong> ：删除一个空目录</p>
+</blockquote>
+<p><strong>pwd [-P]</strong><br>: -P ：显示出当前路径，而非使用连接（link）路径。</p>
+<p><strong>mkdir [-mp] 目录名称</strong><br>: -m ：配置文件的权限，直接设置，不需要看默认权限（umask）<br>  -p ：帮助你直接将所需要的目录（包含上层目录）递归创建。</p>
+<blockquote>
+<p>[root@localhost tmp]# mkdir -p test1/test2/test3<br>[root@localhost tmp]# mkdir-m 777 test<br>[root@localhost tmp]# ls -l<br>drwxrwxrwx. 2 root root 4096 7月  28 16:51 test<br>drwxr-xr-x. 3 root root 4096 7月  28 16:51 test1</p>
+</blockquote>
+<p><strong>rmdir [-p] 目录名称</strong><br>: -p ：连同上层空的目录也一起删除</p>
+<blockquote>
+<p>[root@localhost tmp]# rmdir test<br>[root@localhost tmp]# rmdir test1<br> rmdir: 删除 “test1” 失败: 目录非空<br>[root@localhost tmp]# rmdir -p test1/test2/test3</p>
+</blockquote>
+<h2 id="二、复制、删除与移动：cp，rm，mv"><a href="#二、复制、删除与移动：cp，rm，mv" class="headerlink" title="二、复制、删除与移动：cp，rm，mv"></a>二、复制、删除与移动：cp，rm，mv</h2><h3 id="1、cp-复制文件或目录"><a href="#1、cp-复制文件或目录" class="headerlink" title="1、cp 复制文件或目录"></a>1、cp 复制文件或目录</h3><p><strong>cp [-adfilprsu] 源文件 目标文件</strong><br><strong>cp [options] source1 source2 source3 … directory</strong></p>
+<blockquote>
+<p>-a ：<code>相当于-pdr的意思（常用）</code>；<br>-d ：若源文件为连接文件的属性（link file），复制连接文件的属性而非文件本身；<br>-f ：为强制（force）的意思，若目标文件已经存在且无法开启，则删除后再尝试一次；<br>-i ：<code>若目标文件已经存在，在覆盖时会进询问（常用）</code>；<br>-l ：进行硬连接（hard link）的连接文件创建，而非复制文件本身；<br>-p ：<code>连同文件的属性一起复制过去，而非使用默认属性（备份常用）</code>；<br>-r ：<code>递归持续复制，，用于目录的复制（常用）</code>；<br>-s ：复制成符号连接文件（symbolic link），即“快捷方式”文件；<br>-u ：若destination比source旧才更新destination。<br>【注意：<code>如果源文件有两个以上，则最后一个目的文件一定要是目录才行</code>】</p>
+</blockquote>
+<p>在不加任何参数的情况下，文件的某些属性、权限会改变，连文件的建立时间也不一样了。如果你想把文件的所有属性都一起复制过来，可以加上 -a。在默认的条件中，cp的源文件与目的文件的权限是不同的，目的文件的所有者通常是命令操作者本身。</p>
+<blockquote>
+<p>[root@localhost tmp]# cp /var/log/wtmp .    //复制到当前目录，最后的“.”不要忘了<br>[root@localhost tmp]# ls -l /var/log/wtmp wtmp //注意文件属性的变化<br>-rw-rw-r–. 1 root utmp 50688 7月  28 16:49 /var/log/wtmp<br>-rw-r–r–. 1 root root 50688 7月  28 20:22 wtmp</p>
+</blockquote>
+<p>如果是目录则不能直接复制，要加上-r 参数。 -r 是可以复制目录，但是，文件与目录的权限可能会被改变， 所以，也可以用“cp -a /etc/ /tmp” 来执行命令，尤其是在备份的情况下。</p>
+<blockquote>
+<p>[root@localhost tmp]# cp -r /etc/ /tmp</p>
+</blockquote>
+<p>创建连接文件</p>
+<blockquote>
+<p>[root@localhost tmp]# ll bashrc    //先看一下文件的情况<br>-rw-r–r–. 1 root root 176 7月  28 20:46 bashrc<br>[root@localhost tmp]# cp -s bashrc bashrc_slink<br>[root@localhost tmp]# cp -l bashrc bashrc_hlink<br>[root@localhost tmp]# ll bashrc*<br>-rw-r–r–. 2 root root 176 7月  28 20:46 bashrc<br>-rw-r–r–. 2 root root 176 7月  28 20:46 bashrc_hlink<br>lrwxrwxrwx. 1 root root   6 7月  28 20:47 bashrc_slink -&gt; bashrc</p>
+</blockquote>
+<p>若 ~/.bashrc 比 /tmp/bashrc 新才复制过来</p>
+<blockquote>
+<p>[root@localhost tmp]# cp -u ~/.bashrc /tmp/.bashrc<br><strong>☞</strong> 这个 -u 的特性是在目标文件与源文件有差异时才会复制的，所以，比较常用于备份中。</p>
+</blockquote>
+<p>将上面生成的bashrc_slink复制成bashrc_slink1与bashrc_slink2</p>
+<blockquote>
+<p>[root@localhost tmp]# cp bashrc_slink bashrc_slink1<br>[root@localhost tmp]# cp -d bashrc_slink bashrc_slink2<br>[root@localhost tmp]# ll bashrc bashrc_slink*<br>-rw-r–r–. 2 root root 176 7月  28 20:46 bashrc<br>lrwxrwxrwx. 1 root root   6 7月  28 20:47 bashrc_slink -&gt; bashrc<br>-rw-r–r–. 1 root root 176 7月  29 14:48 bashrc_slink1  //与源文件相同<br>lrwxrwxrwx. 1 root root   6 7月  29 14:48 bashrc_slink2 -&gt; bashrc //是连接文件<br><strong>☞</strong> 原本复制的是连接文件，但却将连接文件的实际文件复制过来了，也就是说，如果没有加上任何参数时，cp复制的是源文件，而非连接文件的属性。</p>
+</blockquote>
+<p>能否使用corly的身份，完整复制/var/log/wtmp 文件到 /tmp 下面，并更名为corly_wtmp呢？</p>
+<blockquote>
+<p>[corly@localhost tmp]$ cp -a /var/log/wtmp /tmp/corly_wtmp<br>[corly@localhost tmp]$ ll /var/log/wtmp /tmp/corly_wtmp<br>-rw-rw-r–. 1 corly corly 53376 7月  29 09:26 /tmp/corly_wtmp<br>-rw-rw-r–. 1 root  utmp  53376 7月  29 09:26 /var/log/wtmp</p>
+</blockquote>
+<p>由于corly的身份并不能随意修改文件的所有者与用户组，因此虽然能够复制wtmp的相关权限与时间等属性，但与所有者、用户组相关的，corly的身份是无法进行操作的，即使加上<strong>-a</strong>参数，也是无法完整复制权限。</p>
+<h3 id="2、rm-移出文件或目录"><a href="#2、rm-移出文件或目录" class="headerlink" title="2、rm 移出文件或目录"></a>2、rm 移出文件或目录</h3><p><strong>rm [-fir] 文件或目录</strong><br>: -f ：就是force的意思，忽略不存在的文件，不会出现警告信息；<br>  -i ：互动模式在删除前会询问用户是否操作；<br>  -r ：递归删除。</p>
+<h3 id="3、mv-移动文件与目录或更名"><a href="#3、mv-移动文件与目录或更名" class="headerlink" title="3、mv 移动文件与目录或更名"></a>3、mv 移动文件与目录或更名</h3><p><strong>mv [-fiu] source destination</strong><br><strong>mv [options] source1 source2 source3 … directory</strong><br>: -f ：force强制，如果目标文件已经存在，不会询问而直接覆盖；<br>  -i ：若目标文件已经存在，就会询问覆盖；<br>  -u ：若目标文件已经存在，且source比较新，才会更新。</p>
 
-      
-        
-          
-            <p>
-              一、目录的相关操作特殊的目录
-
-.  代表当前目录.. 代表上一层目录- 代表前一个工作目录~ 代表“目前用户身份”所在的主文件~account 代表account这个用户的主文件夹（account是用户名）
-
-下面我们就来谈一谈几个常见的处理目录的命令：
-
-cd ：切换目录（change dire
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/28/Linux文件与目录管理/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/27/责任链模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/27/责任链模式/" class="post-title-link" itemprop="url">责任链模式</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/27/责任链模式/" class="post-title-link" itemprop="url">责任链模式</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-27 16:29:00" itemprop="dateCreated datePublished" datetime="2015-07-27T16:29:00+08:00">2015-07-27</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -951,183 +711,106 @@ cd ：切换目录（change dire
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递请求，直到有一个对象处理它为止。</p>
+</blockquote>
+<p>责任链模式是使用多个对象处理用户请求的一种成熟模式，责任链模式的关键是将用户的请求分派给多个对象，这些对象被组织成一个责任链，即每个对象都含有后继对象的引用，并要求责任链上的每一个对象，如果能处理用户的请求，就做出处理，不再将用户的请求传递给责任链上的下一个对象；如果不能处理用户的请求，就必须将用户的请求传递给责任链上的下一个对象。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><p>责任链模式的结构中包括两种角色。</p>
+<ul>
+<li><p>处理者（Handler）：处理者是一个接口，负责规定具体处理者处理用户请求的方法以及具体处理者设置后继的对象的方法</p>
+</li>
+<li><p>具体处理者（ConcreteHandler）：具体处理者是实现处理者接口的类的实例。具体处理者通过调用处理者接口规定的方法处理用户的请求，即在接到用户的请求后处理者将调用接口规定的方法，在执行该方法的过程中，如果发现能处理用户的请求，就处理用户的数据，否则就返回无法处理信息给用户，然后将用户的请求传递给自己的后继对象。</p>
+</li>
+</ul>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="/uploads/2015/07/1380572149.jpg" alt="responsibility.jpg"></p>
+<h3 id="结构的描述"><a href="#结构的描述" class="headerlink" title="结构的描述"></a>结构的描述</h3><p><strong>1、处理者（Handler）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">handlerRequest</span><span class="params">(String number)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setNextHandler</span><span class="params">(Handler handler)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2、具体处理者</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Beijing.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Beijing</span> <span class="keyword">implements</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Handler handler;</span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;String&gt; numberList;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Beijing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		numberList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">		<span class="comment">// 这里模拟证件号码</span></span><br><span class="line">		numberList.add(<span class="string">"11129857"</span>);</span><br><span class="line">		numberList.add(<span class="string">"11129858"</span>);</span><br><span class="line">		numberList.add(<span class="string">"11129859"</span>);</span><br><span class="line">		numberList.add(<span class="string">"11129856"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handlerRequest</span><span class="params">(String number)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (numberList.contains(number)) &#123;</span><br><span class="line">			System.out.println(<span class="string">"该人住在北京"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"该人不在北京居住"</span>);</span><br><span class="line">			<span class="keyword">if</span> (handler != <span class="keyword">null</span>) &#123;</span><br><span class="line">				handler.handlerRequest(number);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNextHandler</span><span class="params">(Handler handler)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.handler = handler;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ShangHai.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShangHai</span> <span class="keyword">implements</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Handler handler;</span><br><span class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; numberList;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ShangHai</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	numberList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">		<span class="comment">// 这里模拟证件号码</span></span><br><span class="line">		numberList.add(<span class="string">"21129857"</span>);</span><br><span class="line">		numberList.add(<span class="string">"21129858"</span>);</span><br><span class="line">		numberList.add(<span class="string">"21129859"</span>);</span><br><span class="line">		numberList.add(<span class="string">"21129856"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handlerRequest</span><span class="params">(String number)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (numberList.contains(number)) &#123;</span><br><span class="line">			System.out.println(<span class="string">"该人住在上海"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"该人不在上海居住"</span>);</span><br><span class="line">			<span class="keyword">if</span> (handler != <span class="keyword">null</span>) &#123;</span><br><span class="line">				handler.handlerRequest(number);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNextHandler</span><span class="params">(Handler handler)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.handler = handler;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3、测试程序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Handler beijing,shanghai;</span><br><span class="line">	<span class="comment">//创建责任链</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createChain</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		beijing = <span class="keyword">new</span> Beijing();</span><br><span class="line">		shanghai = <span class="keyword">new</span> ShangHai();</span><br><span class="line">		beijing.setNextHandler(shanghai);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//响应用户请求</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">responseClient</span><span class="params">(String number)</span> </span>&#123;</span><br><span class="line">		beijing.handlerRequest(number);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Application application = <span class="keyword">new</span> Application();</span><br><span class="line">		application.createChain();</span><br><span class="line">		application.responseClient(<span class="string">"21129859"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>责任链中的对象只和自己的后继是低耦合关系，和其他对象毫无关联，这使得编写处理者对象以及创建责任链变得非常容易。</p>
+</li>
+<li><p>在处理者中分配职责时，责任链给应用程序更多的灵活性。</p>
+</li>
+<li><p>应用程序可以动态地增加、删除处理者或重新指定处理者的职责。</p>
+</li>
+<li><p>应用程序可以动态地改变处理者之间的先后顺序。</p>
+</li>
+<li><p>应用程序可以动态地改变处理者之间的先后顺序。</p>
+</li>
+<li><p>使用责任链的用户不必知道处理者的信息，用户不会知道到底是哪个对象处理了请求。</p>
+</li>
+</ul>
 
-      
-        
-          
-            <p>
-              概述
-使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递请求，直到有一个对象处理它为止。
-
-责任链模式是使用多个对象处理用户请求的一种成熟模式，责任链模式的关键是将用户的请求分派给多个对象，这些对象被组织成一个责任链，即每个对象都含有后继对
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/27/责任链模式/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/25/装饰模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/25/装饰模式/" class="post-title-link" itemprop="url">装饰模式</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/25/装饰模式/" class="post-title-link" itemprop="url">装饰模式</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-25 10:01:00" itemprop="dateCreated datePublished" datetime="2015-07-25T10:01:00+08:00">2015-07-25</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -1135,183 +818,111 @@ cd ：切换目录（change dire
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>动态地给对象添加一些额外的职责。就功能来说装饰模式比生成子类更为灵活。</p>
+</blockquote>
+<p>在许多设计中，可能需要改进类的某个对象的功能，而不是该类创建的全部对象。例如，麻雀类的实例能连续飞行100米，如果用麻雀类创建5只麻雀，那么这5只麻雀都能连续飞行100米。假如想让其中一只麻雀能连续飞行150米，那我们应当怎么做呢？我们不想通过修改麻雀类的代码（也可能根本不允许修改）使得麻雀类创建的麻雀能够连续飞行150米。一种比较好的方法就是给麻雀装上智能电子翅膀。智能电子翅膀可以使得麻雀不使用自己的翅膀就能飞行50米。</p>
+<p>装饰模式是动态地扩展一个对象的功能，而不需要改变原始类代码的一种成熟的设计模式。在装饰模式中，“具体组件”类和“具体装饰”类是该模式中最重要的两个角色。“具体组件”类的实例称作“被装饰者”，“具体装饰”类的实例称作“装饰者”。“具体装饰”类需要包含有“具体组件”类的一个实例的引用，以便装饰“被装饰者”。</p>
+<p>例如，前面所述的麻雀类就是“具体组件”类，而一只麻雀就是“具体组件”类的一个实例，即是一个“被装饰者”，而安装了电子翅膀的麻雀就是“具体装饰”类的一个实例，即安装了电子翅膀的麻雀是麻雀的“装饰者”。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><p>装饰模式的结构中包含四种角色。</p>
+<ul>
+<li><p>抽象组件（Component）：抽象组件是一个抽象类。抽象组件定义了“被装饰者”需要进行“装饰”的方法。</p>
+</li>
+<li><p>具体组件（ConcreteCommponent）：具体组件是抽象组件的一个子类，具体组件的实例称作“被装饰者”。</p>
+</li>
+<li><p>装饰（Decorator）：装饰也是抽象组件的一个子类，但装饰还包括抽象组件申明的变量以保存“被装饰者”的引用。装饰可以使抽象类也可以是非抽象类，如果是非抽象类，它的实例称作“装饰者”。</p>
+</li>
+<li><p>具体装饰（ConcreteDecorator）：具体装饰是装饰的一个非抽象子类，具体装饰的实例称作“装饰者”。</p>
+</li>
+</ul>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="/uploads/2015/07/1935470676.jpg" alt="Decorator.jpg"></p>
+<h3 id="结构的描述"><a href="#结构的描述" class="headerlink" title="结构的描述"></a>结构的描述</h3><p><strong>1.抽象组件</strong></p>
+<p>本问题中，抽象组件规定了具体组件需要实现的方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Bird</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.具体组件</strong></p>
+<p>具体组件是Sparrow类。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sparrow</span> <span class="keyword">extends</span> <span class="title">Bird</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> DISTANCE = <span class="number">100</span>; </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> DISTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.装饰</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Bird</span></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> Bird bird;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Bird bird)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.bird = bird;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.具体装饰</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SparrowDecorator</span> <span class="keyword">extends</span> <span class="title">Decorator</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> DISTANCE = <span class="number">50</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SparrowDecorator</span><span class="params">(Bird bird)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(bird);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//委托被装饰者调用fly方法</span></span><br><span class="line">		<span class="keyword">return</span> bird.fly() + eleFly();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//装饰者新添的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">eleFly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> DISTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>5.测试程序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printFly</span><span class="params">(Bird bird)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这只鸟能飞行"</span>+bird.fly()+<span class="string">"米。"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Application client = <span class="keyword">new</span> Application();</span><br><span class="line">		<span class="comment">//sparrow 只能飞行100米</span></span><br><span class="line">		Bird sparrow = <span class="keyword">new</span> Sparrow();</span><br><span class="line">		<span class="comment">//sparrowDecorator1 能飞150米</span></span><br><span class="line">		Bird sparrowDecorator1 = <span class="keyword">new</span> SparrowDecorator(sparrow);</span><br><span class="line">		<span class="comment">//sparrowDecorator2 能飞200米</span></span><br><span class="line">		Bird sparrowDecorator2 = <span class="keyword">new</span> SparrowDecorator(sparrowDecorator1);</span><br><span class="line">		client.printFly(sparrowDecorator1);</span><br><span class="line">		client.printFly(sparrowDecorator2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用多个装饰者"><a href="#使用多个装饰者" class="headerlink" title="使用多个装饰者"></a>使用多个装饰者</h2><p>由于装饰是抽象组件的一个子类，因此“装饰者”本身也可作为一个“被装饰者”，这意味着可以使用多个具体装饰类来装饰具体组件的实例。</p>
+<p>比如，对于上面的小问题，假如我们不仅需要飞行150米、200米的鸟，而且需要飞行120米、170米、220米的鸟，这是我们只需再添加一个具体装饰即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SparrowDecoratorTwo</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> DISTANCE = <span class="number">20</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SparrowDecoratorTwo</span><span class="params">(Bird bird)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(bird);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> bird.fly()+eleFly();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">eleFly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> DISTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>被装饰者和装饰者是松耦合关系，由于装饰（Decorator）仅仅依赖于抽象的组件（Component），因此具体装饰只知道他要装饰的对象是抽象组件某一个子类的实例，但不需要知道是哪一个具体子类。</p>
+</li>
+<li><p>装饰模式满足“开-闭原则”。不必修改具体组件，就可以增加新的针对该具体组件的装饰。</p>
+</li>
+<li><p>可以使用多个具体装饰来装饰具体组件的实例。</p>
+</li>
+</ul>
 
-      
-        
-          
-            <p>
-              概念
-动态地给对象添加一些额外的职责。就功能来说装饰模式比生成子类更为灵活。
-
-在许多设计中，可能需要改进类的某个对象的功能，而不是该类创建的全部对象。例如，麻雀类的实例能连续飞行100米，如果用麻雀类创建5只麻雀，那么这5只麻雀都能连续飞行100米。假如想让其中一只麻雀能连续飞行150米，那我们应
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/25/装饰模式/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/24/观察者模式举例-统计文本中的单词和数字/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/24/观察者模式举例-统计文本中的单词和数字/" class="post-title-link" itemprop="url">观察者模式举例-统计文本中的单词和数字</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/24/观察者模式举例-统计文本中的单词和数字/" class="post-title-link" itemprop="url">观察者模式举例-统计文本中的单词和数字</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-24 10:42:00" itemprop="dateCreated datePublished" datetime="2015-07-24T10:42:00+08:00">2015-07-24</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -1319,185 +930,93 @@ cd ：切换目录（change dire
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="设计要求"><a href="#设计要求" class="headerlink" title="设计要求"></a>设计要求</h2><ol>
+<li>设计一个窗口，该窗口中有三个文本区。</li>
+<li>三个文本区域中的其中一个可供用户编辑文本，另外两个用户不可编辑。</li>
+<li>当用户在可编辑的文本中进行编辑时，另外两个不可编辑的文本区中的一个将显示用户所编辑文本中出现的单词，另一个将显示用户所编辑文本中包含的数字。</li>
+</ol>
+<h2 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h2><p>用户所编辑文本应当视作观察者模式中的一个具体主题所维护的数据，而另外两个文本区应该视作是两个具体观察者中的成员。</p>
+<p><strong>1.主题</strong></p>
+<p>本问题中，使用java.util包中的Observable类作为主题。</p>
+<p><strong>2.观察者</strong></p>
+<p>观察者是java.util包中的Observer接口。</p>
+<p><strong>3.具体主题</strong></p>
+<p>InputTextSubject是Observable类的子类，负责创建具体主题。InputTextSubject类包含一个可编辑的JTextArea文本区。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InputTextSubject</span> <span class="keyword">extends</span> <span class="title">Observable</span> </span>&#123;</span><br><span class="line">	String content;</span><br><span class="line">	JTextArea text;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">InputTextSubject</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		text = <span class="keyword">new</span> JTextArea(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">		text.setLineWrap(<span class="keyword">true</span>);</span><br><span class="line">		text.setWrapStyleWord(<span class="keyword">true</span>);</span><br><span class="line">		(text.getDocument()).addDocumentListener(<span class="keyword">new</span> DocumentListener() &#123;	</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeUpdate</span><span class="params">(DocumentEvent e)</span> </span>&#123;</span><br><span class="line">				changedUpdate(e);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertUpdate</span><span class="params">(DocumentEvent e)</span> </span>&#123;</span><br><span class="line">				changedUpdate(e);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changedUpdate</span><span class="params">(DocumentEvent e)</span> </span>&#123;</span><br><span class="line">				content = text.getText();</span><br><span class="line">				setChanged();</span><br><span class="line">				notifyObservers(content);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> content;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> JTextArea <span class="title">getText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> text;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.具体观察者</strong></p>
+<p>负责创建具体观察者的类是ShowWord和ShowDigit。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ShowWord.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShowWord</span> <span class="keyword">extends</span> <span class="title">JPanel</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Observable subject;</span><br><span class="line">	JTextArea text;</span><br><span class="line">	TreeSet&lt;String&gt; worldList;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ShowWord</span><span class="params">(Observable observable)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = observable;</span><br><span class="line">		subject.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		text = <span class="keyword">new</span> JTextArea(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">		text.setLineWrap(<span class="keyword">true</span>);</span><br><span class="line">		text.setWrapStyleWord(<span class="keyword">true</span>);</span><br><span class="line">		text.setEditable(<span class="keyword">false</span>);</span><br><span class="line">		add(<span class="keyword">new</span> JScrollPane(text));</span><br><span class="line">		worldList = <span class="keyword">new</span> TreeSet&lt;String&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable subject, Object object)</span> </span>&#123;</span><br><span class="line">		text.setText(<span class="keyword">null</span>);</span><br><span class="line">		text.append(<span class="string">"出现的单词有（按字典顺序）：\n"</span>);</span><br><span class="line">		worldList.clear();</span><br><span class="line">		String content = object.toString();</span><br><span class="line">		String regx = <span class="string">"[\\s\\d\\p&#123;Punct&#125;]+"</span>;</span><br><span class="line">		String words[] = content.split(regx);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; words.length; i++) &#123;</span><br><span class="line">			worldList.add(words[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		Iterator&lt;String&gt; te = worldList.iterator();</span><br><span class="line">		<span class="keyword">while</span> (te.hasNext()) &#123;</span><br><span class="line">			text.append(te.next()+<span class="string">" "</span>);			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ShowDigit.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShowDigit</span> <span class="keyword">extends</span> <span class="title">JPanel</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Observable subject;</span><br><span class="line">	JTextArea text;</span><br><span class="line">	Vector&lt;String&gt; vector;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ShowDigit</span><span class="params">(Observable subject)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = subject;</span><br><span class="line">		subject.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		text = <span class="keyword">new</span> JTextArea(<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line">		text.setLineWrap(<span class="keyword">true</span>);</span><br><span class="line">		text.setWrapStyleWord(<span class="keyword">true</span>);</span><br><span class="line">		text.setEditable(<span class="keyword">false</span>);</span><br><span class="line">		add(<span class="keyword">new</span> JScrollPane(text));</span><br><span class="line">		vector = <span class="keyword">new</span> Vector&lt;String&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable subject, Object object)</span> </span>&#123;</span><br><span class="line">		text.setText(<span class="keyword">null</span>);</span><br><span class="line">		text.append(<span class="string">"出现的数字有：\n"</span>);</span><br><span class="line">		vector.removeAllElements();</span><br><span class="line">		String content = object.toString();</span><br><span class="line">		String regex = <span class="string">"\\D+"</span>; <span class="comment">//非数字字符构成的正则表达式</span></span><br><span class="line">		String digitWords[] = content.split(regex);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; digitWords.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (! vector.contains(digitWords[i])) &#123;</span><br><span class="line">				vector.add(digitWords[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vector.size(); i++) &#123;</span><br><span class="line">			text.append(vector.elementAt(i)+<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>5.测试程序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Application</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		InputTextSubject textSubject = <span class="keyword">new</span> InputTextSubject(); <span class="comment">//具体主题</span></span><br><span class="line">		ShowWord observerOne = <span class="keyword">new</span> ShowWord(textSubject); <span class="comment">//具体观察者</span></span><br><span class="line">		ShowDigit observerTwo = <span class="keyword">new</span> ShowDigit(textSubject); <span class="comment">//具体观察者</span></span><br><span class="line">		setLayout(<span class="keyword">new</span> FlowLayout());</span><br><span class="line">		add(<span class="keyword">new</span> JScrollPane(textSubject.getText()) );</span><br><span class="line">		add(observerOne);</span><br><span class="line">		add(observerTwo);</span><br><span class="line">		setBounds(<span class="number">20</span>, <span class="number">20</span>, <span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line">		setVisible(<span class="keyword">true</span>);</span><br><span class="line">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Application();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用户在可编辑文本区域输入文本时，另外连个文本区分别显示了用户输入文本中包含的单词以及所包含的数字字符序列，运行效果如图所示。</p>
+<p><img src="/uploads/2015/07/1912205249.jpg" alt="程序运行效果"></p>
 
-      
-        
-          
-            <p>
-              设计要求
-设计一个窗口，该窗口中有三个文本区。
-三个文本区域中的其中一个可供用户编辑文本，另外两个用户不可编辑。
-当用户在可编辑的文本中进行编辑时，另外两个不可编辑的文本区中的一个将显示用户所编辑文本中出现的单词，另一个将显示用户所编辑文本中包含的数字。
-
-设计实现用户所编辑文本应当视作观察者模式中
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/24/观察者模式举例-统计文本中的单词和数字/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/21/Linux文件权限/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/21/Linux文件权限/" class="post-title-link" itemprop="url">Linux文件权限</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/21/Linux文件权限/" class="post-title-link" itemprop="url">Linux文件权限</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-21 15:38:00" itemprop="dateCreated datePublished" datetime="2015-07-21T15:38:00+08:00">2015-07-21</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -1505,190 +1024,212 @@ cd ：切换目录（change dire
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><p><img src="/uploads/2015/07/1011169545.jpg" alt="文件属性"></p>
+<ul>
+<li><p>第一列代表这个文件的类型与权限(permission)</p>
+<blockquote>
+<p>这一列共有10个字符代表这个文件是“目录、文件或链接文件等”。</p>
+<ul>
+<li>若是‘d’则是目录。</li>
+<li>若是‘-’则是文件。</li>
+<li>若是‘l’则表示为连接文件(linkfile)。</li>
+<li>若是‘b’则表示设备文件中可供存储的接口设备。</li>
+<li>若是‘c’则表示设备文件里面的串行端口设备，例如键盘、鼠标(一次性读取设备)。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>接下来的字符中，以3个一组，切均为“rwx”的3个组合参数。其中‘r’代表可读(read)，‘w’代表可写(write)，‘x’代表可以执行(execute)。要注意的是，这3个权限的位置不会改变，如果没有权限，就会出现减号‘-’而已。</p>
+<ul>
+<li>第一组为<strong>“文件所有者权限”</strong>。</li>
+<li>第二组为<strong>“同用户组的权限”</strong>。</li>
+<li>第三组为<strong>“其它非本用户组的权限”</strong>。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>第二列表示有多少文件连接到此节点(i-node)</p>
+<blockquote>
+<p>每个文件都会将它的权限与属性记录到文件系统的i-node中，不过我们使用的目录树却是使用文件名来记录，因此每个文件名就会连接到一个i-node。这个属性记录的就是有多少不同的文件名连接到相同的一个i-node号码。</p>
+</blockquote>
+</li>
+<li><p>第三列和第四列表示这个文件（或目）的“所有者账号”和“所属用户组”。</p>
+</li>
+<li><p>第五列表示这个文件的容量大小，默认单位为B。</p>
+</li>
+<li><p>第六列为这个文件的创建日期或者是最近的修改日期。</p>
+</li>
+</ul>
+<h2 id="修改文件属性与权限"><a href="#修改文件属性与权限" class="headerlink" title="修改文件属性与权限"></a>修改文件属性与权限</h2><p>常见的几个用于修改用户组、所有者、各种身份的权限的命令：</p>
+<blockquote>
+<p>chgrp:改变文件所属用户组。<br>chown: 改变文件所有者。<br>chmod： 改变文件的权限。</p>
+</blockquote>
+<h3 id="改变所属用户组：chgrp"><a href="#改变所属用户组：chgrp" class="headerlink" title="改变所属用户组：chgrp"></a>改变所属用户组：chgrp</h3><p>这个命令是change group的简称。不过，请记得，要被改变的组名必须要在/etc/group文件内存在才行，否者就会显示错误。</p>
+<blockquote>
+<p><strong>chgrp [-R] dirname/filename</strong></p>
+<ul>
+<li>-R:进行递归(recursive)的持续更改，即连同子目录下的所有文件。</li>
+</ul>
+</blockquote>
+<p><em>例子：</em></p>
+<blockquote>
+<p>[root@localhost corlymeng]# chgrp corly test.log<br> [root@localhost corlymeng]# ls -l<br> -rw-r–r–. 1 root corly 0 7月  24 16:40 test.log</p>
+</blockquote>
+<h3 id="改变文件所有者：chown"><a href="#改变文件所有者：chown" class="headerlink" title="改变文件所有者：chown"></a>改变文件所有者：chown</h3><p>这个命令是change owner的简称。要注意的是，用户必须是已经存在于系统中的账号，也就是在/etc/passwd这个文件中有记录的用户名称才能改变。chown还可以修改文件的用户组。</p>
+<blockquote>
+<p> <strong>chown [-R] 账号名称[:组名] 文件或目录</strong></p>
+<ul>
+<li>-R：同上面一样</li>
+</ul>
+</blockquote>
+<p><em>例子：</em></p>
+<blockquote>
+<p>//将test.log所有者改为bin这个账号<br> chown bin test.log<br> //将test.log的所有者和用户组改回为root<br> chown root:root test.log</p>
+</blockquote>
+<p>事实上，chown也可以使用“chown user.group file”，亦即在拥有者与群组间加上小数点也行！ 不过很多朋友设定账号时，喜欢在账号当中加入小数点(例如corly.meng这样的账号格式)，这就会造成系统的误判了！ 所以我们比较建议使用冒号“:”来隔开拥有者与群组，此外，chown也能单纯的修改所属用户组。例如“chown .sshd install.log”就是修改用户组，就是那个小数点的用途。 </p>
+<h3 id="改变文件权限：chmod"><a href="#改变文件权限：chmod" class="headerlink" title="改变文件权限：chmod"></a>改变文件权限：chmod</h3><p>文件权限的改变是用chmod这个命令，但是权限的设置有两种，分别可以使用数字或者是符号来进行权限的更改。</p>
+<ul>
+<li><strong>数字更改文件权限</strong></li>
+</ul>
+<p>Linux文件的基本权限就有9个，分别是user、group、others三种身份各有自己的read、write、execute权限。其中我们可以用数字来代表各个权限，各权限的数字对照如下：</p>
+<blockquote>
+<ul>
+<li>r:4</li>
+<li>w:2</li>
+<li>x:1</li>
+</ul>
+</blockquote>
+<p>每种身份（user、group、others）各自的三个权限分数是要累加的，例如当前权限“<strong>-rwxrwx—</strong>”，分数是：</p>
+<blockquote>
+<ul>
+<li>user= rwx = 4+2+1 = 7</li>
+<li>group = rwx = 4+2+1 = 7</li>
+<li>others = — = 0+0+0 = 0</li>
+</ul>
+</blockquote>
+<p>所以等我们设置权限更改时，该文件的权限数字就是770。更改权限的命令chmod的语法如下：</p>
+<blockquote>
+<p><strong>chmod [-R] xyz 文件或目录</strong></p>
+<ul>
+<li>xyz：刚刚提到的数字类型的权限，为rwx属性数值的相加。</li>
+<li>-R：递归更改。</li>
+</ul>
+</blockquote>
+<p>举例来说，如果要将test.log文件的所有权限都设置启用，那么就执行：</p>
+<blockquote>
+<p>chmod 777 test.log</p>
+</blockquote>
+<ul>
+<li><strong>符号类型改变文件权限</strong></li>
+</ul>
+<p>还有一个更改文件权限的方法。从前面的介绍我们可以发现，基本上就9个权限，分别是user、group、others三种身份。那么我们就通过u，g，o来代表三种身份的权限。此外a代表all，也即全部身份。</p>
+<table><br>    <tr><br>        <td> chmod  </td><br>        <td>u<br>g<br>o<br>a</td><br>        <td>+(加入)<br>-(除去)<br>=(设置)</td><br>        <td>r<br>w<br>x</td><br>        <td>文件或目录</td><br>    </tr><br></table>
 
-      
-        
-          
-            <p>
-              文件属性
+<p>例如我们要设置一个文件权限为“<strong>-rwxr-xr-x</strong>”时。</p>
+<blockquote>
+<p>chmod u=rwx,go=rx test.log<br><em>#注意：那个u=rwx,go=rx是连在一起的，中间没有任何空格。</em></p>
+</blockquote>
+<p>如果是“<strong>-rwxr-xr–</strong>”权限呢？可以用“chmod u=rwx,g=rx,o=r test.log”来设置。如果我不知道原先文件的属性，而我只想增加test.log这个文件每个人均可写入的权限，可以使用如下命令：</p>
+<blockquote>
+<p>chmod a+w test.log</p>
+</blockquote>
+<p>如果要去掉所有人可执行权限，则：</p>
+<blockquote>
+<p>chmod a-x test.log</p>
+</blockquote>
+<h2 id="目录权限"><a href="#目录权限" class="headerlink" title="目录权限"></a>目录权限</h2><p>文件是存放实际数据的所在，目录主要的内容是记录文件名列表，文件名与目录有强烈的关联。所以如果针对目录，那个r、w、x有什么意义呢？</p>
+<p><strong>r （read contents in directory）</strong><br>: 表示具有读取目录结构列表的权限，表示你可以查询该目录下的文件名数据。</p>
+<p><strong>w （modify contents of directory）</strong><br>: 新建已存在的文件与目录；<br>: 删除已存在的文件与目录（不论该文件的权限为何）；<br>: 将已存在的文件或目录进行重命名；<br>: 转义该目录内的文件、目录位置。</p>
+<p><strong>x （access directory）</strong><br>: 表示用户能够进入该目录成为工作目录的用途，所谓的工作目录（work directory）就是你目前所在的目录。</p>
+<ul>
+<li><em>例 1：</em></li>
+</ul>
+<p>有一个目录的权限如下：</p>
+<blockquote>
+<p>drwxr–r– 3 root root 1024 Jun 25 08:22 test</p>
+</blockquote>
+<p>系统中有一个账号名称为corly，这个账号并没有支持root用户组，那么corly对这个目录有何权限？</p>
+<blockquote>
+<p>corly对此目录有r权限，因此可以查询目录下的文件名列表。<strong>因为corly不具有x的权限，所以corly并不能切换到此目录内。</strong></p>
+</blockquote>
+<p>上面的例子中因为corly具有r权限，一看之下好想就具有可以进入此目录的权限，其实是错误的。能不能进一个目录，只与该目录的x权限有关。此外，工作目录对于命令的执行非常重要，如果你在某目录下没有x的权限，那你就没有办法切换到该目录下，也就无法执行该目录下的任何命令，即使你具有该目录的r权限。</p>
+<ul>
+<li><em>例 2：</em></li>
+</ul>
+<p>假设账号corly，他的主文件夹在/home/corly/，corly对此目录具有rwx权限。若在此目录下有一个名为test.log的文件，该文件的权限如下：</p>
+<blockquote>
+<p>-rwx—— 1 root root 1024 Sep 20 04:09 test.log</p>
+</blockquote>
+<p>请问corly对此文件的权限是什么？可否删除此文件？</p>
+<blockquote>
+<p>由于corly对此文件来说是“others”的身份，因此这个文件他无法读、编辑和执行，也就是说他无法变动这个文件的内容。<br>但是由于这个文件在他的主文件夹下，他在此目录具有rwx的完整权限，因此对于test.log这个文件来说，他是能够删除的。</p>
+</blockquote>
 
-第一列代表这个文件的类型与权限(permission)
-
-这一列共有10个字符代表这个文件是“目录、文件或链接文件等”。
-
-若是‘d’则是目录。
-若是‘-’则是文件。
-若是‘l’则表示为连接文件(linkfile)。
-若是‘b’则表示设备文件中可供存储的接口设备。
-若是‘c’则表示设备文
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/21/Linux文件权限/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/20/观察者与多主题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/20/观察者与多主题/" class="post-title-link" itemprop="url">观察者与多主题</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/20/观察者与多主题/" class="post-title-link" itemprop="url">观察者与多主题</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-20 18:04:00" itemprop="dateCreated datePublished" datetime="2015-07-20T18:04:00+08:00">2015-07-20</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -1696,181 +1237,90 @@ cd ：切换目录（change dire
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        
-          
-            <p>
-              一个观察者可以依赖于多个具体主题，当所依赖的任何具体主题的数据发生变化时，该观察者都能得到通知。多主题所涉及的问题是观察者如何处理主题中变化后的数据，因为，不同的具体主题所含有数据的机构可能有很大的不同。
-在处理多主题时，观察者接口可以将更新数据方法的参数类型设置为主题接口类型，比如update(S
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/20/观察者与多主题/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+          <p>一个观察者可以依赖于多个具体主题，当所依赖的任何具体主题的数据发生变化时，该观察者都能得到通知。多主题所涉及的问题是观察者如何处理主题中变化后的数据，因为，不同的具体主题所含有数据的机构可能有很大的不同。</p>
+<p>在处理多主题时，观察者接口可以将更新数据方法的参数类型设置为主题接口类型，比如update(Subject subject),即具体主题数据发生变化时将自己的引用传递给具体的观察者，然后具体的观察者让这个具体的主题调用有关的方法返回该具体主题中的数据。</p>
+<p>以下通过简单的问题说明多主题的设计。</p>
+<blockquote>
+<p>李先生希望及时知道气象站所维护的每日的天气数据，比如最高气温和最低气温等，同时希望及时知道旅行社每日的旅游信息。</p>
+</blockquote>
+<p>按着观察者的模式，李先生就是一个具体的观察者，而气象站和旅行社是他依赖的两个具体主题，根据观察者模式的结构，给出的设计如下。</p>
+<p><strong>1.主题</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.观察者</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject subject)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.具体主题</strong></p>
+<p>在本问题中，气象站和旅行社是两个具体主题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// WeatherStation.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WeatherStation</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	String forecastTime, forecastMess;</span><br><span class="line">	<span class="keyword">int</span> maxTemperature, minTemperature;</span><br><span class="line">	ArrayList&lt;Observer&gt; personList;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">WeatherStation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		personList = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (! personList.contains(o) ) &#123;</span><br><span class="line">			personList.add(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (personList.contains(o)) &#123;</span><br><span class="line">			personList.remove(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personList.size(); i++) &#123;</span><br><span class="line">			personList.get(i).update(<span class="keyword">this</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doForecast</span><span class="params">(String t, String mess, <span class="keyword">int</span> max, <span class="keyword">int</span> min)</span> </span>&#123;</span><br><span class="line">		forecastTime = t;</span><br><span class="line">		forecastMess = mess;</span><br><span class="line">		maxTemperature = max;</span><br><span class="line">		minTemperature = min;</span><br><span class="line">		notifyObservers();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getForecastTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> forecastTime;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getForecastMess</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> forecastMess;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMaxTemperature</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> maxTemperature;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMinTemperature</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> minTemperature;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// TraverAgency.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TraverAgency</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	String tourStartTime;</span><br><span class="line">	String tourMess;</span><br><span class="line">	ArrayList&lt;Observer&gt; personList;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TraverAgency</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		personList = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (o == <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (! personList.contains(o)) &#123;</span><br><span class="line">			personList.add(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (personList.contains(o)) &#123;</span><br><span class="line">			personList.remove(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personList.size(); i++) &#123;</span><br><span class="line">			personList.get(i).update(<span class="keyword">this</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveMess</span><span class="params">(String time, String mess)</span> </span>&#123;</span><br><span class="line">		tourStartTime = time;</span><br><span class="line">		tourMess = mess;</span><br><span class="line">		notifyObservers();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTourStartTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> tourStartTime;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getTourMess</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> tourMess;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4.具体观察者</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Subject subjectOne, subjectTwo;</span><br><span class="line">	String forecastTime, forecastMess;</span><br><span class="line">	String tourStartTime, tourMess;</span><br><span class="line">	<span class="keyword">int</span> maxTemperature, minTemperature;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(Subject subjectOne, Subject subjectTwo)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subjectOne = subjectOne;</span><br><span class="line">		<span class="keyword">this</span>.subjectTwo = subjectTwo;</span><br><span class="line">		subjectOne.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		subjectTwo.addObserver(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject subject)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (subject <span class="keyword">instanceof</span> WeatherStation) &#123;</span><br><span class="line">			WeatherStation ws = (WeatherStation) subject;</span><br><span class="line">			forecastTime = ws.getForecastTime();</span><br><span class="line">			forecastMess = ws.getForecastMess();</span><br><span class="line">			maxTemperature = ws.getMaxTemperature();</span><br><span class="line">			minTemperature = ws.getMinTemperature();</span><br><span class="line">			System.out.print(<span class="string">"预报日期:"</span>+ forecastTime +<span class="string">","</span>);</span><br><span class="line">			System.out.print(<span class="string">"天气情况:"</span>+ forecastMess +<span class="string">","</span>);</span><br><span class="line">			System.out.print(<span class="string">"最高温度:"</span>+ maxTemperature +<span class="string">","</span>);</span><br><span class="line">			System.out.println(<span class="string">"最低温度:"</span>+ minTemperature +<span class="string">","</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (subject <span class="keyword">instanceof</span> TraverAgency) &#123;</span><br><span class="line">			TraverAgency ta = (TraverAgency) subject;</span><br><span class="line">			tourStartTime = ta.getTourStartTime();</span><br><span class="line">			tourMess = ta.getTourMess();</span><br><span class="line">			System.out.print(<span class="string">"旅游开始日期："</span>+ tourStartTime +<span class="string">","</span>);</span><br><span class="line">			System.out.println(<span class="string">"旅游信息："</span>+tourMess+<span class="string">"。"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>5.测试程序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	WeatherStation weatherStation = <span class="keyword">new</span> WeatherStation();</span><br><span class="line">	TraverAgency traverAgency = <span class="keyword">new</span> TraverAgency();</span><br><span class="line">	Person meng = <span class="keyword">new</span> Person(weatherStation, traverAgency);</span><br><span class="line">	weatherStation.doForecast(<span class="string">"10 日"</span>, <span class="string">"阴有小雨"</span>, <span class="number">28</span>, <span class="number">20</span>);</span><br><span class="line">	traverAgency.giveMess(<span class="string">"10 日"</span>, <span class="string">"黄山两日游"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/18/观察者模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="CoderMeng">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/18/观察者模式/" class="post-title-link" itemprop="url">观察者模式</a>
-              
-            
-          </h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/18/观察者模式/" class="post-title-link" itemprop="url">观察者模式</a>
+        </h1>
 
         <div class="post-meta">
-
-          
-          
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2015-07-18 10:30:00" itemprop="dateCreated datePublished" datetime="2015-07-18T10:30:00+08:00">2015-07-18</time>
             </span>
-          
-
-          
-            
-
-            
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
+                <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
-            
-          
-
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
             </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
 
           
 
         </div>
       </header>
-    
 
     
     
@@ -1878,253 +1328,70 @@ cd ：切换目录（change dire
     <div class="post-body" itemprop="articleBody">
 
       
-      
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>定义对象间的一种一对多的关系，当一个对象的状态发生变化时，所有依赖它的对象都得到通知并自动更新。</p>
+</blockquote>
+<p><strong>概述</strong></p>
+<p>在许多设计中，经常涉及多个对象都对一个对象中的数据变化感兴趣，而且这多个对象都希望跟踪那个特殊对象中的数据变化。例如，某些寻找工作的人对求职中心的职业需求信息的变化非常关心，这时求职者可以登记到求职中心的“求职者”列表中，求职中心就会及时通知他所需要的最新的职业需求信息。</p>
+<p>观察者模式是关于多个对象想知道一个对象中数据变化情况的一种成熟的模式。观察者模式中有―个称作“主题”的对象和若干称作“观察者”的对象，“主题”和“观察者”之间是一种一对多的依赖关系，当主题的状态发生变化时，所有观察者都得到通知。前面所述的“求职中心”相当于观察者模式的“主题”；每个“求职者”相当于观察者模式的一个具体“观察者”。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><p>观察者模式的结构中包括四种角色。</p>
+<ul>
+<li><p>主题（Suject）：主题是一个接口，该接口规定了具体主题需要实现的方法，比如，添加、删除观察者以及观察者更新数据的方法。</p>
+</li>
+<li><p>观察者（Observer）：观察者是一个接口，该接口规定了具体观察者用来更新数据的方法。</p>
+</li>
+<li><p>具体主题（ConcreteSuject）：具体主题是实现主题接口类的一个实例，该实例包含有可以经常发生变化的数据。具体主题需使用一个集合，比如ArrayList，存放观察者的引用，以便数据变化时通知具体观察者。</p>
+</li>
+<li><p>具体观察者（ConcreteObserver）：具体观察者是实现观察者接口类的个实例。具体观察者包含有可以存放具体主题引用的主题接口变量，以便具体观察者让具体主题将自己的引用添加到具体主题的集合中，使自己成为它的观察者，或让这个具体主题将自己从具体主题的集合中删除，使自己不再是它的观察者。</p>
+</li>
+</ul>
+<h3 id="UML-类图"><a href="#UML-类图" class="headerlink" title="UML 类图"></a>UML 类图</h3><p><img src="http://corly.cc/usr/uploads/2015/07/946384518.jpg" alt="observerPattern.jpg"></p>
+<h3 id="结构描述"><a href="#结构描述" class="headerlink" title="结构描述"></a>结构描述</h3><p><strong>1.主题</strong></p>
+<p>主题接口规定了具体主题需要实现的添加、删除观察者以及通过观察者更新数据的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.观察者</strong></p>
+<p>观察者是一个接口，该接口规定了具体观察者用来更新数据的方法。对于本问题具体观察者都通过实现hearTelephone()方法来更新数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hearTelephone</span><span class="params">(String heardMess)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.具体主题</strong></p>
+<p>主题接口规定了具体主题需要实现的通知观察者更新数据的notifyObserver()方法，具体主题通过实现该方法来通知具体观察者。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeekJobCenter</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">	String mess;</span><br><span class="line">	<span class="keyword">boolean</span> changed;</span><br><span class="line">	ArrayList&lt;Observer&gt; personList; <span class="comment">//存放观察者引用的数组线性表</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SeekJobCenter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		personList = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</span><br><span class="line">		mess = <span class="string">""</span>;</span><br><span class="line">		changed = <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (!personList.contains(o)) &#123;</span><br><span class="line">			personList.add(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (personList.contains(o)) &#123;</span><br><span class="line">			personList.remove(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (changed) &#123;	<span class="comment">//通知所有观察者</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; personList.size(); i++) &#123;</span><br><span class="line">				personList.get(i).hearTelephone(mess);</span><br><span class="line">			&#125;</span><br><span class="line">			changed = <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">giveNewMess</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (str.equals(mess)) &#123;</span><br><span class="line">			changed = <span class="keyword">false</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			mess = str;</span><br><span class="line">			changed = <span class="keyword">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.具体观察者</strong></p>
+<p>本问题中。实现观察者接口Observer的类有两个：一个是UnivercityStudent类，另一个是HaiGui。 UniversityStudent类的实例调用hearTelephone(String heardMess)方法时，会将参数引用的字符串保存到一个文件中。HaiGui类的实例调用hearTelephone(String heardMess)方法时，如果参数引用的字符串中包含有“java”或“软件”，就将信息保存到一个文件中。UniversityStudent 和HaiGui类的代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UnivercityStudent.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UniversityStudent</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Subject subject;</span><br><span class="line">	File myFile;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">UniversityStudent</span><span class="params">(Subject subject, String fileName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = subject;</span><br><span class="line">		subject.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		myFile = <span class="keyword">new</span> File(fileName);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hearTelephone</span><span class="params">(String heardMess)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			RandomAccessFile out = <span class="keyword">new</span> RandomAccessFile(myFile, <span class="string">"rw"</span>);	</span><br><span class="line">			out.seek(out.length());</span><br><span class="line">			<span class="keyword">byte</span>[] b = heardMess.getBytes();</span><br><span class="line">			out.write(b);</span><br><span class="line">			System.out.print(<span class="string">"我是一个大学生，"</span>);</span><br><span class="line">			System.out.println(<span class="string">"我向文件"</span>+myFile.getName()+<span class="string">"写入如下内容："</span>);</span><br><span class="line">			System.out.println(heardMess);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//HaiGui.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HaiGui</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	Subject subject;</span><br><span class="line">	File myFile;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">HaiGui</span><span class="params">(Subject subject, String fileName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.subject = subject;</span><br><span class="line">		subject.addObserver(<span class="keyword">this</span>);</span><br><span class="line">		myFile = <span class="keyword">new</span> File(fileName);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hearTelephone</span><span class="params">(String heardMess)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">boolean</span> boo = heardMess.contains(<span class="string">"java"</span>) || heardMess.contains(<span class="string">"软件"</span>);</span><br><span class="line">			<span class="keyword">if</span> (boo) &#123;</span><br><span class="line">				RandomAccessFile out = <span class="keyword">new</span> RandomAccessFile(myFile, <span class="string">"rw"</span>);</span><br><span class="line">				out.seek(out.length());</span><br><span class="line">				<span class="keyword">byte</span>[] b = heardMess.getBytes();</span><br><span class="line">				out.write(b);</span><br><span class="line">				System.out.print(<span class="string">"我是一个海归，"</span>);</span><br><span class="line">				System.out.println(<span class="string">"我向文件"</span>+myFile.getName()+<span class="string">"写入如下内容:"</span>);</span><br><span class="line">				System.out.println(heardMess);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				System.out.println(<span class="string">"我是海归，这次信息中没有我需要的信息。"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="模式的使用"><a href="#模式的使用" class="headerlink" title="模式的使用"></a>模式的使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	SeekJobCenter center = <span class="keyword">new</span> SeekJobCenter(); <span class="comment">//具体主题center</span></span><br><span class="line">	UniversityStudent zhang = <span class="keyword">new</span> UniversityStudent(center, <span class="string">"A.txt"</span>);</span><br><span class="line">	HaiGui wang = <span class="keyword">new</span> HaiGui(center, <span class="string">"B.txt"</span>);</span><br><span class="line">	center.giveNewMess(<span class="string">"腾辉公司需8个java程序员"</span>);</span><br><span class="line">	center.notifyObservers();</span><br><span class="line">	center.giveNewMess(<span class="string">"仁和公司需要9个动画设计师"</span>);</span><br><span class="line">	center.notifyObservers();</span><br><span class="line">	center.giveNewMess(<span class="string">"xx公司需要4个电工"</span>);</span><br><span class="line">	center.notifyObservers();</span><br><span class="line">	center.giveNewMess(<span class="string">"xx公司需要4个电工"</span>);  <span class="comment">//信息不是最新的</span></span><br><span class="line">	center.notifyObservers();		<span class="comment">//观察者不会执行更新操作	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>具体主题和具体观察者是松耦合关系。由于具体主题（Subject）接口仅仅依赖于观察者（Observer）接口，因此具体主题只是知道它的观察者是实现观察者（Observer）接口的某个类的实例，但不需要知道具体是哪个类，同样，由于观察者仅仅依赖于主题（Subject）接口，因此具体观察者只是知道它依赖的主题是实现主题（Subject）接口的某个类的实例，但不需要知道具体是哪个类。</p>
+</li>
+<li><p>观察模式满足“开闭原则”。主题（Subject）接口仅仅依赖于观察者（Observer）接口，这样，就可以让创建具体主题的类也仅仅是依赖于观察者（Observer）接口，因此如果增加新的实现观察者（Observer）接口的类，不必修改创建具体主题的类的代码，同样，创建具体观察者的类仅仅依赖于主题（Subject）接口，如果增加新的实现主题（Subject）接口的类，也不必修改创建具体观察者类的代码。</p>
+</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li><p>当以一个对象的数据更新时需要通知其他对象，但这个对象又不希望和被通知的那些对象形成紧耦合。</p>
+</li>
+<li><p>当一个对象的数据更新时，这个对象也要让其他对象也各自更新自己的数据，但这个对象不知道具体有多少对象需要更新数据。</p>
+</li>
+</ul>
+<p><em>举例</em></p>
+<blockquote>
+<ol>
+<li><a href="http://corly.cc/archives/369.html">观察者与多主题</a></li>
+<li><a href="http://corly.cc/archives/376.html">统计文本中的单词和数字</a></li>
+</ol>
+</blockquote>
 
-      
-        
-          
-            <p>
-              概念
-定义对象间的一种一对多的关系，当一个对象的状态发生变化时，所有依赖它的对象都得到通知并自动更新。
-
-概述
-在许多设计中，经常涉及多个对象都对一个对象中的数据变化感兴趣，而且这多个对象都希望跟踪那个特殊对象中的数据变化。例如，某些寻找工作的人对求职中心的职业需求信息的变化非常关心，这时求职者可以
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/18/观察者模式/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
       
     </div>
 
     
-
     
     
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
+      <footer class="post-footer">
         <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-
-    
-      
-
-  
-
   
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/07/16/命令模式举例-模拟小电器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CoderMeng">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CoderMeng">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/07/16/命令模式举例-模拟小电器/" class="post-title-link" itemprop="url">命令模式举例-模拟小电器</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-07-16 17:28:00" itemprop="dateCreated datePublished" datetime="2015-07-16T17:28:00+08:00">2015-07-16</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>
-              我们用命令模式模拟一个带控制开关的小电器。该小电器上有四个开关，两个一组，其中一组负责打开、关闭照明灯，另一组负责打开、关闭小电器上的摄像头。
-设计要求
-设计Cammera类（模拟摄像头）和Light类（模拟照明灯）。
-设计Machine类（模拟小电器）。
-要求Machine类创建的对象中含有打开、
-              ...
-            </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2015/07/16/命令模式举例-模拟小电器/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
 
   
   <nav class="pagination">
@@ -2137,237 +1404,92 @@ cd ：切换目录（change dire
           
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-      
-
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">CoderMeng</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">53</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">35</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
       </div>
+      <!--/noindex-->
 
-      
-
-      
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
-
-    </div>
-  </aside>
-  
-
-
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
-
-  
-
-  
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
 
 
+      </div>
+    </main>
 
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0
+  </div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
-
-
-
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
 
         
 
@@ -2381,33 +1503,19 @@ cd ：切换目录（change dire
         
       </div>
     </footer>
-
-    
-
-    
-
-    
-
-    
   </div>
 
   
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
-
-
-
-
-
+  
 
 
 
@@ -2425,84 +1533,9 @@ cd ：切换目录（change dire
 
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
 
   
 
-
-  <script src="/js/utils.js?v=7.1.2"></script>
-
-  <script src="/js/motion.js?v=7.1.2"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.2"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
-
-
-
-  
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
