@@ -13,37 +13,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://corly.cc').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="CoderMeng">
@@ -60,15 +35,23 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>CoderMeng</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
 
 
 
@@ -106,17 +89,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">CoderMeng</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -124,25 +96,43 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -154,303 +144,16 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content index posts-expand">
             
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/04/04/sql基本操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="CoderMeng">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CoderMeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/04/04/sql基本操作/" class="post-title-link" itemprop="url">sql基本操作</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2015-04-04 16:18:00" itemprop="dateCreated datePublished" datetime="2015-04-04T16:18:00+08:00">2015-04-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sql/" itemprop="url" rel="index">
-                    <span itemprop="name">sql</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <p>数据库结构的操作</p>
-<p>[toc]</p>
-<h1 id="一-库操作"><a href="#一-库操作" class="headerlink" title="一. 库操作"></a>一. 库操作</h1><h2 id="1-查看已创建的数据库"><a href="#1-查看已创建的数据库" class="headerlink" title="1. 查看已创建的数据库"></a>1. 查看已创建的数据库</h2><blockquote>
-<p>show databases;</p>
-</blockquote>
-<h2 id="2-创建数据库"><a href="#2-创建数据库" class="headerlink" title="2. 创建数据库"></a>2. 创建数据库</h2><blockquote>
-<p>create database 数据库名 ;</p>
-</blockquote>
-<h2 id="3-查看数据库创建"><a href="#3-查看数据库创建" class="headerlink" title="3. 查看数据库创建"></a>3. 查看数据库创建</h2><blockquote>
-<p>show create database “db_name”;</p>
-</blockquote>
-<h2 id="4-删除数据库"><a href="#4-删除数据库" class="headerlink" title="4. 删除数据库"></a>4. 删除数据库</h2><blockquote>
-<p>drop database “db_name”;</p>
-</blockquote>
-<h2 id="5-获得用户账户列表"><a href="#5-获得用户账户列表" class="headerlink" title="5. 获得用户账户列表"></a>5. 获得用户账户列表</h2><blockquote>
-<p>mysql -u root -p -e “SELECT User, Host FROM User” mysql</p>
-</blockquote>
-<h2 id="6-修改数据库信息"><a href="#6-修改数据库信息" class="headerlink" title="6. 修改数据库信息"></a>6. 修改数据库信息</h2><blockquote>
-<p>alter database “db_name”;<br>alter database php_one character set gbk;</p>
-</blockquote>
-<h1 id="二．表操作"><a href="#二．表操作" class="headerlink" title="二．表操作"></a>二．表操作</h1><h2 id="1-创建表"><a href="#1-创建表" class="headerlink" title="1. 创建表"></a>1. 创建表</h2><p><code>sql</code><br>create table php_one.php_class(<br>    class_no varchar(20),<br>    date_start date<br>);<br>php_one:数据库名，php_class:表名<br><code>sql</code></p>
-<h2 id="2-查看表"><a href="#2-查看表" class="headerlink" title="2. 查看表"></a>2. 查看表</h2><p>[sql]<br>show tables;<br>show tables like ‘%_class’;(也可以用于数据库：show databses like ‘%_class’;)<br>show create table php_class;//可以用”\G”代替结束符”;”。<br>describe tb_name;<br>[/sql]</p>
-<h2 id="3-删除表"><a href="#3-删除表" class="headerlink" title="3. 删除表"></a>3. 删除表</h2><blockquote>
-<p>drop table [if exists] tb_name;</p>
-</blockquote>
-<h2 id="4-修改表名"><a href="#4-修改表名" class="headerlink" title="4. 修改表名"></a>4. 修改表名</h2><blockquote>
-<p>rename table old_tb_name to new_tb_name;</p>
-</blockquote>
-<p>可以同时支持修改多个表</p>
-<blockquote>
-<p>rename table old_tb_name to new_tb_name,old_tb_name to new_tb_name;</p>
-</blockquote>
-<p>可以将一个数据库中的表移动到另一个数据库中</p>
-<blockquote>
-<p>raname table tb_name to db_name.user;</p>
-</blockquote>
-<h2 id="5-修改列"><a href="#5-修改列" class="headerlink" title="5. 修改列"></a>5. 修改列</h2><p>修改表结构</p>
-<blockquote>
-<p>alter table tb_name [add|modify|drop|change]</p>
-</blockquote>
-<p>增加一个列（add）</p>
-<blockquote>
-<p>alter table tb_name add 新列的定义;<br>alter table tb_name add money decimal(10,2) zerolfill;<br>增加的name列在age列后面<br>alter table tb_name add name varchar(64) not null after age;</p>
-</blockquote>
-<p>修改一个列（modify）</p>
-<blockquote>
-<p>modify tb_name 类型;</p>
-</blockquote>
-<p>删除一个列（drop）<br>重命名一个列（change）</p>
-<blockquote>
-<p>change old_name new_name 类型;</p>
-</blockquote>
-<p>修改表选项</p>
-<blockquote>
-<p>alter table tb_name 新的表选项;<br>alter table test character set gbk;</p>
-</blockquote>
-<h1 id="三-数据操作"><a href="#三-数据操作" class="headerlink" title="三. 数据操作"></a>三. 数据操作</h1><h2 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1. 插入数据"></a>1. 插入数据</h2><p>[sql]<br>insert into 表名（字段列表） values（列表值）<br>insert into php_class (class_no,name) values (‘php110’,’孟爽’);<br>表的数据自我复制<br>insert into emp (name,grade,email,salary) select name,grade,email,salary from emp;<br>[/sql]</p>
-<h2 id="2-查询数据"><a href="#2-查询数据" class="headerlink" title="2. 查询数据"></a>2. 查询数据</h2><p>[sql]<br>select 字段列表 from 表名 [查询条件];<br>select <em> from php_class;<br>select </em> from php_class limit 0,1; #表示显示第一次查到的符合条件的数据（如果是1,1表示显示第二个符合条件的数据）。[/sql]</p>
-<h2 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3. 删除数据"></a>3. 删除数据</h2><blockquote>
-<p>delete from 表名 条件;</p>
-</blockquote>
-<h2 id="4-修改数据"><a href="#4-修改数据" class="headerlink" title="4. 修改数据"></a>4. 修改数据</h2><blockquote>
-<p>update 表名 set 字段=新值……条件;</p>
-</blockquote>
-<h2 id="5-统计表中数据个数"><a href="#5-统计表中数据个数" class="headerlink" title="5. 统计表中数据个数"></a>5. 统计表中数据个数</h2><blockquote>
-<p>select count(字段名或’*’) from tb_name;</p>
-</blockquote>
-<h2 id="6-Order-by"><a href="#6-Order-by" class="headerlink" title="6. Order by"></a>6. Order by</h2><blockquote>
-<p>select <em> from tb_name order by 表项 升序|降序;（asc|desc）<br>select </em>from tb_name order by id desc;</p>
-</blockquote>
-<p>多字段排序:    先按照一个字段排序，如果说不能区分，才使用第二个字段。
- </p>
-<h1 id="四-列类型"><a href="#四-列类型" class="headerlink" title="四. 列类型"></a>四. 列类型</h1><h2 id="1-数值类型"><a href="#1-数值类型" class="headerlink" title="1. 数值类型"></a>1. 数值类型</h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th style="text-align:right">字节</th>
-<th style="text-align:center">最小值</th>
-<th style="text-align:center">最大值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td style="text-align:right"></td>
-<td style="text-align:center">(带符号的/无符号的)</td>
-<td style="text-align:center">(带符号的/无符号的)</td>
-</tr>
-<tr>
-<td>TINYINT</td>
-<td style="text-align:right">1</td>
-<td style="text-align:center">-128/0</td>
-<td style="text-align:center">127/255</td>
-</tr>
-<tr>
-<td>SMALLINT</td>
-<td style="text-align:right">2</td>
-<td style="text-align:center">-32768/0</td>
-<td style="text-align:center">32767/65535</td>
-</tr>
-<tr>
-<td>MEDIUMINT</td>
-<td style="text-align:right">3</td>
-<td style="text-align:center">-8388608/0</td>
-<td style="text-align:center">8388607/16777215</td>
-</tr>
-<tr>
-<td>INT</td>
-<td style="text-align:right">4</td>
-<td style="text-align:center">-2147483648/0</td>
-<td style="text-align:center">2147483647/4294967295</td>
-</tr>
-<tr>
-<td>BIGINT</td>
-<td style="text-align:right">8</td>
-<td style="text-align:center">-9223372036854775808/0</td>
-<td style="text-align:center">9223372036854775807/18446744073709551615</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-定义显示宽度"><a href="#2-定义显示宽度" class="headerlink" title="2. 定义显示宽度"></a>2. 定义显示宽度</h2><p>通过规定数据的显示宽度，达到统一显示的目的</p>
-<blockquote>
-<p>alter table tb_name add 列名 类型(M); //M表示显示的最小宽度。<br>alter table num_1 modify a int(3) zerofill;</p>
-</blockquote>
-<h2 id="3-小数"><a href="#3-小数" class="headerlink" title="3. 小数"></a>3. 小数</h2><p> [sql]<br>create table num_2(<br> a float(5,2), #表示精度为5小数点后保留2位有效数字<br> b double(8,3)<br>);[/sql]</p>
-<h2 id="4-时间类型"><a href="#4-时间类型" class="headerlink" title="4. 时间类型"></a>4. 时间类型</h2><p> [sql]<br>create table time(<br>a datetime,<br>b timestamp<br>);<br>insert into time values (‘2013-07-27 10:10:10’, ‘2013-07-27 10:11:10’);<br>insert into time values (‘20:12:19’,’20370119031407’);<br>insert into time values (0,0);<br>[/sql]</p>
-<p>以时间戳显示</p>
-<p>Time类型</p>
-<blockquote>
-<p>   表示意义：</p>
-<ol>
-<li>一天中的时间</li>
-<li>时间间隔<br>[sql]<br>create table t_1(<br>ago time<br>)<br>insert into t_1 values (‘23:12:11’);<br>insert into t_1 values (‘231211’);<br>insert into t_1 values (‘5 12:34:11’); # 5天</li>
-</ol>
-</blockquote>
-<h2 id="5-字符型"><a href="#5-字符型" class="headerlink" title="5.    字符型"></a>5.    字符型</h2><p>create table char1(<br>a varchar(21845)   /*错误，因为列的最大长度为65535个字节<br>) character set utf-8;<br>text没有65535的限制,总长度为216+2个字节 如：<br>create table text1(<br>a text,<br>b text<br>)<br>enum<br>create table enum1(<br>sex enum(‘boy’,’girl’)<br>);<br>insert into enum1 values (‘boy’);<br>insert into enum1 values (‘2’);</p>
-<p>set<br>create table set1(<br>hobby set(‘basket’,’footbal’,’pingpang’)<br>);<br>insert into set1 values (‘basket,footbal’)<br>五、    列属性，列约束</p>
-<ol>
-<li>是否为空  not null;<br>create table php1(<br>a int not null<br>b int<br>);</li>
-<li>默认值<br>create table php2(<br>a int not null default 10,<br>b int not null default 21<br>);<br>insert into php2 (a) values (10);<br>insert into php2 (a) values (11);</li>
-</ol>
-<p>create table php3(<br>a int not null default 10,<br>b int default 21<br>);<br>    insert into php3 values (20,null);</p>
-<ol start="3">
-<li>主键:一个表只能有一个主键<br>create table teacher(<br>id int primary key,<br>name varchar(10)<br>);<br>也可这样写<br>create table teacher(<br>id int,<br>name varchar(10)，<br>primary key (id)<br>);</li>
-</ol>
-<p>一个主键可以包含多个字段<br>create table teacher(<br>name varchar(9),<br>class_name varchar(8),<br>day tinyint unsigned,<br>primary key (name,class_name)/*name和class_name和一起是一个主键<br>)</p>
-<ol start="4">
-<li>自动增长<br>create table teacher1(<br>id1 int primary key auto_increment,<br>name varchar(10)<br>);<br>alter table teacher1 auto_increment 10;<br>insert into teacher1 values (5,’小敏’);可以插入自己定义的</li>
-</ol>
-<p> <br>MYSQL命令大全<br>一、连接MySQL<br>        格式： mysql -h主机地址 -u用户名 －p用户密码<br>        1、例1：连接到本机上的MYSQL。<br>        首先在打开DOS窗口，然后进入目录 mysqlbin，再键入命令mysql -uroot -p，回车后提示你输密码，如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;。<br>        2、例2：连接到远程主机上的MYSQL。假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：<br>        mysql -h110.110.110.110 -uroot -pabcd123<br>        （注:u与root可以不用加空格，其它也一样）<br>        3、退出MYSQL命令： exit （回车）。<br>二、修改密码<br>        格式：mysqladmin -u用户名 -p旧密码 password 新密码<br>        1、例1：给root加个密码ab12。首先在DOS下进入目录mysqlbin，然后键入以下命令：<br>        mysqladmin -uroot -password ab12<br>        注：因为开始时root没有密码，所以-p旧密码一项就可以省略了。<br>        2、例2：再将root的密码改为djg345。<br>        mysqladmin -uroot -pab12 password djg345<br>三、增加新用户。<br>（注意：和上面不同，下面的因为是MySQL环境中的命令，所以后面都带一个分号作为命令结束符）<br>        格式：grant select on 数据库.<em> to 用户名@登录主机 identified by \”密码\”<br>        例1、增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入MySQL，然后键入以下命令：<br>        grant select,insert,update,<br>        delete on </em>.<em> to test2@localhost identified by \”abc\”;<br>        如果你不想test2有密码，可以再打一个命令将密码消掉。<br>        grant select,insert,update,delete on mydb<br>        .</em> to test2@localhost identified by \”\”;<br>        在上面讲了登录、增加用户、密码更改等问题。下面我们来看看MySQL中有关数据库方面的操作。注意：你必须首先登录到MySQL中，以下操作都是在MySQL的提示符下进行的，而且每个命令以分号结束。</p>
-<p>1、MySQL常用命令<br>create database name; 创建数据库<br>use databasename; 选择数据库<br>drop database name 直接删除数据库，不提醒<br>show tables; 显示表<br>describe tablename; 表的详细描述<br>select 中加上distinct去除重复字段<br>mysqladmin drop database name 删除数据库前，有提示。<br>显示当前mysql版本和当前日期<br>select version(),current_date;<br>2、修改mysql中root的密码：<br>shell&gt;mysql -u root -p<br>mysql&gt; update user set password=password(”xueok654123″) where user=’root’;<br>mysql&gt; flush privileges //刷新数据库<br>mysql&gt;use dbname； 打开数据库：<br>mysql&gt;show databases; 显示所有数据库<br>mysql&gt;show tables; 显示数据库mysql中所有的表：先use mysql；然后<br>mysql&gt;describe user; 显示表mysql数据库中user表的列信息）；<br>3、grant<br>创建一个可以从任何地方连接服务器的一个完全的超级用户，但是必须使用一个口令something做这个<br>mysql&gt; grant all privileges on <em>.</em> to user@localhost identified by ’something’ with<br>增加新用户<br>格式：grant select on 数据库.<em> to 用户名@登录主机 identified by “密码”<br>GRANT ALL PRIVILEGES ON </em>.<em> TO monty@localhost IDENTIFIED BY ’something’ WITH GRANT OPTION;<br>GRANT ALL PRIVILEGES ON </em>.<em> TO monty@”%” IDENTIFIED BY ’something’ WITH GRANT OPTION;<br>删除授权：<br>mysql&gt; revoke all privileges on </em>.<em> from root@”%”;<br>mysql&gt; delete from user where user=”root” and host=”%”;<br>mysql&gt; flush privileges;<br>创建一个用户custom在特定客户端it363.com登录，可访问特定数据库fangchandb<br>mysql &gt;grant select, insert, update, delete, create,drop on fangchandb.</em> to custom@ it363.com identified by ‘ passwd’<br>重命名表:<br>mysql &gt; alter table t1 rename t2;<br>4、mysqldump<br>备份数据库<br>shell&gt; mysqldump -h host -u root -p dbname &gt;dbname_backup.sql<br>恢复数据库<br>shell&gt; mysqladmin -h myhost -u root -p create dbname<br>shell&gt; mysqldump -h host -u root -p dbname &lt; dbname_backup.sql<br>如果只想卸出建表指令，则命令如下：<br>shell&gt; mysqladmin -u root -p -d databasename &gt; a.sql<br>如果只想卸出插入数据的sql命令，而不需要建表命令，则命令如下：<br>shell&gt; mysqladmin -u root -p -t databasename &gt; a.sql<br>那么如果我只想要数据，而不想要什么sql命令时，应该如何操作呢？<br>　　 mysqldump -T./ phptest driver<br>其中，只有指定了-T参数才可以卸出纯文本文件，表示卸出数据的目录，./表示当前目录，即与mysqldump同一目录。如果不指定driver 表，则将卸出整个数据库的数据。每个表会生成两个文件，一个为.sql文件，包含建表执行。另一个为.txt文件，只包含数据，且没有sql指令。<br>5、从文件中输入查询<br>可将查询存储在一个文件中并告诉mysql从文件中读取查询而不是等待键盘输入。可利用外壳程序键入重定向实用程序来完成这项工作。例如，如果在文件my_file.sql 中存放有查<br>询，可如下执行这些查询：<br>例如，如果您想将建表语句提前写在sql.txt中:<br>mysql &gt; mysql -h myhost -u root -p database &lt; sql.txt<br>1、安装环境：<br>      Windows XP<br>      Mysql 4.0.17 从     下次就需要用mysql -uroot -proot才可以登陆<br>    在远程或本机可以使用 mysql -h 172.5.1.183 -uroot 登陆，这个根据第二行的策略确定<br>    权限修改生效：<br>       1)net stop mysql<br>         net start mysql<br>       2)c:\mysql\bin\mysqladmin flush-privileges<br>       3)登陆mysql后，用flush privileges语句<br>6、创建数据库staffer<br>    create database staffer;<br>    显示用户拥有权限的数据库        show databases;<br>    切换到staffer数据库        use staffer;<br>    显示当前数据库中有权限的表 show tables;<br>    显示表staffer的结构    desc staffer;<br>7、创建测试环境<br>创建数据库staffer<br>      mysql&gt; create database staffer<br>创建表<br>staffer,department,position,depart_pos<br>      create table s_position<br>      (<br>          id int not null auto_increment,<br>          name varchar(20) not null default ‘经理’, #设定默认值<br>          description varchar(100),<br>          primary key PK_positon (id)   #设定主键<br>      );<br>      create table department<br>      (<br>          id int not null auto_increment,<br>          name varchar(20) not null default ‘系统部’, #设定默认值<br>          description varchar(100),<br>          primary key PK_department (id)   #设定主键<br>      );<br>      create table depart_pos<br>      (<br>          department_id int not null,<br>          position_id int not null,<br>          primary key PK_depart_pos (department_id,position_id)   #设定复和主键<br>      );<br>      create table staffer<br>      (<br>          id int not null auto_increment primary key,   #设定主键<br>          name varchar(20) not null default ‘无名氏’,   #设定默认值<br>          department_id int not null,<br>          position_id int not null,<br>          unique (department_id,position_id)   #设定唯一值<br>      );<br>删除<br>      mysql&gt;<br>         drop table depart_pos;<br>         drop table department;<br>         drop table s_position;<br>         drop table staffer;<br>         drop database staffer;<br>8、修改结构<br>    mysql&gt;</p>
-<pre><code>#表position增加列test
-alter table position add(test char(10));
-#表position修改列test
-alter table position modify test char(20) not null;
-#表position修改列test默认值
-alter table position alter test set default &apos;system&apos;;
-#表position去掉test默认值
-alter table position alter test drop default;
-#表position去掉列test
-alter table position drop column test;
-#表depart_pos删除主键
-alter table depart_pos drop primary key;
-#表depart_pos增加主键
-alter table depart_pos add primary key PK_depart_pos (department_id,position_id);
-</code></pre><p>9、操作数据</p>
-<pre><code>#插入表department
-insert into department(name,description) values(&apos;系统部&apos;,&apos;系统部&apos;);
-insert into department(name,description) values(&apos;公关部&apos;,&apos;公关部&apos;);
-insert into department(name,description) values(&apos;客服部&apos;,&apos;客服部&apos;);
-insert into department(name,description) values(&apos;财务部&apos;,&apos;财务部&apos;);
-insert into department(name,description) values(&apos;测试部&apos;,&apos;测试部&apos;);
-#插入表s_position
-insert into s_position(name,description) values(&apos;总监&apos;,&apos;总监&apos;);
-insert into s_position(name,description) values(&apos;经理&apos;,&apos;经理&apos;);
-insert into s_position(name,description) values(&apos;普通员工&apos;,&apos;普通员工&apos;);
-#插入表depart_pos
-insert into depart_pos(department_id,position_id)
-select a.id department_id,b.id postion_id
-from department a,s_position b;
-#插入表staffer
-insert into staffer(name,department_id,position_id) values(&apos;陈达治&apos;,1,1);
-insert into staffer(name,department_id,position_id) values(&apos;李文宾&apos;,1,2);
-insert into staffer(name,department_id,position_id) values(&apos;马佳&apos;,1,3);
-insert into staffer(name,department_id,position_id) values(&apos;亢志强&apos;,5,1);
-insert into staffer(name,department_id,position_id) values(&apos;杨玉茹&apos;,4,1);
-</code></pre><p>10、查询及删除操作</p>
-<pre><code>#显示系统部的人员和职位
-select a.name,b.name department_name,c.name position_name
-from staffer a,department b,s_position c
-where a.department_id=b.id and a.position_id=c.id and b.name=&apos;系统部&apos;;
-#显示系统部的人数
-select count(*) from staffer a,department b
-where a.department_id=b.id and b.name=&apos;系统部&apos;
-#显示各部门的人数
-select count(*) cou,b.name
-from staffer a,department b
-where a.department_id=b.id
-group by b.name;
-#删除客服部
-delete from department where name=&apos;客服部&apos;;
-#将财务部修改为财务一部
-update department set name=&apos;财务一部&apos; where name=&apos;财务部&apos;;
-</code></pre><p>11、备份和恢复<br>     备份数据库staffer<br>      c:\mysql\bin\mysqldump -uroot -proot staffer&gt;e:\staffer.sql<br>      得到的staffer.sql是一个sql脚本，不包括建库的语句，所以你需要手工<br>      创建数据库才可以导入<br>     恢复数据库staffer,需要创建一个空库staffer<br>      c:\mysql\bin\mysql -uroot -proot staffer&lt;staffer.sql<br>      如果不希望后来手工创建staffer,可以<br>      c:\mysql\bin\mysqldump -uroot -proot –databases staffer&gt;e:\staffer.sql<br>      mysql -uroot -proot &gt;e:\staffer.sql<br>      但这样的话系统种就不能存在staffer库，且无法导入其他名字的数据库，<br>      当然你可以手工修改staffer.sql文件<br>13、从文本向数据库导入数据<br>     1)使用工具c:\mysql\bin\mysqlimport<br>     这个工具的作用是将文件导入到和去掉文件扩展名名字相同的表里，如<br>     staffer.txt,staffer都是导入到staffer表中<br>     常用选项及功能如下<br>-d or –delete 新数据导入数据表中之前删除数据数据表中的所有信息<br>-f or –force 不管是否遇到错误，mysqlimport将强制继续插入数据<br>-i or –ignore mysqlimport跳过或者忽略那些有相同唯一<br>关键字的行， 导入文件中的数据将被忽略。<br>-l or -lock-tables 数据被插入之前锁住表，这样就防止了，<br>你在更新数据库时，用户的查询和更新受到影响。<br>-r or -replace 这个选项与－i选项的作用相反；此选项将替代<br>表中有相同唯一关键字的记录。<br>–fields-enclosed- by= char<br>指定文本文件中数据的记录时以什么括起的， 很多情况下<br>数据以双引号括起。 默认的情况下数据是没有被字符括起的。<br>–fields-terminated- by=char<br>指定各个数据的值之间的分隔符，在句号分隔的文件中，<br>分隔符是句号。您可以用此选项指定数据之间的分隔符。<br>默认的分隔符是跳格符（Tab）<br>–lines-terminated- by=str<br>此选项指定文本文件中行与行之间数据的分隔字符串<br>或者字符。 默认的情况下mysqlimport以newline为行分隔符。<br>您可以选择用一个字符串来替代一个单个的字符：<br>一个新行或者一个回车。<br>mysqlimport命令常用的选项还有-v 显示版本（version），<br>             -p 提示输入密码（password）等。<br>    这个工具有个问题，无法忽略某些列，这样对我们的数据导入有很大的麻烦，虽然<br>    可以手工设置这个字段，但会出现莫名其妙的结果，我们做一个简单的示例<br>    我们定义如下的depart_no.txt，保存在e盘，间隔为制表符\t<br>10 10<br>11 11<br>12 24<br>执行如下命令<br>     c:\mysql\bin\mysqlimport -uroot -proot staffer e:\depart_pos.txt<br>     在这里没有使用列的包围符号，分割采用默认的\t，因为采用别的符号会有问题，<br>     不知道是不是windows的原因<br>     2)Load Data INFILE file_name into table_name(column1_name,column2_name)<br>       这个命令在mysql&gt;提示符下使用，优点是可以指定列导入，示例如下<br>       c:\mysql\bin\mysql -uroot -proot staffer<br>       mysql&gt;load data infile “e:/depart_no.txt” into depart_no(department_id,position_id);</p>
-<pre><code>这两个工具在Windows下使用都有问题，不知道是Windows的原因还是中文的问题，
-而且不指定的列它产生了空值，这显然不是我们想要的，所以谨慎使用这些工具
-</code></pre><p>进入MySQL:mysql -uuser -ppassword –port=3307<br>1:使用SHOW语句找出在服务器上当前存在什么数据库：<br>mysql&gt; SHOW DATABASES;<br>2:2、创建一个数据库MYSQLDATA<br>mysql&gt; Create DATABASE MYSQLDATA;<br>3:选择你所创建的数据库<br>mysql&gt; USE MYSQLDATA; (按回车键出现Database changed 时说明操作成功！)<br>4:查看现在的数据库中存在什么表<br>mysql&gt; SHOW TABLES;<br>5:创建一个数据库表<br>mysql&gt; Create TABLE MYTABLE (name VARCHAR(20), sex CHAR(1));<br>6:显示表的结构：<br>mysql&gt; DESCRIBE MYTABLE;<br>7:往表中加入记录<br>mysql&gt; insert into MYTABLE values (“hyq”,”M”);<br>8:用文本方式将数据装入数据库表中（例如D:/mysql.txt）<br>mysql&gt; LOAD DATA LOCAL INFILE “D:/mysql.txt” INTO TABLE MYTABLE;<br>9:导入.sql文件命令（例如D:/mysql.sql）<br>mysql&gt;use database;<br>mysql&gt;source d:/mysql.sql;<br>10:删除表<br>mysql&gt;drop TABLE MYTABLE;<br>11:清空表<br>mysql&gt;delete from MYTABLE;<br>12:更新表中数据<br>mysql&gt;update MYTABLE set sex=”f” where name=’hyq’;<br>UPDATE [LOW_PRIORITY] [IGNORE] tbl_name<br>    SET col_name1=expr1 [, col_name2=expr2 …]<br>    [WHERE where_definition]<br>    [ORDER BY …]<br>    [LIMIT rows]<br>or<br>UPDATE [LOW_PRIORITY] [IGNORE] tbl_name [, tbl_name …]<br>    SET col_name1=expr1 [, col_name2=expr2 …]<br>    [WHERE where_definition]<br>UPDATE 以新的值更新现存表中行的列。SET 子句指出要修改哪个列和他们应该给定的值。WHERE<br>      子句如果被给出，指定哪个记录行应该被更新。否则，所有的记录行被更新。如果 ORDER BY 子句被指定，记录行将被以指定的次序更新。<br>      如果你指定关键词 LOW_PRIORITY，UPDATE 的执行将被延迟，直到没有其它的客户端正在读取表。<br>      如果你指定关键词 IGNORE，该更新语句将不会异常中止，即使在更新过程中出现重复键错误。导致冲突的记录行将不会被更新。<br>      如果在一个表达式中从 tbl_name 中访问一个列，UPDATE 使用列的当前值。举例来说，下面的语句设置 age 列值为它的当前值加 1 ：<br>mysql&gt; UPDATE persondata SET age=age+1;<br>UPDATE 赋值是从左到右计算的。举例来说，下列语句将 age 列设置为它的两倍，然后再加 1 ：<br>mysql&gt; UPDATE persondata SET age=age<em>2, age=age+1;<br>如果你设置列为其当前的值，MySQL 注意到这点，并不更新它。<br>      UPDATE 返回实际被改变的记录行数目。在 MySQL 3.22 或更新的版本中，C API 函数 mysql_info()<br>      返回被匹配并更新的记录行数目，以及在 UPDATE 期间发生的警告的数目。<br>      在 MySQL 3.23 中，你可以使用 LIMIT # 来确保只有给定的记录行数目被更改。<br>      如果一个 ORDER BY 子句被使用(从 MySQL 4.0.0 开始支持)，记录行将以指定的次序被更新。这实际上只有连同 LIMIT<br>      一起才有用。<br>      从 MySQL 4.0.4 开始，你也可以执行一个包含多个表的 UPDATE 的操作：<br>UPDATE items,month SET items.price=month.price<br>WHERE items.id=month.id;<br>注意：多表 UPDATE 不可以使用 ORDER BY 或 LIMIT。<br>关键字:   mysql<br>启动：net start mySql;<br>　　进入：mysql -u root -p/mysql -h localhost -u root -p databaseName;<br>　　列出数据库：show databases;<br>　　选择数据库：use databaseName;<br>　　列出表格：show tables；<br>　　显示表格列的属性：show columns from tableName；<br>　　建立数据库：source fileName.txt;<br>　　匹配字符：可以用通配符_代表任何一个字符，％代表任何字符串;<br>　　增加一个字段：alter table tabelName add column fieldName dateType;<br>　　增加多个字段：alter table tabelName add column fieldName1 dateType,add columns fieldName2 dateType;<br>　　多行命令输入:注意不能将单词断开;当插入或更改数据时，不能将字段的字符串展开到多行里，否则硬回车将被储存到数据中;<br>　　增加一个管理员帐户：grant all on </em>.<em> to user@localhost identified by “password”;<br>　　每条语句输入完毕后要在末尾填加分号’;’，或者填加’\g’也可以；<br>　　查询时间：select now();<br>　　查询当前用户：select user();<br>　　查询数据库版本：select version();<br>　　查询当前使用的数据库：select database();<br>　　<br>　　1、删除student_course数据库中的students数据表：<br>　　rm -f student_course/students.</em><br>　　<br>　　2、备份数据库：(将数据库test备份)<br>　　mysqldump -u root -p test&gt;c:\test.txt<br>　　备份表格：(备份test数据库下的mytable表格)<br>　　mysqldump -u root -p test mytable&gt;c:\test.txt<br>　　将备份数据导入到数据库：(导回test数据库)<br>　　mysql -u root -p test<br>　　<br>　　3、创建临时表：(建立临时表zengchao)<br>　　create temporary table zengchao(name varchar(10));<br>　　<br>　　4、创建表是先判断表是否存在<br>　　create table if not exists students(……);<br>　　<br>　　5、从已经有的表中复制表的结构<br>　　create table table2 select <em> from table1 where 1&lt;&gt;1;<br>　　<br>　　6、复制表<br>　　create table table2 select </em> from table1;<br>　　<br>　　7、对表重新命名<br>　　alter table table1 rename as table2;<br>　　<br>　　8、修改列的类型<br>　　alter table table1 modify id int unsigned;//修改列id的类型为int unsigned<br>　　alter table table1 change id sid int unsigned;//修改列id的名字为sid，而且把属性修改为int unsigned<br>　　<br>　　9、创建索引<br>　　alter table table1 add index ind_id (id);<br>　　create index ind_id on table1 (id);<br>　　create unique index ind_id on table1 (id);//建立唯一性索引<br>　　<br>　　10、删除索引<br>　　drop index idx_id on table1;<br>　　alter table table1 drop index ind_id;<br>　　<br>　　11、联合字符或者多个列(将列id与”:”和列name和”=”连接)<br>　　select concat(id,’:’,name,’=’) from students;<br>　　<br>　　12、limit(选出10到20条)&lt;第一个记录集的编号是0&gt;<br>　　select <em> from students order by id limit 9,10;<br>　　<br>　　13、MySQL不支持的功能<br>　　事务，视图，外键和引用完整性，存储过程和触发器<br>　　<br>　　<br>　　14、MySQL会使用索引的操作符号<br>　　&lt;,&lt;=,&gt;=,&gt;,=,between,in,不带%或者_开头的like<br>　　<br>　　15、使用索引的缺点<br>　　1)减慢增删改数据的速度；<br>　　2）占用磁盘空间；<br>　　3）增加查询优化器的负担；<br>　　当查询优化器生成执行计划时，会考虑索引，太多的索引会给查询优化器增加工作量，导致无法选择最优的查询方案；<br>　　<br>　　16、分析索引效率<br>　　方法：在一般的SQL语句前加上explain；<br>　　分析结果的含义：<br>　　1）table：表名；<br>　　2）type：连接的类型，(ALL/Range/Ref)。其中ref是最理想的；<br>　　3）possible_keys：查询可以利用的索引名；<br>　　4）key：实际使用的索引；<br>　　5）key_len：索引中被使用部分的长度（字节）；<br>　　6）ref：显示列名字或者”const”（不明白什么意思）；<br>　　7）rows：显示MySQL认为在找到正确结果之前必须扫描的行数；<br>　　8）extra：MySQL的建议；<br>　　<br>　　17、使用较短的定长列<br>　　1）尽可能使用较短的数据类型；<br>　　2）尽可能使用定长数据类型；<br>　　a）用char代替varchar，固定长度的数据处理比变长的快些；<br>　　b）对于频繁修改的表，磁盘容易形成碎片，从而影响数据库的整体性能；<br>　　c）万一出现数据表崩溃，使用固定长度数据行的表更容易重新构造。使用固定长度的数据行，每个记录的开始位置都是固定记录长度的倍数，可以很容易被检测到，但是使用可变长度的数据行就不一定了；<br>　　d）对于MyISAM类型的数据表，虽然转换成固定长度的数据列可以提高性能，但是占据的空间也大；<br>　　<br>　　18、使用not null和enum<br>　　尽量将列定义为not null，这样可使数据的出来更快，所需的空间更少，而且在查询时，MySQL不需要检查是否存在特例，即null值，从而优化查询；<br>　　如果一列只含有有限数目的特定值，如性别，是否有效或者入学年份等，在这种情况下应该考虑将其转换为enum列的值，MySQL处理的更快，因为所有的enum值在系统内都是以标识数值来表示的；<br>　　<br>　　19、使用optimize table<br>　　对于经常修改的表，容易产生碎片，使在查询数据库时必须读取更多的磁盘块，降低查询性能。具有可变长的表都存在磁盘碎片问题，这个问题对blob数据类型更为突出，因为其尺寸变化非常大。可以通过使用optimize table来整理碎片，保证数据库性能不下降，优化那些受碎片影响的数据表。 optimize table可以用于MyISAM和BDB类型的数据表。实际上任何碎片整理方法都是用mysqldump来转存数据表，然后使用转存后的文件并重新建数据表；<br>　　<br>　　20、使用procedure analyse()<br>　　可以使用procedure analyse()显示最佳类型的建议，使用很简单，在select语句后面加上procedure analyse()就可以了；例如：<br>　　select </em> from students procedure analyse();<br>　　select * from students procedure analyse(16,256);<br>　　第二条语句要求procedure analyse()不要建议含有多于16个值，或者含有多于256字节的enum类型，如果没有限制，输出可能会很长；<br>　　<br>　　21、使用查询缓存<br>　　1）查询缓存的工作方式：<br>　　第一次执行某条select语句时，服务器记住该查询的文本内容和查询结果，存储在缓存中，下次碰到这个语句时，直接从缓存中返回结果；当更新数据表后，该数据表的任何缓存查询都变成无效的，并且会被丢弃。<br>　　2）配置缓存参数：<br>　　变量：query_cache _type，查询缓存的操作模式。有3中模式，0：不缓存；1：缓存查询，除非与 select sql_no_cache开头；2：根据需要只缓存那些以select sql_cache开头的查询； query_cache_size：设置查询缓存的最大结果集的大小，比这个值大的不会被缓存。<br>　　<br>　　22、调整硬件<br>　　1）在机器上装更多的内存；<br>　　2）增加更快的硬盘以减少I/O等待时间；<br>　　寻道时间是决定性能的主要因素，逐字地移动磁头是最慢的，一旦磁头定位，从磁道读则很快；<br>　　3）在不同的物理硬盘设备上重新分配磁盘活动；<br>如果可能，应将最繁忙的数据库存放在不同的物理设备上，这跟使用同一物理设备的不同分区是不同的，因为它们将争用相同的物理资源（磁头）。</p>
-<p> <br>LEFT JOIN<br>关于 MySQL LEFT JOIN 你可能需要了解的三点<br>即使你认为自己已对 MySQL 的 LEFT JOIN 理解深刻，但我敢打赌，这篇文章肯定能让你学会点东西！<br>•    ON 子句与 WHERE 子句的不同<br>•    一种更好地理解带有 WHERE … IS NULL 子句的复杂匹配条件的简单方法<br>•    Matching-Conditions 与 Where-conditions 的不同<br>关于 “A LEFT JOIN B ON 条件表达式” 的一点提醒<br>ON 条件（“A LEFT JOIN B ON 条件表达式”中的ON）用来决定如何从 B 表中检索数据行。<br>如果 B 表中没有任何一行数据匹配 ON 的条件,将会额外生成一行所有列为 NULL 的数据<br>在匹配阶段 WHERE 子句的条件都不会被使用。仅在匹配阶段完成以后，WHERE 子句条件才会被使用。它将从匹配阶段产生的数据中检索过滤。<br>让我们看一个 LFET JOIN 示例：<br>01    mysql&gt; CREATE TABLE <code>product</code> (<br>02      <code>id</code> int(10) unsigned NOT NULL auto_increment,<br>03      <code>amount</code> int(10) unsigned default NULL,<br>04      PRIMARY KEY  (<code>id</code>)<br>05    ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1<br>06<br>07    mysql&gt; CREATE TABLE <code>product_details</code> (<br>08      <code>id</code> int(10) unsigned NOT NULL,<br>09      <code>weight</code> int(10) unsigned default NULL,<br>10      <code>exist</code> int(10) unsigned default NULL,<br>11      PRIMARY KEY  (<code>id</code>)<br>12    ) ENGINE=MyISAM DEFAULT CHARSET=latin1<br>13<br>14    mysql&gt; INSERT INTO product (id,amount)<br>15           VALUES (1,100),(2,200),(3,300),(4,400);<br>16    Query OK, 4 rows affected (0.00 sec)<br>17    Records: 4  Duplicates: 0  Warnings: 0<br>18<br>19    mysql&gt; INSERT INTO product_details (id,weight,exist)<br>20           VALUES (2,22,0),(4,44,1),(5,55,0),(6,66,1);<br>21    Query OK, 4 rows affected (0.00 sec)<br>22    Records: 4  Duplicates: 0  Warnings: 0<br>23<br>24    mysql&gt; SELECT <em> FROM product;<br>25    +—-+——–+<br>26    | id | amount |<br>27    +—-+——–+<br>28    |  1 |    100 |<br>29    |  2 |    200 |<br>30    |  3 |    300 |<br>31    |  4 |    400 |<br>32    +—-+——–+<br>33    4 rows in set (0.00 sec)<br>34<br>35    mysql&gt; SELECT </em> FROM product_details;<br>36    +—-+——–+——-+<br>37    | id | weight | exist |<br>38    +—-+——–+——-+<br>39    |  2 |     22 |     0 |<br>40    |  4 |     44 |     1 |<br>41    |  5 |     55 |     0 |<br>42    |  6 |     66 |     1 |<br>43    +—-+——–+——-+<br>44    4 rows in set (0.00 sec)<br>45<br>46    mysql&gt; SELECT <em> FROM product LEFT JOIN product_details<br>47           ON (product.id = product_details.id);<br>48    +—-+——–+——+——–+——-+<br>49    | id | amount | id   | weight | exist |<br>50    +—-+——–+——+——–+——-+<br>51    |  1 |    100 | NULL |   NULL |  NULL |<br>52    |  2 |    200 |    2 |     22 |     0 |<br>53    |  3 |    300 | NULL |   NULL |  NULL |<br>54    |  4 |    400 |    4 |     44 |     1 |<br>55    +—-+——–+——+——–+——-+<br>56    4 rows in set (0.00 sec)<br>ON 子句和 WHERE 子句有什么不同？<br>一个问题：下面两个查询的结果集有什么不同么？<br>1    1. SELECT </em> FROM product LEFT JOIN product_details<br>2             ON (product.id = product_details.id)<br>3             AND   product_details.id=2;<br>4    2. SELECT <em> FROM product LEFT JOIN product_details<br>5             ON (product.id = product_details.id)<br>6             WHERE product_details.id=2;<br>用例子来理解最好不过了：<br>01    mysql&gt; SELECT </em> FROM product LEFT JOIN product_details<br>02           ON (product.id = product_details.id)<br>03           AND product_details.id=2;<br>04    +—-+——–+——+——–+——-+<br>05    | id | amount | id   | weight | exist |<br>06    +—-+——–+——+——–+——-+<br>07    |  1 |    100 | NULL |   NULL |  NULL |<br>08    |  2 |    200 |    2 |     22 |     0 |<br>09    |  3 |    300 | NULL |   NULL |  NULL |<br>10    |  4 |    400 | NULL |   NULL |  NULL |<br>11    +—-+——–+——+——–+——-+<br>12    4 rows in set (0.00 sec)<br>13<br>14    mysql&gt; SELECT <em> FROM product LEFT JOIN product_details<br>15           ON (product.id = product_details.id)<br>16           WHERE product_details.id=2;<br>17    +—-+——–+—-+——–+——-+<br>18    | id | amount | id | weight | exist |<br>19    +—-+——–+—-+——–+——-+<br>20    |  2 |    200 |  2 |     22 |     0 |<br>21    +—-+——–+—-+——–+——-+<br>22    1 row in set (0.01 sec)<br>第一条查询使用 ON 条件决定了从 LEFT JOIN的 product_details表中检索符合的所有数据行。<br>第二条查询做了简单的LEFT JOIN，然后使用 WHERE 子句从 LEFT JOIN的数据中过滤掉不符合条件的数据行。<br>再来看一些示例：<br>01    mysql&gt;<br>02    mysql&gt; SELECT </em> FROM product LEFT JOIN product_details<br>03           ON product.id = product_details.id<br>04           AND product.amount=100;<br>05    +—-+——–+——+——–+——-+<br>06    | id | amount | id   | weight | exist |<br>07    +—-+——–+——+——–+——-+<br>08    |  1 |    100 | NULL |   NULL |  NULL |<br>09    |  2 |    200 | NULL |   NULL |  NULL |<br>10    |  3 |    300 | NULL |   NULL |  NULL |<br>11    |  4 |    400 | NULL |   NULL |  NULL |<br>12    +—-+——–+——+——–+——-+<br>13    4 rows in set (0.00 sec)<br>所有来自product表的数据行都被检索到了，但没有在product_details表中匹配到记录（product.id = product_details.id AND product.amount=100 条件并没有匹配到任何数据）<br>01    mysql&gt; SELECT <em> FROM product LEFT JOIN product_details<br>02           ON (product.id = product_details.id)<br>03           AND product.amount=200;<br>04    +—-+——–+——+——–+——-+<br>05    | id | amount | id   | weight | exist |<br>06    +—-+——–+——+——–+——-+<br>07    |  1 |    100 | NULL |   NULL |  NULL |<br>08    |  2 |    200 |    2 |     22 |     0 |<br>09    |  3 |    300 | NULL |   NULL |  NULL |<br>10    |  4 |    400 | NULL |   NULL |  NULL |<br>11    +—-+——–+——+——–+——-+<br>12    4 rows in set (0.01 sec)<br>同样，所有来自product表的数据行都被检索到了，有一条数据匹配到了。<br>使用 WHERE … IS NULL 子句的 LEFT JOIN<br>当你使用 WHERE … IS NULL 子句时会发生什么呢？<br>如前所述，WHERE 条件查询发生在 匹配阶段之后，这意味着 WHERE … IS NULL 子句将从匹配阶段后的数据中过滤掉不满足匹配条件的数据行。<br>纸面上看起来很清楚，但是当你在 ON 子句中使用多个条件时就会感到困惑了。<br>我总结了一种简单的方式来理解上述情况：<br>•    将 IS NULL 作为否定匹配条件<br>•    使用 !(A and B) == !A OR !B 逻辑判断<br>看看下面的示例：<br>01    mysql&gt; SELECT a.</em> FROM product a LEFT JOIN product_details b<br>02           ON a.id=b.id AND b.weight!=44 AND b.exist=0<br>03           WHERE b.id IS NULL;<br>04    +—-+——–+<br>05    | id | amount |<br>06    +—-+——–+<br>07    |  1 |    100 |<br>08    |  3 |    300 |<br>09    |  4 |    400 |<br>10    +—-+——–+<br>11    3 rows in set (0.00 sec)<br>让我们检查一下 ON 匹配子句：<br>1    (a.id=b.id) AND (b.weight!=44) AND (b.exist=0)<br>我们可以把 IS NULL 子句 看作是否定匹配条件。<br>这意味着我们将检索到以下行：<br>1    !( exist(b.id that equals to a.id) AND b.weight !=44 AND b.exist=0 )<br>2    !exist(b.id that equals to a.id) || !(b.weight !=44) || !(b.exist=0)<br>3    !exist(b.id that equals to a.id) || b.weight =44 || b.exist=1<br>就像在C语言中的逻辑 AND 和 逻辑 OR表达式一样，其操作数是从左到右求值的。如果第一个参数做够判断操作结果，那么第二个参数便不会被计算求值（短路效果）<br>看看别的示例：<br>01    mysql&gt; SELECT a.<em> FROM product a LEFT JOIN product_details b<br>02           ON a.id=b.id AND b.weight!=44 AND b.exist=1<br>03           WHERE b.id IS NULL;<br>04    +—-+——–+<br>05    | id | amount |<br>06    +—-+——–+<br>07    |  1 |    100 |<br>08    |  2 |    200 |<br>09    |  3 |    300 |<br>10    |  4 |    400 |<br>11    +—-+——–+<br>12    4 rows in set (0.00 sec)<br>Matching-Conditions 与 Where-conditions 之战<br>如果你吧基本的查询条件放在 ON 子句中，把剩下的否定条件放在 WHERE 子句中，那么你会获得相同的结果。<br>例如，你可以不这样写：<br>1    SELECT a.</em> FROM product a LEFT JOIN product_details b<br>2    ON a.id=b.id AND b.weight!=44 AND b.exist=0<br>3    WHERE b.id IS NULL;<br>你可以这样写：<br>1    SELECT a.<em> FROM product a LEFT JOIN product_details b<br>2    ON a.id=b.id<br>3    WHERE b.id is null OR b.weight=44 OR b.exist=1;<br>01    mysql&gt; SELECT a.</em> FROM product a LEFT JOIN product_details b<br>02           ON a.id=b.id<br>03           WHERE b.id is null OR b.weight=44 OR b.exist=1;<br>04    +—-+——–+<br>05    | id | amount |<br>06    +—-+——–+<br>07    |  1 |    100 |<br>08    |  3 |    300 |<br>09    |  4 |    400 |<br>10    +—-+——–+<br>11    3 rows in set (0.00 sec)<br>你可以不这样写：<br>1    SELECT a.<em> FROM product a LEFT JOIN product_details b<br>2    ON a.id=b.id AND b.weight!=44 AND b.exist!=0<br>3    WHERE b.id IS NULL;<br>可以这样写：<br>1    SELECT a.</em> FROM product a LEFT JOIN product_details b<br>2    ON a.id=b.id<br>3    WHERE b.id is null OR b.weight=44 OR b.exist=0;<br>01    mysql&gt; SELECT a.<em> FROM product a LEFT JOIN product_details b<br>02           ON a.id=b.id<br>03           WHERE b.id is null OR b.weight=44 OR b.exist=0;<br>04    +—-+——–+<br>05    | id | amount |<br>06    +—-+——–+<br>07    |  1 |    100 |<br>08    |  2 |    200 |<br>09    |  3 |    300 |<br>10    |  4 |    400 |<br>11    +—-+——–+<br>12    4 rows in set (0.00 sec)<br>这些查询真的效果一样？<br>如果你只需要第一个表中的数据的话，这些查询会返回相同的结果集。有一种情况就是，如果你从 LEFT JOIN的表中检索数据时，查询的结果就不同了。<br>如前所属，WHERE 子句是在匹配阶段之后用来过滤的。<br>例如：<br>01    mysql&gt; SELECT </em> FROM product a LEFT JOIN product_details b<br>02           ON a.id=b.id AND b.weight!=44 AND b.exist=1<br>03           WHERE b.id is null;<br>04    +—-+——–+——+——–+——-+<br>05    | id | amount | id   | weight | exist |<br>06    +—-+——–+——+——–+——-+<br>07    |  1 |    100 | NULL |   NULL |  NULL |<br>08    |  2 |    200 | NULL |   NULL |  NULL |<br>09    |  3 |    300 | NULL |   NULL |  NULL |<br>10    |  4 |    400 | NULL |   NULL |  NULL |<br>11    +—-+——–+——+——–+——-+<br>12    4 rows in set (0.00 sec)<br>13<br>14    mysql&gt; SELECT * FROM product a LEFT JOIN product_details b<br>15           ON a.id=b.id<br>16           WHERE b.id IS NULL OR b.weight=44 OR b.exist=0;<br>17    +—-+——–+——+——–+——-+<br>18    | id | amount | id   | weight | exist |<br>19    +—-+——–+——+——–+——-+<br>20    |  1 |    100 | NULL |   NULL |  NULL |<br>21    |  2 |    200 |    2 |     22 |     0 |<br>22    |  3 |    300 | NULL |   NULL |  NULL |<br>23    |  4 |    400 |    4 |     44 |     1 |<br>24    +—-+——–+——+——–+——-+<br>25    4 rows in set (0.00 sec)<br>总附注：<br>如果你使用 LEFT JOIN 来寻找在一些表中不存在的记录，你需要做下面的测试：WHERE 部分的 col_name IS NULL(其中 col_name 列被定义为 NOT NULL)，MYSQL 在查询到一条匹配 LEFT JOIN 条件后将停止搜索更多行（在一个特定的组合键下）。</p>
-<p> <br>数据库编程陷阱<br>create database spdb;<br>create table users(<br>id int primary key auto_increment,<br>usernaem varchar(64) unique not null,<br>password varchar(64) not null<br>)<br>insert into users (username,password) values (‘mengshung’,’mengshuang’);<br>insert into users (username,password) values (‘Corly’,’Corly’);</p>
-<p>小知识<br>    select * from student where sid in (select sid from stucourse where cid=21)<br>    phpmyadmin免登录<br>$cfg[‘Servers’][$i][‘auth_type’] 字符串 [‘http’|’cookie’|’config’]<br>设为config<br>并在config.default.php文件中配置用户名和密码</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/04/01/div垂直，水平居中/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -459,15 +162,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/04/01/div垂直，水平居中/" class="post-title-link" itemprop="url">div垂直，水平居中</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -475,20 +178,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
                 </span>
             </span>
 
@@ -521,14 +222,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/10/【09】全局(静态)变量，静态局部变量和局部变量的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -537,15 +238,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/10/【09】全局(静态)变量，静态局部变量和局部变量的区别/" class="post-title-link" itemprop="url">【09】全局(静态)变量，静态局部变量和局部变量的区别</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -553,20 +254,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -599,14 +298,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/08/【08】知识点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -615,15 +314,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/08/【08】知识点/" class="post-title-link" itemprop="url">【08】知识点</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -631,20 +330,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -678,14 +375,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/06/【07】判断被多个数整除/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -694,15 +391,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/06/【07】判断被多个数整除/" class="post-title-link" itemprop="url">【07】判断被多个数整除</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -710,20 +407,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -755,14 +450,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/05/【06】分配任务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -771,15 +466,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/05/【06】分配任务/" class="post-title-link" itemprop="url">【06】分配任务</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -787,20 +482,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -845,14 +538,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/04/【05】母牛问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -861,15 +554,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/04/【05】母牛问题/" class="post-title-link" itemprop="url">【05】母牛问题</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -877,20 +570,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -927,14 +618,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/04/【04】若干向量按长短排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -943,15 +634,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/04/【04】若干向量按长短排序/" class="post-title-link" itemprop="url">【04】若干向量按长短排序</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -959,20 +650,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -1004,14 +693,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/04/【03】级数逼近：π/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -1020,15 +709,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/04/【03】级数逼近：π/" class="post-title-link" itemprop="url">【03】级数逼近：π</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -1036,20 +725,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -1083,14 +770,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/03/【01】实现一个多行输出程序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -1099,15 +786,15 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/03/03/【01】实现一个多行输出程序/" class="post-title-link" itemprop="url">【01】实现一个多行输出程序</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -1115,20 +802,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -1162,7 +847,94 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
   
   
 
-  </div>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/03/03/【02】素数判断/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/03/【02】素数判断/" class="post-title-link" itemprop="url">【02】素数判断</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-03 14:49:00" itemprop="dateCreated datePublished" datetime="2015-03-03T14:49:00+08:00">2015-03-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对于判断一个数m是否为素数，最朴素的法是按素数的定义，试除以从2开始到m-1的整数，如果无一例外地不能整除，则该数定是素数，例如，实现的程序如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">paint</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"please input a number:"</span>;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m%i == <span class="number">0</span> ) &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;m&lt;&lt;<span class="string">" isn't a prime.\n"</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;m&lt;&lt;<span class="string">" is a prime.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>想一想，若2都不能除尽．还要试4，6，8…..吗？若3都不能除尽，还要试9，15，21…吗？等等。一个数，如果有因子的话那么在它的平方根数以内就应该有，否则就没有因子，例如，77的平方根值在8与9之间，因为77不是素数，则它一定有比8还小 的因子，它能被7整除，是理所当然的。</p>
+<p>在数学上，假定某个整数m不是素数，则一定可以表示成两个因子的积：</p>
+<p>m = i * j     假定 i  &lt;= j</p>
+<p>则 i² ≤ m  ≤ j²</p>
+<p>即 i ≤ √m ≤ j</p>
+<p>所以必定有—个因子不大于m的平方根，故判断m是否是素数，只要除到m的平方根就可以了，不必一直到m-1：因此，上面的程序可以修改为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">paint</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"please input a number:"</span>;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">    <span class="keyword">double</span> sqrtm = <span class="built_in">sqrt</span>(m * <span class="number">1.0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;sqrtm; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m%i == <span class="number">0</span> ) &#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;m&lt;&lt;<span class="string">" isn't a prime.\n"</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;m&lt;&lt;<span class="string">" is a prime.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后的程序，效率提高了一些，例如，判断101是否为素数，本来要从2试除到100． 现在只要从2试除到10就行了。</p>
+<p>事实上，中间的4，6，8也都无须试，大家可以想一想，在不明显增加程序复杂性 的基础上怎么修改程序，效率还会更高呢？</p>
+<p><strong>筛选法判断素数</strong></p>
+<p>从2开始的某个连续整数集合，留下2，除去所有2的倍数，留下3，除去所有3的倍数留下5再除去所有5的倍数，如此等等，留下某个最先遇到的素数，将其所有的倍数从该数集中去掉，最后，数集中就全是素数了，接下来要判断一个数是否为素数，可以该数为下标，访问素数集合，如果是则为素数，否则不是素数，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; prime(<span class="number">10000</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;<span class="number">100</span>; i++) <span class="comment">//构造素数集合</span></span><br><span class="line">        <span class="keyword">if</span>(prime[i])</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j*i&lt;<span class="number">10000</span>; j++)</span><br><span class="line">                prime[i*j] = <span class="number">0</span>;</span><br><span class="line">    <span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">"a.txt"</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> a; in&gt;&gt;a &amp;&amp; a&gt;<span class="number">1</span> &amp;&amp; a&lt;<span class="number">10000</span>; ) <span class="comment">//判断素数</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" is "</span>&lt;&lt;(prime[a] ? <span class="string">""</span>:<span class="string">"not "</span>)&lt;&lt;<span class="string">"a prime.\n"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在程序中，对于3来说，要去掉所有3的因子，包括6，12，18等，但事实上，偶数 在上一轮中已经作为2的倍数而去掉了，所以，这个过程还有一些重复操作，算法还有可以改进的地方。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1173,6 +945,28 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1202,6 +996,7 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng" src="/uploads/qrcode_wechat.jpg">
   <p class="site-author-name" itemprop="name">CoderMeng</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -1210,7 +1005,7 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1247,19 +1042,18 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderMeng</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -1271,15 +1065,14 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
 
 
 
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
@@ -1287,7 +1080,6 @@ update department set name=&apos;财务一部&apos; where name=&apos;财务部&a
 
 
   
-
 
 
 

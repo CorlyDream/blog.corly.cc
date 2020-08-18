@@ -13,37 +13,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://corly.cc').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="CoderMeng">
@@ -60,15 +35,23 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
   <title>CoderMeng</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
 
 
 
@@ -106,17 +89,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">CoderMeng</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -124,25 +96,43 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -154,93 +144,16 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content index posts-expand">
             
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/11/01/经典排序算法实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="CoderMeng">
-      <meta itemprop="description" content>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CoderMeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/11/01/经典排序算法实现/" class="post-title-link" itemprop="url">经典排序算法实现</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2015-11-01 12:44:00" itemprop="dateCreated datePublished" datetime="2015-11-01T12:44:00+08:00">2015-11-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> corlymeng.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2015年10月30日</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> com.corlymeng.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AllSort</span> </span>&#123;</span><br><span class="line">	<span class="comment">//保存排序的结果</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] recType = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">AllSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">		recType = arr;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">////////////////////////插入排序 start/////////////////////////////</span></span><br><span class="line">	<span class="comment">//插入排序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i,j;</span><br><span class="line">		<span class="keyword">int</span> tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;n; i++) &#123;</span><br><span class="line">			tmp = recType[i];</span><br><span class="line">			j = i - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; recType[j]) &#123;</span><br><span class="line">				recType[j+<span class="number">1</span>] = recType[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			recType[j+<span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//二分插入排序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertSort1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i,j,low,high,mid;</span><br><span class="line">		<span class="keyword">int</span> tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">			tmp = recType[i];</span><br><span class="line">			low = <span class="number">0</span>;</span><br><span class="line">			high = i - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">				mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">				<span class="keyword">if</span>(tmp &lt; recType[mid])</span><br><span class="line">					high = mid - <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					low = mid + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(j=i-<span class="number">1</span>; j&gt;high+<span class="number">1</span>; j--)&#123;</span><br><span class="line">				recType[j+<span class="number">1</span>] = recType[j];</span><br><span class="line">			&#125;</span><br><span class="line">			recType[high+<span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//希尔排序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i,j,gap;</span><br><span class="line">		<span class="keyword">int</span> tmp;</span><br><span class="line">		gap = n/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">while</span>(gap&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">for</span>(i = gap; i&lt;n; i++)&#123;</span><br><span class="line">				tmp = recType[i];</span><br><span class="line">				j = i - gap;</span><br><span class="line">				<span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; recType[j])&#123;</span><br><span class="line">					recType[j+gap] = recType[j];</span><br><span class="line">					j = j-gap;</span><br><span class="line">				&#125;</span><br><span class="line">				recType[j+gap] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">			gap = gap/<span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">////////////////////////插入排序 end/////////////////////////////</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">////////////////////////交换排序 start/////////////////////////////</span></span><br><span class="line">	<span class="comment">//快速排序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i = s,j = t;</span><br><span class="line">		<span class="keyword">int</span> tmp;</span><br><span class="line">		<span class="keyword">if</span> (s &lt; t) &#123;</span><br><span class="line">			tmp = recType[s];</span><br><span class="line">			<span class="keyword">while</span> (i != j) &#123;</span><br><span class="line">				<span class="keyword">while</span>(j &gt; i &amp;&amp; tmp &lt;= recType[j])</span><br><span class="line">					j--;</span><br><span class="line">				recType[i] = recType[j];</span><br><span class="line">				<span class="keyword">while</span>(i &lt; j &amp;&amp; tmp &gt; recType[i])</span><br><span class="line">					i++;</span><br><span class="line">				recType[j] = recType[i];</span><br><span class="line">			&#125;</span><br><span class="line">			recType[i] = tmp;</span><br><span class="line">			quickSort(s, i-<span class="number">1</span>);</span><br><span class="line">			quickSort(i+<span class="number">1</span>, t);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//冒泡排序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i,j,tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;recType.length; i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=i+<span class="number">1</span>; j&lt;recType.length; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (recType[i] &gt; recType[j] ) &#123;</span><br><span class="line">					tmp = recType[i];</span><br><span class="line">					recType[i] = recType[j];</span><br><span class="line">					recType[j] = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">////////////////////////交换排序 end/////////////////////////////	</span></span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////////////选择排序 start///////////////////////////</span></span><br><span class="line">	<span class="comment">//简单选择排序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i,j,tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;recType.length; i++)&#123;</span><br><span class="line">			tmp = recType[i];</span><br><span class="line">			j=i-<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; tmp&lt;recType[j])&#123;</span><br><span class="line">				recType[j+<span class="number">1</span>] = recType[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			recType[j+<span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//堆排序，排序是从数组的下标是1的元素开始排序的。</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">heapSort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=recType.length-<span class="number">1</span>; i&gt;<span class="number">0</span>; i--)&#123;</span><br><span class="line">			buildHeap(i);</span><br><span class="line">			<span class="comment">//每次排序完将将最大的元素调到最后</span></span><br><span class="line">			recType[<span class="number">0</span>] = recType[i];</span><br><span class="line">			recType[i] = recType[<span class="number">1</span>];</span><br><span class="line">			recType[<span class="number">1</span>] = recType[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//调整二叉堆</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">percolateDown</span> <span class="params">(<span class="keyword">int</span> hole, <span class="keyword">int</span> currentSize)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> child;</span><br><span class="line">		<span class="keyword">int</span> tmp = recType[hole];</span><br><span class="line">		<span class="keyword">for</span> (; hole*<span class="number">2</span> &lt;= currentSize; hole = child) &#123;</span><br><span class="line">			child = hole*<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (child != currentSize &amp;&amp; recType[child+<span class="number">1</span>]&gt;recType[child])</span><br><span class="line">				child++;</span><br><span class="line">			<span class="keyword">if</span> (recType[child]&gt;tmp)</span><br><span class="line">				recType[hole] = recType[child];</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		recType[hole] = tmp; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">buildHeap</span> <span class="params">(<span class="keyword">int</span> currentSize)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i=currentSize/<span class="number">2</span>; i&gt;<span class="number">0</span>; i--) </span><br><span class="line">			percolateDown(i, currentSize);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">////////////////////////选择排序 end/////////////////////////////	</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printArr</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;recType.length; i++ )&#123;</span><br><span class="line">			System.out.print(recType[i]+<span class="string">" "</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arr = &#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">25</span>,<span class="number">22</span>&#125;;</span><br><span class="line">		AllSort allSort = <span class="keyword">new</span> AllSort(arr);</span><br><span class="line"><span class="comment">//		allSort.quickSort(0, arr.length-1);</span></span><br><span class="line"><span class="comment">//		allSort.selectionSort();</span></span><br><span class="line">		allSort.heapSort();</span><br><span class="line">		allSort.printArr();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/26/分治与递归-分型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -249,15 +162,15 @@
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/26/分治与递归-分型/" class="post-title-link" itemprop="url">分治与递归-分型</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -265,20 +178,18 @@
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -369,14 +280,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/23/动态规划-0 1 背包问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -385,15 +296,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/23/动态规划-0 1 背包问题/" class="post-title-link" itemprop="url">动态规划-0 1 背包问题</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -401,20 +312,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
+                  <a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
                 </span>
             </span>
 
@@ -460,14 +369,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/19/计算几何03-寻找凸包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -476,15 +385,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/19/计算几何03-寻找凸包/" class="post-title-link" itemprop="url">计算几何03-寻找凸包</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -492,20 +401,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -560,14 +467,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/19/计算几何02-用叉积比较极角大小并对点集进行排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -576,15 +483,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/19/计算几何02-用叉积比较极角大小并对点集进行排序/" class="post-title-link" itemprop="url">计算几何02-用叉积比较极角大小并对点集进行排序</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -592,20 +499,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -642,14 +547,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/16/计算几何01-判定两条线段是否相交/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -658,15 +563,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/16/计算几何01-判定两条线段是否相交/" class="post-title-link" itemprop="url">计算几何01-判定两条线段是否相交</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -674,20 +579,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -731,14 +634,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/12/并查集-越多越好/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -747,15 +650,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/12/并查集-越多越好/" class="post-title-link" itemprop="url">并查集-越多越好</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -763,20 +666,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -827,14 +728,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/09/10/判定英文单词中所有的字符是否全都不同/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -843,15 +744,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/09/10/判定英文单词中所有的字符是否全都不同/" class="post-title-link" itemprop="url">判定英文单词中所有的字符是否全都不同</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -859,20 +760,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -906,14 +805,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/08/11/Linux打包命名tar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -922,15 +821,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/08/11/Linux打包命名tar/" class="post-title-link" itemprop="url">Linux打包命名tar</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -938,20 +837,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
             </span>
 
@@ -1019,14 +916,14 @@ X X   X X         X X   X X
   
   
 
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/08/10/工厂方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
       <meta itemprop="name" content="CoderMeng">
       <meta itemprop="description" content>
     </span>
@@ -1035,15 +932,15 @@ X X   X X         X X   X X
       <meta itemprop="name" content="CoderMeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+        <h2 class="post-title" itemprop="name headline">
           
             <a href="/2015/08/10/工厂方法/" class="post-title-link" itemprop="url">工厂方法</a>
-        </h1>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -1051,20 +948,18 @@ X X   X X         X X   X X
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
+                  <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
                 <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
                 </span>
             </span>
 
@@ -1124,7 +1019,135 @@ X X   X X         X X   X X
   
   
 
-  </div>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://corly.cc/2015/08/03/Linux文件查找/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/08/03/Linux文件查找/" class="post-title-link" itemprop="url">Linux文件查找</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-08-03 10:51:00" itemprop="dateCreated datePublished" datetime="2015-08-03T10:51:00+08:00">2015-08-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-04-20 20:16:07" itemprop="dateModified" datetime="2019-04-20T20:16:07+08:00">2019-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在 Linux 下通常 find 不很常用的，因为速度慢（find是直接查找硬盘），通常我们都是先使用 whereis 或者是 locate 来检查，如果真的找不到了，才以 find 来搜寻。 为什么呢？这是因为 Linux 系统会将系统内的所有文件都记录在一个数据库文件里面， 而当使用 whereis 或者是 locate 时，都会以此数据库文件的内容为准， 因此，有的时后你还会发现使用这两个运行档时，会找到已经被删除的文件，而且也找不到最新的刚刚创建的文件，这就是因为这两个命令是由数据库当中的结果去查找文件的所在，更多与这个数据库有关的说明，请参考 locate 命令。</p>
+<h2 id="whereis-bmsu-文件或目录名"><a href="#whereis-bmsu-文件或目录名" class="headerlink" title="whereis [-bmsu] 文件或目录名"></a>whereis [-bmsu] 文件或目录名</h2><pre><code>-b    :只找 binary 格式的文件
+-m    :只找在说明档 manual 路径下的文件
+-s    :只找 source 来源文件
+-u    :搜寻不在上述三个项目当中的其他特殊文件
+</code></pre><h2 id="locate-ir-keyword"><a href="#locate-ir-keyword" class="headerlink" title="locate [-ir] keyword"></a>locate [-ir] keyword</h2><pre><code>-i  ：忽略大小写的差异；
+-r  ：后面可接正规表示法的显示方式
+</code></pre><p>使用locate的时候可以直接在后面输入文件的部分名称就能够得到结果。但是，这个命令寻找的数据是由已创建的数据库 /var/lib/mlocate 里面的数据查找到的，而数据库默认每天执行一次（每个distribution不同），所以当你新建文件后查找该文件，那么 locate 会告诉你“找不到”，因为必须跟新数据库。</p>
+<p>我们可以使用 <strong>updatedb</strong> 这个命令，它根据 /etc/updatedb.conf 的设置去查找文件系统盘内的文件名，并跟新 /var/lib/mlocate 内的数据库文件。</p>
+<h2 id="find-PATH-option-action"><a href="#find-PATH-option-action" class="headerlink" title="find [PATH] [option] [action]"></a>find [PATH] [option] [action]</h2><h3 id="1-与时间有关的选项"><a href="#1-与时间有关的选项" class="headerlink" title="1. 与时间有关的选项"></a>1. 与时间有关的选项</h3><p>共有 -atime, -ctime 与 -mtime ，以 -mtime 说明</p>
+<pre><code>-mtime  n ：n 为数字，意义为在 n 天之前的“一天之内”被更动过内容的文件；
+-mtime +n ：列出在 n 天之前(不含 n 天本身)被更动过内容的文件档名；
+-mtime -n ：列出在 n 天之内(含 n 天本身)被更动过内容的文件档名。
+-newer file ：file 为一个存在的文件，列出比 file 还要新的文件档名
+</code></pre><h3 id="2-与使用者或群组名称有关的参数"><a href="#2-与使用者或群组名称有关的参数" class="headerlink" title="2. 与使用者或群组名称有关的参数"></a>2. 与使用者或群组名称有关的参数</h3><pre><code>-uid n ：n 为数字，这个数字是使用者的帐号 ID，亦即 UID ，这个 UID 是记录在
+        /etc/passwd 里面与帐号名称对应的数字。这方面我们会在第四篇介绍。
+-gid n ：n 为数字，这个数字是群组名称的 ID，亦即 GID，这个 GID 记录在
+        /etc/group，相关的介绍我们会第四篇说明～
+-user name ：name 为使用者帐号名称喔！例如 dmtsai 
+-group name：name 为群组名称喔，例如 users ；
+-nouser    ：寻找文件的拥有者不存在 /etc/passwd 的人！
+-nogroup   ：寻找文件的拥有群组不存在於 /etc/group 的文件！
+            当你自行安装软件时，很可能该软件的属性当中并没有文件拥有者，
+            这是可能的！在这个时候，就可以使用 -nouser 与 -nogroup 搜寻。
+</code></pre><h3 id="3-与文件权限及名称有关的参数"><a href="#3-与文件权限及名称有关的参数" class="headerlink" title="3. 与文件权限及名称有关的参数"></a>3. 与文件权限及名称有关的参数</h3><pre><code>-name filename：搜寻文件名称为 filename 的文件；
+-size [+-]SIZE：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：
+               c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB
+               还要大的文件，就是“ -size +50k ”
+-type TYPE    ：搜寻文件的类型为 TYPE 的，类型主要有：一般正规文件 (f),
+               装置文件 (b, c), 目录 (d), 连结档 (l), socket (s), 
+               及 FIFO (p) 等属性。
+-perm mode  ：搜寻文件权限“刚好等於” mode 的文件，这个 mode 为类似 chmod
+             的属性值，举例来说， -rwsr-xr-x 的属性为 4755 ！
+-perm -mode ：搜寻文件权限“必须要全部囊括 mode 的权限”的文件，举例来说，
+             我们要搜寻 -rwxr--r-- ，亦即 0744 的文件，使用 -perm -0744，
+             当一个文件的权限为 -rwsr-xr-x ，亦即 4755 时，也会被列出来，
+             因为 -rwsr-xr-x 的属性已经囊括了 -rwxr--r-- 的属性了。
+-perm +mode ：搜寻文件权限“包含任一 mode 的权限”的文件，举例来说，我们搜寻
+             -rwxr-xr-x ，亦即 -perm +755 时，但一个文件属性为 -rw-------
+             也会被列出来，因为他有 -rw.... 的属性存在！
+</code></pre><p>###4. 额外可进行的动作</p>
+<pre><code>-exec command ：command 为其他命令，-exec 后面可再接额外的命令来处理搜寻到的结果。
+-print        ：将结果列印到萤幕上，这个动作是默认动作！
+</code></pre><p>将找到的文件使用 ls -l 列出来～</p>
+<blockquote>
+<p>find / -perm +755 -exec ls -l {} \;<br> <strong>☞</strong> 那个 -exec 后面的 ls -l 就是额外的命令，命令不支持命令别名， 所以仅能使用 ls -l 不可以使用 ll 。</p>
+</blockquote>
+<ul>
+<li>{} 代表的是“由 find 找到的内容”，find 的结果会被放置到 {} 位置中；</li>
+<li>-exec 一直到 \; 是关键字，代表 find 额外动作的开始 (-exec) 到结束 (\;) ，在这中间的就是 find 命令内的额外动作。 在本例中就是“ ls -l {} ”；</li>
+<li>因为“ ; ”在 bash 环境下是有特殊意义的，因此利用反斜线来转义。</li>
+</ul>
+<p>另外，find还可以使用通配符来查找文件。</p>
+<blockquote>
+<p>find /etc -name ‘*httpd*‘</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1135,6 +1158,28 @@ X X   X X         X X   X X
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -1164,6 +1209,7 @@ X X   X X         X X   X X
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng" src="/uploads/qrcode_wechat.jpg">
   <p class="site-author-name" itemprop="name">CoderMeng</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -1172,7 +1218,7 @@ X X   X X         X X   X X
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">53</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1209,19 +1255,18 @@ X X   X X         X X   X X
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderMeng</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
@@ -1233,15 +1278,14 @@ X X   X X         X X   X X
 
 
 
-        
       </div>
     </footer>
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
@@ -1249,7 +1293,6 @@ X X   X X         X X   X X
 
 
   
-
 
 
 
