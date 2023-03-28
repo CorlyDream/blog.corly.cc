@@ -1,20 +1,1155 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
 
-{% block title %}{{ title }}{%- if theme.index_with_subtitle and subtitle %} - {{ subtitle }}{%- endif %}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block class %}index posts-expand{% endblock %}
 
-{% block content %}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {%- for post in page.posts.toArray() %}
-    {{ partial('_macro/post.swig', {post: post, is_index: true}) }}
-  {%- endfor %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  {% include '_partials/pagination.swig' %}
+  <meta property="og:type" content="website">
+<meta property="og:title" content="CoderMeng">
+<meta property="og:url" content="http://blog.corly.cc/page/5/index.html">
+<meta property="og:site_name" content="CoderMeng">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CoderMeng">
+<meta name="twitter:card" content="summary">
 
-{% endblock %}
+<link rel="canonical" href="http://blog.corly.cc/page/5/">
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CoderMeng</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/04/01/div%E5%9E%82%E7%9B%B4%EF%BC%8C%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/04/01/div%E5%9E%82%E7%9B%B4%EF%BC%8C%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" class="post-title-link" itemprop="url">div垂直，水平居中</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-04-01 16:28:00" itemprop="dateCreated datePublished" datetime="2015-04-01T16:28:00+00:00">2015-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="方法一：用display：table-实现"><a href="#方法一：用display：table-实现" class="headerlink" title="方法一：用display：table 实现"></a>方法一：用display：table 实现</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">background</span>: yellow;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;parent&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;child&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content&quot;</span>&gt;</span>XXX<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<iframe src="/usr/examples/2015/04/01_div_center.html" width="300" height="220"></iframe>
+## 方法二：用position:absolute
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;parent&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;cat.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot; /&gt;&lt;/div&gt;</span></span></span><br><span class="line"><span class="string"><span class="tag">&lt;/div&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>先用浏览器看一下效果如下：</p>
+<img class="size-thumbnail wp-image-161 alignnone" title="2015-04-01_160949" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/04/2015-04-01_160949-150x150.jpg-meng" alt="" width="150" height="150" />
+
+<p>使用css语法来调整位置</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">background-color</span>: gray;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">233px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们设置的位置是 left:50%; 和 top:50%; 刚好就是中心位置，因为 CSS 的 position:absolute; 是以 div 的左上角当作计算点，所以才会产生这样的结果，如下图：<br><img class="size-thumbnail wp-image-162 alignnone" title="2015-04-01_161425" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/04/2015-04-01_161425-150x150.jpg-meng" alt="" width="150" height="150" /></p>
+<p>接下来再让div.box 左、上移一半的宽度、高度就可以了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">233px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">116px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">99px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<iframe src="/usr/examples/2015/04/02_div_center.html" width="520" height="520"></iframe>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/10/%E3%80%9009%E3%80%91%E5%85%A8%E5%B1%80(%E9%9D%99%E6%80%81)%E5%8F%98%E9%87%8F%EF%BC%8C%E9%9D%99%E6%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/10/%E3%80%9009%E3%80%91%E5%85%A8%E5%B1%80(%E9%9D%99%E6%80%81)%E5%8F%98%E9%87%8F%EF%BC%8C%E9%9D%99%E6%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">【09】全局(静态)变量，静态局部变量和局部变量的区别</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-10 20:25:00" itemprop="dateCreated datePublished" datetime="2015-03-10T20:25:00+00:00">2015-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">()</span></span>;</span><br><span class="line"><span class="type">int</span> n=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> a=<span class="number">0</span>, b=<span class="number">10</span>;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;a=&quot;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;, b=&quot;</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;, n=&quot;</span>&lt;&lt;n&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">func</span>();</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;a=&quot;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;, b=&quot;</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;, n=&quot;</span>&lt;&lt;n&lt;&lt;endl;</span><br><span class="line">	<span class="built_in">func</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> a=<span class="number">2</span>;</span><br><span class="line">	<span class="type">int</span> b=<span class="number">5</span>;</span><br><span class="line">	a += <span class="number">2</span>, b += <span class="number">5</span>;</span><br><span class="line">	n +=<span class="number">12</span>;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;a=&quot;</span>&lt;&lt;a&lt;&lt;<span class="string">&quot;, b=&quot;</span>&lt;&lt;b&lt;&lt;<span class="string">&quot;, n=&quot;</span>&lt;&lt;n&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序中函数main两次调用了func函数，从运行结果可以看出，程序控制每次进入func函数时，局部变量b都被重新初始化，而静态局部变量a仅在第一次调用时被初始化，第二次进入该函数时，不再进行初始化，这时它的值是第―次调用后的结果值4。main函数中的变量a和b与func函数中的变量a和b的空间位置是不样的，所以相应的值也不一样。</p>
+<p>国内一些学生在用VC6，但VC6的编译器不是标准C++规范它规定for循环中定义的循环变量的作用域为包含for语句的快，即沿用C规则，而标准C++规定在for中的循环变量作用域为for语句块。即：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">	sum += i;</span><br><span class="line">cout&lt;&lt;sum&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;i&lt;&lt;endl;  <span class="comment">//错i不存在</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/08/%E3%80%9008%E3%80%91%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/08/%E3%80%9008%E3%80%91%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">【08】知识点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-08 15:35:00" itemprop="dateCreated datePublished" datetime="2015-03-08T15:35:00+00:00">2015-03-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li>| 或 ，^ 异或， ~ 非</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数参数默认值只能从后往前设置，例如：</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a=<span class="number">1</span>, <span class="type">int</span> b, <span class="type">int</span> c=<span class="number">3</span>)</span></span>; <span class="comment">//错：b和a的位置违规</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b=<span class="number">2</span>, <span class="type">int</span> c=<span class="number">3</span>)</span></span>; <span class="comment">//ok</span></span><br><span class="line"><span class="comment">//调用时的实参按位置解析，默认实参也只能从后往前逐个替换尾部的“漏缺”，例如</span></span><br><span class="line"><span class="built_in">func</span>(<span class="number">12</span>, <span class="number">12</span>)       <span class="comment">//ok: c和d默认</span></span><br><span class="line"><span class="built_in">func</span>(<span class="number">2</span>, <span class="number">14</span>, , <span class="number">3</span>)  <span class="comment">//错：d不默认则c也无法默认</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/06/%E3%80%9007%E3%80%91%E5%88%A4%E6%96%AD%E8%A2%AB%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%95%B4%E9%99%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/06/%E3%80%9007%E3%80%91%E5%88%A4%E6%96%AD%E8%A2%AB%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%95%B4%E9%99%A4/" class="post-title-link" itemprop="url">【07】判断被多个数整除</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-06 22:09:00" itemprop="dateCreated datePublished" datetime="2015-03-06T22:09:00+00:00">2015-03-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>abc.txt文件中有一些整数，试编程实现循环输入文件中的整数，判断其能否被3，5，7整除。</p>
+<p>三种信息有是和否可能，排列起来一共有8种情况，将这三种信息按二进制进行制作，即被3整除放在第三位，被5整除放在第二位，被7整除放在第一位，构成三位二进制数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">&quot;abc.txt&quot;</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> n; in&gt;&gt;n; ) &#123;</span><br><span class="line">		<span class="keyword">switch</span>( (!(n%<span class="number">3</span>)&lt;&lt;<span class="number">2</span>) + (!(n%<span class="number">5</span>)&lt;&lt;<span class="number">1</span>) + !(n%<span class="number">7</span>) ) &#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">0</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;none&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;7&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;5&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">3</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;5,7&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;3&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">5</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;3,7&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">6</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;3,5&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">7</span>: cout&lt;&lt;n&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="string">&quot;3,5,7&quot;</span>;<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/05/%E3%80%9006%E3%80%91%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/05/%E3%80%9006%E3%80%91%E5%88%86%E9%85%8D%E4%BB%BB%E5%8A%A1/" class="post-title-link" itemprop="url">【06】分配任务</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-05 22:44:00" itemprop="dateCreated datePublished" datetime="2015-03-05T22:44:00+00:00">2015-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>某任务需要在A、B、C、D、E这五人中物色人员去完成，但派人受限于下列条件：</p>
+<ol>
+    <li>若A去，则B跟去</li>
+    <li>D，E两人中必有人去</li>
+    <li>B，C两人中必有人去，但只去一人</li>
+    <li>C，D两人要么都去，要么都不去</li>
+    <li>若E去,则A、B都去</li>
+</ol>
+问这五个条件如何表示？
+
+<p>令A、B、C、D、E都为逻辑型值true或false。则：</p>
+<p>条件1可以表示为逻辑表达式：A—＞B，它等价于！A || B，意即A不去是一种方案， 另一种方案当然是A和B一起去。</p>
+<p>条件2可以表示为：D || E，意即D去，E去，D和E都去，这三种方案都行．</p>
+<p>条件3可以表示为：(B＆＆!C) || (!B＆＆C)。推演为B !&#x3D; C．意即，B去C不去是一种 方案，另一种方案是C去B不去。</p>
+<p>条件4可以表示为：( !C || D ) &amp;&amp; ( C || !D)．更简单的形式为C &#x3D;&#x3D; D·意即C和D一起去 是一种方案，C和D都不去是另一种方案</p>
+<p>条件5可以表示为：！E || (A＆＆B)，意即E不去是一种方案，另一种方案是E和A和 B都去</p>
+<h2>求解模式</h2>
+如果将每个人的去与不去看成是5位整数的其中1位，其中A对应最高位，E对应最低位，那么，所有可能的调派方案为从全部不派的00000到全部派去的11111之间变化。显然有32种方案。全部遍历的循环为：
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">32</span>; i++ )</span><br></pre></td></tr></table></figure>
+
+<p>其中每个i对应一个二进制数，为一种调派方案。在某一种调派方案i中:</p>
+<p><strong><span style="font-size: small;">A为最高位 (i &amp; 16 ) &gt;&gt; 4或者 i&gt;&gt;4  (将低位都挤掉)</span></strong><br><strong><span style="font-size: small;"> B为次高位 ( i &amp; 8 ) &gt;&gt; 3</span></strong><br><strong><span style="font-size: small;"> C为中间位 ( i &amp;4 ) &gt;&gt; 2</span></strong><br><strong><span style="font-size: small;"> D为次低位( i &amp; 2 )&gt;&gt;1</span></strong><br><strong><span style="font-size: small;"> E为最低位 i＆1</span></strong></p>
+<p>根据求解模式，把这五个条件表示成否定的形式：</p>
+<p><span style="font-size: small;"><strong>否定条件1为 !( !A || B ) &#x3D; A &amp;&amp; !B</strong></span><br><span style="font-size: small;"><strong> 否定条件2为!(D || E )</strong></span><br><span style="font-size: small;"><strong> 否定条件3为 B＝C</strong></span><br><span style="font-size: small;"><strong> 否定条件4为C !&#x3D; D</strong></span><br><span style="font-size: small;"><strong> 否定条件5为E &amp;&amp; !( A &amp;&amp; B)</strong></span></p>
+<p>再将A、B、C、D、E的式子带入条件表达式，既可以构成程序：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>( <span class="type">int</span> i=<span class="number">0</span>; i &lt; <span class="number">32</span>; i++ ) &#123;</span><br><span class="line">        <span class="type">bool</span> A=i&amp;<span class="number">16</span>, B=i&amp;<span class="number">8</span>, C=i&amp;<span class="number">4</span>, D=i&amp;<span class="number">2</span>, E=i&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>( A &amp;&amp; !B )</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>( !D &amp;&amp; !E )</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>( B==C )</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>( C != D )</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>( E &amp;&amp; !(A &amp;&amp; B) )</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">print</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;( n&amp;<span class="number">16</span> ? &amp;quot; A &amp;quot;:&amp;quot;~A &amp;quot; )</span><br><span class="line">        &lt;&lt;( n&amp;<span class="number">8</span> ? &amp;quot; B &amp;quot;:&amp;quot;~B &amp;quot; )</span><br><span class="line">        &lt;&lt;( n&amp;<span class="number">4</span> ? &amp;quot; C &amp;quot;:&amp;quot;~C &amp;quot; )</span><br><span class="line">        &lt;&lt;( n&amp;<span class="number">2</span> ? &amp;quot; D &amp;quot;:&amp;quot;~D &amp;quot; )</span><br><span class="line">        &lt;&lt;( n&amp;<span class="number">1</span> ? &amp;quot; E &amp;quot;:&amp;quot;~E &amp;quot; )&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/04/%E3%80%9005%E3%80%91%E6%AF%8D%E7%89%9B%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/04/%E3%80%9005%E3%80%91%E6%AF%8D%E7%89%9B%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">【05】母牛问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-04 18:52:00" itemprop="dateCreated datePublished" datetime="2015-03-04T18:52:00+00:00">2015-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>若一头母牛，从出生起第四个年头开始每年生一头母牛，按此规律，第n年有多少头母牛？</p>
+<p>分析的关键，统计当年倒退到3年前母牛数，就知道当前有几头母牛能添加，再加上现行的母牛数，就是当前的母牛数。</p>
+<p>令f(n)表示第n年的母牛数，则可以列出的数学递推函数为：</p>
+<p>f(1) &#x3D; 1</p>
+<p>f(2) &#x3D; 1</p>
+<p>f(3) &#x3D; 1</p>
+<p>f(n) &#x3D; f(n-3) + f(n-1)     n&gt;3</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">1</span>,b=<span class="number">1</span>,c=<span class="number">1</span>; <span class="comment">//最初三个年份的初值</span></span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>( <span class="type">int</span> i=<span class="number">4</span>,tmp; i&lt;=n; i++) &#123;</span><br><span class="line">        tmp = a + c;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">        c = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/04/%E3%80%9004%E3%80%91%E8%8B%A5%E5%B9%B2%E5%90%91%E9%87%8F%E6%8C%89%E9%95%BF%E7%9F%AD%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/04/%E3%80%9004%E3%80%91%E8%8B%A5%E5%B9%B2%E5%90%91%E9%87%8F%E6%8C%89%E9%95%BF%E7%9F%AD%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">【04】若干向量按长短排序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-04 15:14:00" itemprop="dateCreated datePublished" datetime="2015-03-04T15:14:00+00:00">2015-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>文件aaa.txt中含有一些行，每行中有一些整数，可以构成—个向量，整个文件可以看成是一组向量，其中每个元素又都是向量，只不过作为元素的向量其长度参差不齐。设计一个个排序程序，使得按从短到长的顺序输出每个向量，这时候，程序代码如下：</p>
+<img class="alignright size-full wp-image-77" title="2015-03-04_151107" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/03/2015-03-04_151107.jpg-meng" alt="" width="124" height="97" />
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> vector&lt; vector&lt;<span class="type">int</span>&gt; &gt; Mat;</span><br><span class="line"><span class="function">Mat <span class="title">input</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mySort</span><span class="params">(Mat&amp; a)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> Mat&amp; a)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Mat a = <span class="built_in">input</span>();</span><br><span class="line">    <span class="built_in">mySort</span>(a);</span><br><span class="line">    <span class="built_in">print</span>(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Mat <span class="title">input</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">&quot;aaa.txt&quot;</span>)</span></span>;</span><br><span class="line">    Mat a;</span><br><span class="line">    <span class="keyword">for</span>(string s; <span class="built_in">getline</span>(in,s); ) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; b;</span><br><span class="line">        <span class="function">istringstream <span class="title">sin</span><span class="params">(s)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>( <span class="type">int</span> ia; sin&gt;&gt;ia; )</span><br><span class="line">            b.<span class="built_in">push_back</span>(ia);</span><br><span class="line">        a.<span class="built_in">push_back</span>(b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mySort</span><span class="params">(Mat&amp; a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>( <span class="type">int</span> pass=<span class="number">1</span>; pass&lt;a.<span class="built_in">size</span>(); pass++ ) &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="type">int</span> i=<span class="number">0</span>; i&lt;a.<span class="built_in">size</span>()-pass; i++ )</span><br><span class="line">            <span class="keyword">if</span>( a[i+<span class="number">1</span>].<span class="built_in">size</span>() &lt; a[i].<span class="built_in">size</span>() )</span><br><span class="line">                a[i].<span class="built_in">swap</span>( a[i+<span class="number">1</span>] );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> Mat &amp;a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>( <span class="type">int</span> i=<span class="number">0</span>; i&lt;a.<span class="built_in">size</span>(); i++ ) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;a[i].<span class="built_in">size</span>(); j++ )</span><br><span class="line">            cout&lt;&lt;a[i][j]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/04/%E3%80%9003%E3%80%91%E7%BA%A7%E6%95%B0%E9%80%BC%E8%BF%91%EF%BC%9A%CF%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/04/%E3%80%9003%E3%80%91%E7%BA%A7%E6%95%B0%E9%80%BC%E8%BF%91%EF%BC%9A%CF%80/" class="post-title-link" itemprop="url">【03】级数逼近：π</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-04 10:32:00" itemprop="dateCreated datePublished" datetime="2015-03-04T10:32:00+00:00">2015-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img class="alignnone size-full wp-image-71" title="2015-03-03_141731" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/03/2015-03-03_1417311.jpg-meng" alt="" width="218" height="44" />
+
+<p>求π的近似值，精确到小数点后6位。</p>
+<p>分析：</p>
+<ol>
+    <li>整数不能表示小数，所以元的值用浮点小double表示。</li>
+    <li>按公式．先求元π/4。</li>
+    <li>数列的第n项是 (-1)<sup>n-1/</sup>/(2n-1)，第n项与第n-1项的关系为符号变一下，分母加2。</li>
+    <li>一种方法是根据循环变量n，求得第n项的值，累计，然后条件判断，若满足结束条件，则退出，循环结束条件为前一个累计和与后一个累计和的差小于10的6次方，由于前后两次累计的结果之差的绝对值等于后一次加上去的值，所以，也可以通过判断项的绝对值小于10的6次方而得到循环退出条件。</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">double</span> sum=<span class="number">0</span>, item=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">1</span>; <span class="built_in">fabs</span>(item) &gt; <span class="number">1e-6</span>; n++) &#123;</span><br><span class="line">		item *= (<span class="number">-1.0</span>)*(<span class="number">2</span>*n<span class="number">-3</span>)/(<span class="number">2</span>*n<span class="number">-1</span>);</span><br><span class="line">		sum += item;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;sum;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/03/%E3%80%9001%E3%80%91%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%87%BA%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/03/%E3%80%9001%E3%80%91%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%A4%9A%E8%A1%8C%E8%BE%93%E5%87%BA%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">【01】实现一个多行输出程序</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-03 14:52:00" itemprop="dateCreated datePublished" datetime="2015-03-03T14:52:00+00:00">2015-03-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>输出内容：</p>
+<img class="alignnone size-full wp-image-54" title="2015-03-03_141731" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/03/2015-03-03_141731.jpg-meng" />
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">paint</span><span class="params">(<span class="type">int</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;请输入层数（0结束输入）：&quot;</span>;</span><br><span class="line">    cin&gt;&gt;num;</span><br><span class="line">    <span class="keyword">while</span>(num) &#123;</span><br><span class="line">        <span class="built_in">paint</span>(num);</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;层数（0结束输入）：&quot;</span>;</span><br><span class="line">        cin&gt;&gt;num;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">paint</span><span class="params">(<span class="type">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=a; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j&lt;a-i; j++) &#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">2</span>*i<span class="number">-1</span>; k++) &#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=a<span class="number">-1</span>; i&gt;=<span class="number">1</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">for</span>(j = <span class="number">0</span>; j&lt;a-i; j++) &#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;<span class="number">2</span>*i<span class="number">-1</span>; k++) &#123;</span><br><span class="line">            cout&lt;&lt;<span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>利用输入输出流可以将paint函数做如下精简：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">paint</span><span class="params">(<span class="type">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=a; i++) &#123;</span><br><span class="line">        <span class="comment">//输出a-i个空格</span></span><br><span class="line">        <span class="keyword">if</span>(a-i)</span><br><span class="line">            cout&lt;&lt;<span class="built_in">setfill</span>(<span class="string">&#x27; &#x27;</span>)&lt;&lt;<span class="built_in">setw</span>(a-i)&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="comment">//输出2*i-1个*</span></span><br><span class="line">        cout&lt;&lt;<span class="built_in">setfill</span>(<span class="string">&#x27;*&#x27;</span>)&lt;&lt;<span class="built_in">setw</span>(<span class="number">2</span>*i<span class="number">-1</span>)&lt;&lt;<span class="string">&#x27;*&#x27;</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=a<span class="number">-1</span>; i&gt;=<span class="number">1</span>; i--) &#123;</span><br><span class="line">        <span class="comment">//输出a-i个空格</span></span><br><span class="line">        <span class="keyword">if</span>(a-i)</span><br><span class="line">            cout&lt;&lt;<span class="built_in">setfill</span>(<span class="string">&#x27; &#x27;</span>)&lt;&lt;<span class="built_in">setw</span>(a-i)&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="comment">//输出2*i-1个*</span></span><br><span class="line">        cout&lt;&lt;<span class="built_in">setfill</span>(<span class="string">&#x27;*&#x27;</span>)&lt;&lt;<span class="built_in">setw</span>(<span class="number">2</span>*i<span class="number">-1</span>)&lt;&lt;<span class="string">&#x27;*&#x27;</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/03/03/%E3%80%9002%E3%80%91%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/03/03/%E3%80%9002%E3%80%91%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD/" class="post-title-link" itemprop="url">【02】素数判断</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-03-03 14:49:00" itemprop="dateCreated datePublished" datetime="2015-03-03T14:49:00+00:00">2015-03-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对于判断一个数m是否为素数，最朴素的法是按素数的定义，试除以从2开始到m-1的整数，如果无一例外地不能整除，则该数定是素数，例如，实现的程序如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">paint</span><span class="params">(<span class="type">int</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;please input a number:&quot;</span>;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m%i == <span class="number">0</span> ) &#123;</span><br><span class="line">            cout&lt;&lt;m&lt;&lt;<span class="string">&quot; isn&#x27;t a prime.\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;m&lt;&lt;<span class="string">&quot; is a prime.\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>想一想，若2都不能除尽．还要试4，6，8…..吗？若3都不能除尽，还要试9，15，21…吗？等等。一个数，如果有因子的话那么在它的平方根数以内就应该有，否则就没有因子，例如，77的平方根值在8与9之间，因为77不是素数，则它一定有比8还小 的因子，它能被7整除，是理所当然的。</p>
+<p>在数学上，假定某个整数m不是素数，则一定可以表示成两个因子的积：</p>
+<p>m &#x3D; i * j     假定 i  &lt;&#x3D; j</p>
+<p>则 i² ≤ m  ≤ j²</p>
+<p>即 i ≤ √m ≤ j</p>
+<p>所以必定有—个因子不大于m的平方根，故判断m是否是素数，只要除到m的平方根就可以了，不必一直到m-1：因此，上面的程序可以修改为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">paint</span><span class="params">(<span class="type">int</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;please input a number:&quot;</span>;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="type">double</span> sqrtm = <span class="built_in">sqrt</span>(m * <span class="number">1.0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;sqrtm; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(m%i == <span class="number">0</span> ) &#123;</span><br><span class="line">            cout&lt;&lt;m&lt;&lt;<span class="string">&quot; isn&#x27;t a prime.\n&quot;</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;m&lt;&lt;<span class="string">&quot; is a prime.\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改后的程序，效率提高了一些，例如，判断101是否为素数，本来要从2试除到100． 现在只要从2试除到10就行了。</p>
+<p>事实上，中间的4，6，8也都无须试，大家可以想一想，在不明显增加程序复杂性 的基础上怎么修改程序，效率还会更高呢？</p>
+<p><strong>筛选法判断素数</strong></p>
+<p>从2开始的某个连续整数集合，留下2，除去所有2的倍数，留下3，除去所有3的倍数留下5再除去所有5的倍数，如此等等，留下某个最先遇到的素数，将其所有的倍数从该数集中去掉，最后，数集中就全是素数了，接下来要判断一个数是否为素数，可以该数为下标，访问素数集合，如果是则为素数，否则不是素数，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">prime</span><span class="params">(<span class="number">10000</span>,<span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;<span class="number">100</span>; i++) <span class="comment">//构造素数集合</span></span><br><span class="line">        <span class="keyword">if</span>(prime[i])</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i; j*i&lt;<span class="number">10000</span>; j++)</span><br><span class="line">                prime[i*j] = <span class="number">0</span>;</span><br><span class="line">    <span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">&quot;a.txt&quot;</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a; in&gt;&gt;a &amp;&amp; a&gt;<span class="number">1</span> &amp;&amp; a&lt;<span class="number">10000</span>; ) <span class="comment">//判断素数</span></span><br><span class="line">        cout&lt;&lt;a&lt;&lt;<span class="string">&quot; is &quot;</span>&lt;&lt;(prime[a] ? <span class="string">&quot;&quot;</span>:<span class="string">&quot;not &quot;</span>)&lt;&lt;<span class="string">&quot;a prime.\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在程序中，对于3来说，要去掉所有3的因子，包括6，12，18等，但事实上，偶数 在上一轮中已经作为2的倍数而去掉了，所以，这个过程还有一些重复操作，算法还有可以改进的地方。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng"
+      src="/uploads/qrcode_wechat.jpg">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备2023007649号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

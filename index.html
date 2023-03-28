@@ -1,20 +1,1296 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
 
-{% block title %}{{ title }}{%- if theme.index_with_subtitle and subtitle %} - {{ subtitle }}{%- endif %}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block class %}index posts-expand{% endblock %}
 
-{% block content %}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {%- for post in page.posts.toArray() %}
-    {{ partial('_macro/post.swig', {post: post, is_index: true}) }}
-  {%- endfor %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  {% include '_partials/pagination.swig' %}
+  <meta property="og:type" content="website">
+<meta property="og:title" content="CoderMeng">
+<meta property="og:url" content="http://blog.corly.cc/index.html">
+<meta property="og:site_name" content="CoderMeng">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CoderMeng">
+<meta name="twitter:card" content="summary">
 
-{% endblock %}
+<link rel="canonical" href="http://blog.corly.cc/">
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CoderMeng</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2019/11/23/Java%E7%A8%8B%E5%BA%8F%E8%BF%81%E7%A7%BBDocker-%E5%B9%B4%E8%BD%BB%E4%BB%A3GC-ParNew-%E6%9C%89%E6%AF%9B%E5%88%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/23/Java%E7%A8%8B%E5%BA%8F%E8%BF%81%E7%A7%BBDocker-%E5%B9%B4%E8%BD%BB%E4%BB%A3GC-ParNew-%E6%9C%89%E6%AF%9B%E5%88%BA/" class="post-title-link" itemprop="url">Java程序迁移Docker 年轻代GC(ParNew)有毛刺</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-23 10:53:12" itemprop="dateCreated datePublished" datetime="2019-11-23T10:53:12+00:00">2019-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="年轻代GC回收时间不稳定，会出现突刺"><a href="#年轻代GC回收时间不稳定，会出现突刺" class="headerlink" title="年轻代GC回收时间不稳定，会出现突刺"></a>年轻代GC回收时间不稳定，会出现突刺</h2><p>下图是每分钟yong gc 所消耗的时间，没有规律的突刺。<br>年轻代gc 使用的是 ParNew 并发收集，</p>
+<p><img src="https://blogimg-1300754399.image.myqcloud.com/jvm-yong-gc-glitch.png/a" alt="yong gc time"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/23/Java%E7%A8%8B%E5%BA%8F%E8%BF%81%E7%A7%BBDocker-%E5%B9%B4%E8%BD%BB%E4%BB%A3GC-ParNew-%E6%9C%89%E6%AF%9B%E5%88%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2019/11/03/Ubuntu%E5%AE%89%E8%A3%85macOS-%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/03/Ubuntu%E5%AE%89%E8%A3%85macOS-%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8/" class="post-title-link" itemprop="url">Ubuntu安装macOS 时间机器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-03 11:51:16" itemprop="dateCreated datePublished" datetime="2019-11-03T11:51:16+00:00">2019-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装avahi-daemon"><a href="#安装avahi-daemon" class="headerlink" title="安装avahi-daemon"></a>安装avahi-daemon</h2><p>这个软件可以再局域网中广播，让 mac 的“时间机器”发现Linux上的 afp 服务</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/Ubuntu%E5%AE%89%E8%A3%85macOS-%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2017/03/09/%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91Redirection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/03/09/%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91Redirection/" class="post-title-link" itemprop="url">数据流重定向（Redirection）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-03-09 12:02:00" itemprop="dateCreated datePublished" datetime="2017-03-09T12:02:00+00:00">2017-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数据流重导向可以将 standard output (简称 stdout) 与 standard error output (简称 stderr) 分别传送到其他的文件或装置去，而分别传送所用的特殊字符则如下所示：</p>
+<blockquote>
+<ol>
+<li>标准输入　　(stdin) ：代码为 0 ，使用 &lt; 或 &lt;&lt; ；</li>
+<li>标准输出　　(stdout)：代码为 1 ，使用 &gt; 或 &gt;&gt; ；</li>
+<li>标准错误输出(stderr)：代码为 2 ，使用 2&gt; 或 2&gt;&gt; ；</li>
+</ol>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/03/09/%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8D%E5%AE%9A%E5%90%91Redirection/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2017/02/15/MongoDB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/02/15/MongoDB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">MongoDB常用命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-15 16:05:00" itemprop="dateCreated datePublished" datetime="2017-02-15T16:05:00+00:00">2017-02-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="query"><a href="#query" class="headerlink" title="query"></a>query</h2><p>查询某个字段是否存在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.course.find( &#123; &quot;lectures.lectures_count&quot;: &#123; $exists: true &#125; &#125; )</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2017/02/15/MongoDB%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2016/12/21/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/21/mysql/" class="post-title-link" itemprop="url">mysql</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-21 14:54:00" itemprop="dateCreated datePublished" datetime="2016-12-21T14:54:00+00:00">2016-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index"><span itemprop="name">sql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h2><h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> db1_name (field1,field2) <span class="keyword">SELECT</span> field1,field2 <span class="keyword">FROM</span> db2_name</span><br></pre></td></tr></table></figure>
+
+<h3 id="alter"><a href="#alter" class="headerlink" title="alter"></a>alter</h3><p>修改编码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `article` </span><br><span class="line">CHANGE <span class="keyword">COLUMN</span> `breif` `breif` TEXT <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="string">&#x27;utf8mb4&#x27;</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> ;</span><br></pre></td></tr></table></figure>
+
+<h2 id="conmand"><a href="#conmand" class="headerlink" title="conmand"></a>conmand</h2><h3 id="mysqldump"><a href="#mysqldump" class="headerlink" title="mysqldump"></a>mysqldump</h3><ol>
+<li><p>导出整个数据库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u [<span class="built_in">uname</span>] -p[pass] db_name &gt; db_backup.sql</span><br></pre></td></tr></table></figure></li>
+<li><p>导出所有的数据库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u [<span class="built_in">uname</span>] -p[pass] --all-databases &gt; all_db_backup.sql</span><br></pre></td></tr></table></figure></li>
+<li><p>指定数据库中的表</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u [<span class="built_in">uname</span>] -p[pass] db_name table1 table2 &gt; table_backup.sql</span><br></pre></td></tr></table></figure></li>
+<li><p>gzip 压缩</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u [<span class="built_in">uname</span>] -p[pass] db_name | gzip &gt; db_backup.sql.gz</span><br></pre></td></tr></table></figure></li>
+<li><p>其他</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -P 3306 -h [ip_address] -u [<span class="built_in">uname</span>] -p[pass] db_name &gt; db_backup.sql  </span><br><span class="line">mysqldump --single-transaction -u corly-p -v --host=mysql.corly.cc shu_student &gt; shu_student.sql</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="import"><a href="#import" class="headerlink" title="import"></a>import</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u username -p -h localhost DATA-BASE-NAME &lt; data.sql</span><br></pre></td></tr></table></figure>
+
+<p>import large csv file</p>
+<blockquote>
+<p>修改MySQL的配置文件，my.cnf<br>[mysqld]<br>max_allowed_packet&#x3D;1000M</p>
+</blockquote>
+<p>  执行如下命令导入csv文件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>uroot <span class="operator">-</span>proot <span class="comment">--local-infile shu_student -e &quot;</span></span><br><span class="line">    load data <span class="keyword">local</span> infile <span class="string">&#x27;~/mengshuang/canteen/output2/part.csv&#x27;</span>                    </span><br><span class="line">        <span class="keyword">into</span> <span class="keyword">table</span> canteen_result</span><br><span class="line">    fields terminated <span class="keyword">by</span> <span class="string">&#x27;,&#x27;</span></span><br><span class="line">    lines terminated <span class="keyword">by</span> <span class="string">&#x27;\n&#x27;</span>&quot;</span><br></pre></td></tr></table></figure>
+
+<p>###自动备份数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /bin/bash</span></span><br><span class="line">DB_NAME=<span class="string">&quot;&quot;</span></span><br><span class="line">DB_USER=<span class="string">&quot;&quot;</span></span><br><span class="line">DB_PASS=<span class="string">&quot;&quot;</span></span><br><span class="line">BIN_DIR=<span class="string">&quot;/usr/bin&quot;</span></span><br><span class="line">BACK_DIR=<span class="string">&quot;/root/backdata&quot;</span></span><br><span class="line">DATE=<span class="string">&quot;mysql-`date +&#x27;%Y%m%d-%H:%M:%S&#x27;`&quot;</span></span><br><span class="line">LogFile=<span class="string">&quot;<span class="variable">$BACK_DIR</span>&quot;</span>/dbback.log</span><br><span class="line">BackNewFile=<span class="variable">$DATE</span>.sql</span><br><span class="line"><span class="variable">$BIN_DIR</span>/mysqldump --opt --force -u<span class="variable">$DB_USER</span> -p<span class="variable">$DB_PASS</span> <span class="variable">$DB_NAME</span> &gt; <span class="variable">$BACK_DIR</span>/<span class="variable">$DATE</span>.sql</span><br><span class="line"><span class="built_in">echo</span> -----------------------<span class="string">&quot;<span class="subst">$(date +<span class="string">&quot;%y-%m-%d %H:%M:%S&quot;</span>)</span>&quot;</span>----------------------- &gt;&gt; <span class="variable">$LogFile</span></span><br><span class="line"><span class="built_in">echo</span>  createFile:<span class="string">&quot;<span class="variable">$BackNewFile</span>&quot;</span> &gt;&gt; <span class="variable">$LogFile</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除7天之前的备份</span></span><br><span class="line">find <span class="string">&quot;<span class="variable">$BACK_DIR</span>&quot;</span> -ctime +7 -<span class="built_in">type</span> f -name <span class="string">&quot;*.sql&quot;</span> -<span class="built_in">print</span> &gt; <span class="string">&quot;<span class="variable">$BACK_DIR</span>&quot;</span>/deleted.log</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;delete files:&quot;</span> &gt;&gt; <span class="variable">$LogFile</span></span><br><span class="line"><span class="built_in">cat</span> <span class="variable">$BACK_DIR</span>/deleted.log | <span class="keyword">while</span> <span class="built_in">read</span> LINE</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">rm</span> -rf <span class="variable">$LINE</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$LINE</span>&gt;&gt; <span class="variable">$LogFile</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;---------------------------------------------------------------&quot;</span> &gt;&gt; <span class="variable">$LogFile</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><ul>
+<li>查看所有用户</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> CONCAT(<span class="string">&#x27;User: &#x27;&#x27;&#x27;</span>,<span class="keyword">user</span>,<span class="string">&#x27;&#x27;&#x27;@&#x27;&#x27;&#x27;</span>,host,<span class="string">&#x27;&#x27;&#x27;;&#x27;</span>) <span class="keyword">AS</span> query <span class="keyword">FROM</span> mysql.user;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>username：你将创建的用户名</li>
+<li>host：指定该用户在哪个主机上可以登陆，如果是本地用户可用localhost，如果想让该用户可以从任意远程主机登陆，可以使用通配符**%**</li>
+<li>password：该用户的登陆密码，密码可以为空，如果为空则该用户可以不需要密码登陆服务器</li>
+</ul>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;web&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;web&#x27;</span>@<span class="string">&#x27;192.168.1.101&#x27;</span> IDENDIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;web&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> privileges <span class="keyword">ON</span> databasename.tablename <span class="keyword">TO</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>privileges：用户的操作权限，如select,insert,update,delete,create,drop,index,alter,grant,references,reload,shutdown,process,file等，如果要授予所的权限则使用ALL</li>
+<li>databasename：数据库名</li>
+<li>tablename：表名，如果要授予该用户对所有数据库和表的相应操作权限则可用<em>表示，如</em>.*</li>
+</ul>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">SELECT</span>, <span class="keyword">INSERT</span> <span class="keyword">ON</span> test.user <span class="keyword">TO</span> <span class="string">&#x27;web&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> test.<span class="operator">*</span> <span class="keyword">TO</span> <span class="string">&#x27;web&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>用以上命令授权的用户不能给其它用户授权</strong>，如果想让该用户可以授权，用以下命令:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> privileges <span class="keyword">ON</span> databasename.tablename <span class="keyword">TO</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> OPTION;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="更改密码"><a href="#更改密码" class="headerlink" title="更改密码"></a>更改密码</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> PASSWORD <span class="keyword">FOR</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span> <span class="operator">=</span> PASSWORD(<span class="string">&#x27;newpassword&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>如果是当前登陆用户用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> PASSWORD <span class="operator">=</span> PASSWORD(&quot;newpassword&quot;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">&#x27;username&#x27;</span>@<span class="string">&#x27;host&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>查看数据库占用空间大小</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> table_schema                                        &quot;DB Name&quot;, </span><br><span class="line">   Round(<span class="built_in">Sum</span>(data_length <span class="operator">+</span> index_length) <span class="operator">/</span> <span class="number">1024</span> <span class="operator">/</span> <span class="number">1024</span>, <span class="number">1</span>) &quot;DB Size in MB&quot; </span><br><span class="line"><span class="keyword">FROM</span>   information_schema.tables </span><br><span class="line"><span class="keyword">GROUP</span>  <span class="keyword">BY</span> table_schema; </span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2016/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5Solr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/03/15/MySQL%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5Solr/" class="post-title-link" itemprop="url">MySQL数据导入Solr</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-03-15 10:53:00" itemprop="dateCreated datePublished" datetime="2016-03-15T10:53:00+00:00">2016-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装Solr"><a href="#安装Solr" class="headerlink" title="安装Solr"></a>安装Solr</h2><p>从<a target="_blank" rel="noopener" href="https://lucene.apache.org/">https://lucene.apache.org</a> 下载Solr包。</p>
+<p>我这里下载的版本是5.5的，官方给的启动方式：</p>
+<blockquote>
+<p>&#x2F;solr-5.3.1:$ bin&#x2F;solr start -e cloud -noprompt</p>
+</blockquote>
+<p>这里 <strong>-e cloud</strong> 是官方给的示例，如果不想用官方的示例，自己创建可以用如下方式</p>
+<blockquote>
+<p>solr-5.5.0 bin&#x2F;solr start -noprompt</p>
+</blockquote>
+<blockquote>
+<p>&#x2F;&#x2F;然后自己创建一个collection<br>solr-5.5.0 bin&#x2F;solr create -c recruiting</p>
+</blockquote>
+<p>新建的collection的存放位置：<strong>solr-5.5.0&#x2F;server&#x2F;solr&#x2F;recruiting&#x2F;</strong></p>
+<h2 id="添加中文分词"><a href="#添加中文分词" class="headerlink" title="添加中文分词"></a>添加中文分词</h2><p>这里使用 <strong>mmseg4j</strong> 分词，下载地址：<a target="_blank" rel="noopener" href="https://github.com/chenlb/mmseg4j-solr">https://github.com/chenlb/mmseg4j-solr</a></p>
+<p>将下载的jar包，移动到WEB-INF&#x2F;lib下</p>
+<blockquote>
+<p>solr-5.5.0 mv ~&#x2F;Downloads&#x2F;mmseg4j-* .&#x2F;server&#x2F;solr-webapp&#x2F;webapp&#x2F;WEB-INF&#x2F;lib  </p>
+</blockquote>
+<p>修改新建的collection下的conf下的<strong>schema.xml</strong>文件，这时你发现并没有这个配置文件，但是你会发现有个managed-schema文件，打开一看里面有如下内容：<em>This is the Solr schema file. This file should be named “schema.xml” and should be in the conf directory under the solr home(i.e. .&#x2F;solr&#x2F;conf&#x2F;schema.xml by default)</em></p>
+<p>所以将<strong>managed-schema</strong>文件重命名为<strong>schema.xml</strong>，修改配置文件，添加中文分词。</p>
+<blockquote>
+<p>solr-5.5.0 vim server&#x2F;solr&#x2F;recruiting&#x2F;conf&#x2F;schema.xml </p>
+</blockquote>
+<p>添加如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">&quot;mmseg4j_complex&quot;</span> <span class="attr">class</span>=<span class="string">&quot;solr.TextField&quot;</span> <span class="attr">positionIncrementGap</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">analyzer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">&quot;com.chenlb.mmseg4j.solr.MMSegTokenizerFactory&quot;</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">mode</span>=<span class="string">&quot;complex&quot;</span> <span class="attr">dicPath</span>=<span class="string">&quot;dic&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldType</span> <span class="attr">name</span>=<span class="string">&quot;mmseg4j_maxword&quot;</span> <span class="attr">class</span>=<span class="string">&quot;solr.TextField&quot;</span> <span class="attr">positionIncrementGap</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">analyzer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">&quot;com.chenlb.mmseg4j.solr.MMSegTokenizerFactory&quot;</span> <span class="attr">mode</span>=<span class="string">&quot;max-word&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldType</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fieldtype</span> <span class="attr">name</span>=<span class="string">&quot;mmseg4j_simple&quot;</span> <span class="attr">class</span>=<span class="string">&quot;solr.TextField&quot;</span> <span class="attr">positionIncrementGap</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">analyzer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tokenizer</span> <span class="attr">class</span>=<span class="string">&quot;com.chenlb.mmseg4j.solr.MMSegTokenizerFactory&quot;</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">mode</span>=<span class="string">&quot;simple&quot;</span> <span class="attr">dicPath</span>=<span class="string">&quot;dic&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">analyzer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldtype</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面添加了三个filedType，他们组要的区别为：</p>
+<ul>
+<li>mmseg4j_simple 使用Simple分词方法</li>
+<li>mmseg4j_complex Complex 加了四个规则过虑</li>
+<li>mmseg4j_maxword 默认。在complex基础上实现了最多分词(max-word)。“很好听” -&gt; “很好|好听”; “中华人民共和国” -&gt; “中华|华人|共和|国”; “中国人民银行” -&gt; “中国|人民|银行”。</li>
+</ul>
+<p>成功运行后如下：</p>
+<p><img src="/uploads/2016/03/3264429745.png" alt="Solr中文分词"></p>
+<h2 id="从MySQL数据库中导入数据"><a href="#从MySQL数据库中导入数据" class="headerlink" title="从MySQL数据库中导入数据"></a>从MySQL数据库中导入数据</h2><p>在schema.xml中添加field,默认有一个id字段，然后再添加你数据库中的字段。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span> <span class="attr">type</span>=<span class="string">&quot;string&quot;</span> <span class="attr">indexed</span>=<span class="string">&quot;true&quot;</span> <span class="attr">stored</span>=<span class="string">&quot;true&quot;</span> <span class="attr">required</span>=<span class="string">&quot;true&quot;</span> <span class="attr">multiValued</span>=<span class="string">&quot;false&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;title&quot;</span> <span class="attr">type</span>=<span class="string">&quot;mmseg4j_complex&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">indexed</span>=<span class="string">&quot;true&quot;</span> <span class="attr">stored</span>=<span class="string">&quot;true&quot;</span> <span class="attr">required</span>=<span class="string">&quot;true&quot;</span> <span class="attr">multiValued</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;major&quot;</span> <span class="attr">type</span>=<span class="string">&quot;mmseg4j_complex&quot;</span> <span class="attr">indexed</span>=<span class="string">&quot;true&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">stored</span>=<span class="string">&quot;true&quot;</span> <span class="attr">required</span>=<span class="string">&quot;true&quot;</span> <span class="attr">multiValued</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;content&quot;</span> <span class="attr">type</span>=<span class="string">&quot;mmseg4j_complex&quot;</span> <span class="attr">indexed</span>=<span class="string">&quot;true&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">stored</span>=<span class="string">&quot;true&quot;</span> <span class="attr">required</span>=<span class="string">&quot;true&quot;</span> <span class="attr">multiValued</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>name: 数据源字段名，搜索时使用到。</li>
+<li>type: 搜索的类型名，例如我们配置的mmseg4j,这个对应filedType中的name。不需要分词的字符串类型，写上string即可。</li>
+<li>indexed：是否被索引，只有设置为true的字段才能进行搜索排序分片(earchable, sortable, facetable)。</li>
+<li>stored：是否存储内容，如果不需要存储字段值，尽量设置为false以提高效率。</li>
+<li>multiValued：是否为多值类型，SOLR允许配置多个数据源字段存储到一个搜索字段中。多个值必须为true，否则有可能抛出异常。</li>
+</ul>
+<p><em>题外话</em></p>
+<blockquote>
+<p><strong>copyField节点</strong><br>如果我们的搜索需要搜索多个字段该怎么办呢？这时候，我们就可以使用copyField。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;name&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;address&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;description&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;city&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;district_name&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;merchantCategory_name&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">&quot;bank_name&quot;</span> <span class="attr">dest</span>=<span class="string">&quot;all&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们将所有的中文分词字段全部拷贝至all中，当我们进行全文检索是，只用搜索all字段就OK了。<br><strong>注意</strong>，这里的目标字段必须支持多值，最好不要存储，因为他只是做搜索。indexed为true，stored为false。</p>
+</blockquote>
+<p>修改<strong>solrconfig.xml</strong>文件，位置<em>solr-5.5.0&#x2F;server&#x2F;solr&#x2F;recruiting&#x2F;conf&#x2F;solrconfig.xml</em>。 添加如下配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">requestHandler</span> <span class="attr">name</span>=<span class="string">&quot;/dataimport&quot;</span> </span></span><br><span class="line"><span class="tag">     <span class="attr">class</span>=<span class="string">&quot;org.apache.solr.handler.dataimport.DataImportHandler&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lst</span> <span class="attr">name</span>=<span class="string">&quot;defaults&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">str</span> <span class="attr">name</span>=<span class="string">&quot;config&quot;</span>&gt;</span>data-config.xml<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">lst</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">requestHandler</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在solr-5.5.0&#x2F;server&#x2F;solr&#x2F;recruiting&#x2F;conf&#x2F; 下创建data-config.xml 文件，配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dataConfig</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;JdbcDataSource&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">driver</span>=<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span> </span></span><br><span class="line"><span class="tag">		<span class="attr">url</span>=<span class="string">&quot;jdbc:mysql://localhost/recruiting&quot;</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">user</span>=<span class="string">&quot;root&quot;</span> <span class="attr">password</span>=<span class="string">&quot;root&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">document</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">entity</span> <span class="attr">name</span>=<span class="string">&quot;requireds&quot;</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">query</span>=<span class="string">&quot;SELECT id,title,major,content FROM recruiting.requireds&quot;</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">&quot;title&quot;</span> <span class="attr">name</span>=<span class="string">&quot;title&quot;</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">&quot;major&quot;</span> <span class="attr">name</span>=<span class="string">&quot;major&quot;</span> /&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">field</span> <span class="attr">column</span>=<span class="string">&quot;content&quot;</span> <span class="attr">name</span>=<span class="string">&quot;content&quot;</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">entity</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">document</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataConfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>将<strong>solr-dataimporthandler</strong>和<strong>mysql-connector</strong>两个jar包拷贝到solr-5.5.0&#x2F;server&#x2F;solr-webapp&#x2F;webapp&#x2F;WEB-INF&#x2F;lib当中。</p>
+<blockquote>
+<p>solr-5.5.0 cp dist&#x2F;solr-dataimporthandler-5.5.0.jar server&#x2F;solr-webapp&#x2F;webapp&#x2F;WEB-INF&#x2F;lib<br>solr-5.5.0 mv ~&#x2F;Downloads&#x2F;mysql-connector-java-5.1.38.jar .&#x2F;server&#x2F;solr-webapp&#x2F;webapp&#x2F;WEB-INF&#x2F;lib</p>
+</blockquote>
+<p>重启服务bin&#x2F;solr restart，选择当前core为recruiting，然后点击dataimport，如果配置正确，就会出现如下图，点击Execute就可以了</p>
+<p><img src="/uploads/2016/03/1614188231.png" alt="dataimport.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2016/02/13/linux%20job%20control%EF%BC%8C%E5%B7%A5%E4%BD%9C%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/02/13/linux%20job%20control%EF%BC%8C%E5%B7%A5%E4%BD%9C%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">linux job control，工作管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-02-13 17:26:00" itemprop="dateCreated datePublished" datetime="2016-02-13T17:26:00+00:00">2016-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h2><p>通过**&amp;**可以直接将命令丢到背景中运行，比如我们要将 &#x2F;etc&#x2F; 整个备份成为 &#x2F;tmp&#x2F;etc.tar.gz 且不想要等待，那么可以这样做：</p>
+<blockquote>
+<p>tar -zpcf &#x2F;tmp&#x2F;etc.tar.gz &#x2F;etc &amp;</p>
+</blockquote>
+<p>在背景当中运行的命令，如果有 stdout 及 stderr 时，他的数据依旧是输出到萤幕上面的。所以，最佳的状况就是利用数据流重导向， 将输出数据传送至某个文件中。</p>
+<blockquote>
+<p>tar -zpcvf &#x2F;tmp&#x2F;etc.tar.gz &#x2F;etc &gt; &#x2F;tmp&#x2F;log.txt 2&gt;&amp;1 &amp;</p>
+</blockquote>
+<h2 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h2><p>观察目前的背景工作状态。</p>
+<blockquote>
+<p><strong>jobs [-lrs]</strong></p>
+</blockquote>
+<blockquote>
+<p>选项与参数：<br>-l  ：除了列出 job number 与命令串之外，同时列出 PID 的号码；<br>-r  ：仅列出正在背景 run 的工作；<br>-s  ：仅列出正在背景当中暂停 (stop) 的工作。</p>
+</blockquote>
+<h2 id="fg"><a href="#fg" class="headerlink" title="fg"></a>fg</h2><p>将背景工作拿到前景来处理</p>
+<blockquote>
+<p>fg %jobnumber</p>
+</blockquote>
+<h2 id="bg"><a href="#bg" class="headerlink" title="bg"></a>bg</h2><p>让工作在背景下的状态变成运行中</p>
+<blockquote>
+<p>➜  ~  jobs; bg %1; jobs<br>[1]  + suspended  sh fq.sh<br>[1]  + 10348 continued  sh fq.sh<br>[1]  + running    sh fq.sh</p>
+</blockquote>
+<h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><p>管理背景当中的工作</p>
+<blockquote>
+<p>kill -9 %2<br>  -9 ：立刻强制删除一个工作；</p>
+</blockquote>
+<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>nohup 可以让你在离线或注销系统后，还能够让工作继续进行。</p>
+<blockquote>
+<p>nohup [命令与参数]   &lt;&#x3D;&#x3D;在终端机前景中工作<br> nohup [命令与参数] &amp; &lt;&#x3D;&#x3D;在终端机背景中工作</p>
+</blockquote>
+<p>如果你再次登陆的话，可以使用 pstree 去查阅你的程序。</p>
+<h2 id="disown"><a href="#disown" class="headerlink" title="disown"></a>disown</h2><p>我们已经知道，如果事先在命令前加上 nohup 就可以在你关闭终端后继续运行程序。但是如果我们未加任何处理就已经提交了命令，该如何补救呢。</p>
+<p>disown 它可以将指定任务从”后台任务”列表（jobs命令的返回结果）之中移除。一个”后台任务”只要不在这个列表之中，session 就肯定不会向它发出SIGHUP信号。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 移出最近一个正在执行的后台任务</span></span><br><span class="line">$ <span class="built_in">disown</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 移出所有正在执行的后台任务</span></span><br><span class="line">$ <span class="built_in">disown</span> -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移出所有后台任务</span></span><br><span class="line">$ <span class="built_in">disown</span> -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不移出后台任务，但是让它们不会收到SIGHUP信号</span></span><br><span class="line">$ <span class="built_in">disown</span> -h</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据jobId，移出指定的后台任务</span></span><br><span class="line">$ <span class="built_in">disown</span> %2</span><br><span class="line">$ <span class="built_in">disown</span> -h %2</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/11/15/%E5%9F%BA%E5%9B%A0%E5%BA%8F%E5%88%97-%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/11/15/%E5%9F%BA%E5%9B%A0%E5%BA%8F%E5%88%97-%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">基因序列-算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-11-15 15:07:00" itemprop="dateCreated datePublished" datetime="2015-11-15T15:07:00+00:00">2015-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>问题描述</strong></p>
+<p>基因序列由字母G、A、T和C构成的字符串，现要判定一个基因中是否有结构的基因元素。</p>
+<p><strong>输入</strong></p>
+<p>输入有多组测试数据。每组有2行，第1行是由字母G、A、T和C构成的字符串str表示一个基因序列，第2行是一个由字母G、A、T和C构成的字符串str1表示的基因元素。</p>
+<p><strong>输出</strong></p>
+<p>对每组数据，统计str1在str中出现的次数。</p>
+<p><strong>输入样例</strong></p>
+<pre><code>AGTCGATCGAGAGTTC
+AG
+TTTACCGAGA
+TAC
+</code></pre>
+<p><strong>输出样例</strong></p>
+<pre><code>3
+1
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main1</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">		<span class="keyword">while</span>(in.hasNext())&#123;</span><br><span class="line">			<span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> in.nextLine();</span><br><span class="line">			<span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> in.nextLine();</span><br><span class="line">			Main1.match(str, str1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 统计str1在str中出现的次数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> str</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> str1</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">match</span><span class="params">(String str, String str1)</span>&#123;</span><br><span class="line">		<span class="comment">//p 保存匹配的第一个字符在str 中的位置</span></span><br><span class="line">		<span class="comment">//q 指向后续元素匹配的位置</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">p</span> <span class="operator">=</span> <span class="number">0</span>,q=<span class="number">0</span>;</span><br><span class="line">		<span class="comment">//统计一共有多少个匹配</span></span><br><span class="line">		<span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">		<span class="type">char</span>[] strArr = str.toCharArray();</span><br><span class="line">		<span class="type">char</span>[] str1Arr = str1.toCharArray();</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;strArr.length; i++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (strArr[i] == str1Arr[q]) &#123;</span><br><span class="line">				<span class="comment">//将i的值保存起来</span></span><br><span class="line">				p = i;</span><br><span class="line">				i++;</span><br><span class="line">				q = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">for</span> ( ; i &lt; strArr.length; i++) &#123;</span><br><span class="line">					<span class="keyword">if</span> (q &lt; str1Arr.length &amp;&amp; strArr[i]==str1Arr[q]) &#123;</span><br><span class="line">						<span class="keyword">if</span> (q == str1Arr.length-<span class="number">1</span>) &#123;</span><br><span class="line">							count++;</span><br><span class="line">							i = p + q;</span><br><span class="line">							q = <span class="number">0</span>;</span><br><span class="line">							<span class="keyword">break</span>;</span><br><span class="line">						&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">							q++;</span><br><span class="line">							<span class="keyword">continue</span>;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">						i = p;</span><br><span class="line">						q = <span class="number">0</span>;</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(count);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/11/15/%E7%BA%BF%E6%AE%B5%E4%B8%8E%E4%B8%89%E8%A7%92%E5%BD%A2-%E7%AE%97%E6%B3%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/11/15/%E7%BA%BF%E6%AE%B5%E4%B8%8E%E4%B8%89%E8%A7%92%E5%BD%A2-%E7%AE%97%E6%B3%95%E9%A2%98/" class="post-title-link" itemprop="url">线段与三角形-算法题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-11-15 10:17:00" itemprop="dateCreated datePublished" datetime="2015-11-15T10:17:00+00:00">2015-11-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>问题描述</strong></p>
+<p>给定线段PQ和三角形ABC，求三角形面积并确定线段PQ是否与三角形相交。</p>
+<p><strong>输入</strong></p>
+<p>有多组测试数据。输入的第一行上有正整数n，表示有n组测试数据。每组测试数据有2行：第一行上有6个整数x1 y1 x2 y2 x3 y3，整数之间用一个空格隔开，他们分别表示三角形ABC的三个顶点坐标A(x1，y1)、B(x2，y2)、C(x3，y3)；第二行是4个整数u v w t，整数之间用一个空格隔开，他们表示线段PQ端点P和Q的坐标P(u，v)，Q(w，t)。</p>
+<p><strong>输出</strong></p>
+<p>对输入中的每组测试数据，先输出一行，内容是“Case i:”，其中i是数组的编号（从1开始）。在下一行上输出三角形的面积（四舍五入保留1位小数），空一格后输出三角形与线段的相交情况：对给定的三角形ABC和线段PQ，如果线段PQ与三角形的边相交，那么输出“Yes”，否则输出“No”。约定：当线段PQ在三角形内部时，PQ与三角形的边不相交。</p>
+<p><strong>输入举例</strong></p>
+<pre><code>2
+0 0 4 4 0 4
+1 2 1 3
+0 0 3 4 0 4
+0 -3 -1 -4
+</code></pre>
+<p><strong>输出样例</strong></p>
+<pre><code>Case 1:
+8.0 No
+Case 2:
+6.0 No
+</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">direction</span><span class="params">(<span class="type">int</span>[] pi, <span class="type">int</span>[] pj, <span class="type">int</span>[] pk)</span>&#123; </span><br><span class="line">        <span class="keyword">return</span> (pi[<span class="number">0</span>]-pk[<span class="number">0</span>])*(pi[<span class="number">1</span>]-pj[<span class="number">1</span>]) - (pi[<span class="number">0</span>]-pj[<span class="number">0</span>])*(pi[<span class="number">1</span>]-pk[<span class="number">1</span>]); </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 判断点pk是否在线段 pi,pj 上 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> boolean </span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">onSegment</span><span class="params">(<span class="type">int</span>[] pi, <span class="type">int</span>[] pj, <span class="type">int</span>[] pk)</span> &#123; </span><br><span class="line">        <span class="keyword">if</span> ( Math.min(pi[<span class="number">0</span>], pj[<span class="number">0</span>]) &lt;= pk[<span class="number">0</span>] &amp;&amp; pk[<span class="number">0</span>] &lt;= Math.max(pi[<span class="number">0</span>], pj[<span class="number">0</span>]) &amp;&amp;  </span><br><span class="line">             Math.min(pi[<span class="number">1</span>], pj[<span class="number">1</span>]) &lt;= pk[<span class="number">1</span>] &amp;&amp; pk[<span class="number">1</span>] &lt;= Math.max(pi[<span class="number">1</span>], pj[<span class="number">1</span>]) ) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        &#125;<span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 判断线段 p1,p2 和线段 p3,p4 是否相交 </span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">segmentInsert</span><span class="params">(<span class="type">int</span>[] p1, <span class="type">int</span>[] p2, <span class="type">int</span>[] p3, <span class="type">int</span>[] p4)</span> &#123; </span><br><span class="line">        <span class="type">int</span> <span class="variable">d1</span> <span class="operator">=</span> direction(p3, p4, p1); </span><br><span class="line">        <span class="type">int</span> <span class="variable">d2</span> <span class="operator">=</span> direction(p3, p4, p2); </span><br><span class="line">        <span class="type">int</span> <span class="variable">d3</span> <span class="operator">=</span> direction(p1, p2, p3); </span><br><span class="line">        <span class="type">int</span> <span class="variable">d4</span> <span class="operator">=</span> direction(p1, p2, p4); </span><br><span class="line">        <span class="keyword">if</span> ( ((d1&gt;<span class="number">0</span> &amp;&amp; d2&lt;<span class="number">0</span>) || (d1&lt;<span class="number">0</span> &amp;&amp; d2&gt;<span class="number">0</span>)) &amp;&amp; </span><br><span class="line">             ((d3&gt;<span class="number">0</span> &amp;&amp; d4&lt;<span class="number">0</span>) || (d3&lt;<span class="number">0</span> &amp;&amp; d4&gt;<span class="number">0</span>))) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d1==<span class="number">0</span> &amp;&amp; onSegment(p3, p4, p1)) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d2==<span class="number">0</span> &amp;&amp; onSegment(p3, p4, p2)) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d3==<span class="number">0</span> &amp;&amp; onSegment(p1, p2, p3)) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d4==<span class="number">0</span> &amp;&amp; onSegment(p1, p2, p4)) &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">double</span> <span class="title function_">area</span><span class="params">(<span class="type">int</span>[] p1, <span class="type">int</span>[] p2, <span class="type">int</span>[] p3)</span>&#123;</span><br><span class="line"><span class="comment">//    	return (p1[0]*p2[1]+p2[0]*p3[0]*p1[1] - p1[0]*p3[1] - p2[0]*p1[1] - p3[0]*p2[1])/2.0;</span></span><br><span class="line">    	<span class="keyword">return</span> Math.abs( Main.direction(p1, p2, p3)/<span class="number">2.0</span> );</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">meet</span><span class="params">(<span class="type">int</span>[] p1, <span class="type">int</span>[] p2, <span class="type">int</span>[] p3,<span class="type">int</span>[] p4, <span class="type">int</span> p5[],<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    	<span class="type">double</span> <span class="variable">area</span> <span class="operator">=</span> Main.area(p1, p2, p3);</span><br><span class="line">    	System.out.println(<span class="string">&quot;Case &quot;</span>+n);</span><br><span class="line">    	System.out.print(area);</span><br><span class="line">    	<span class="type">boolean</span> <span class="variable">b1</span> <span class="operator">=</span> segmentInsert(p1, p2, p5, p4);</span><br><span class="line">    	<span class="type">boolean</span> <span class="variable">b2</span> <span class="operator">=</span> segmentInsert(p1, p3, p5, p4);</span><br><span class="line">    	<span class="type">boolean</span> <span class="variable">b3</span> <span class="operator">=</span> segmentInsert(p3, p2, p5, p4);</span><br><span class="line">    	</span><br><span class="line">    	<span class="keyword">if</span> (b1 &amp;&amp; b2 &amp;&amp; b3) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot; Yes&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot; No&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">    	</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123; </span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);    </span><br><span class="line">        <span class="keyword">while</span>(in.hasNext())&#123;</span><br><span class="line">        	<span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> in.nextInt();</span><br><span class="line">        	<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        		<span class="comment">//三角形三点</span></span><br><span class="line">        		<span class="type">int</span>[] p1 = &#123;in.nextInt(), in.nextInt()&#125;; </span><br><span class="line">                <span class="type">int</span>[] p2 = &#123;in.nextInt(), in.nextInt()&#125;; </span><br><span class="line">                <span class="type">int</span>[] p3 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">                <span class="type">int</span>[] p4 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">                <span class="type">int</span>[] p5 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">                Main.meet(p1, p2, p3, p4, p5, i);</span><br><span class="line">			&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/11/01/%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/11/01/%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">经典排序算法实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-11-01 12:44:00" itemprop="dateCreated datePublished" datetime="2015-11-01T12:44:00+00:00">2015-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> corlymeng.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2015年10月30日</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> com.corlymeng.sort;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AllSort</span> &#123;</span><br><span class="line">	<span class="comment">//保存排序的结果</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span>[] recType = <span class="literal">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">AllSort</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">		recType = arr;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">////////////////////////插入排序 start/////////////////////////////</span></span><br><span class="line">	<span class="comment">//插入排序</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertSort</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">		<span class="type">int</span> i,j;</span><br><span class="line">		<span class="type">int</span> tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;n; i++) &#123;</span><br><span class="line">			tmp = recType[i];</span><br><span class="line">			j = i - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; recType[j]) &#123;</span><br><span class="line">				recType[j+<span class="number">1</span>] = recType[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			recType[j+<span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//二分插入排序</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertSort1</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">		<span class="type">int</span> i,j,low,high,mid;</span><br><span class="line">		<span class="type">int</span> tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">			tmp = recType[i];</span><br><span class="line">			low = <span class="number">0</span>;</span><br><span class="line">			high = i - <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">				mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">				<span class="keyword">if</span>(tmp &lt; recType[mid])</span><br><span class="line">					high = mid - <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					low = mid + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(j=i-<span class="number">1</span>; j&gt;high+<span class="number">1</span>; j--)&#123;</span><br><span class="line">				recType[j+<span class="number">1</span>] = recType[j];</span><br><span class="line">			&#125;</span><br><span class="line">			recType[high+<span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//希尔排序</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shellSort</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">		<span class="type">int</span> i,j,gap;</span><br><span class="line">		<span class="type">int</span> tmp;</span><br><span class="line">		gap = n/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">while</span>(gap&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">for</span>(i = gap; i&lt;n; i++)&#123;</span><br><span class="line">				tmp = recType[i];</span><br><span class="line">				j = i - gap;</span><br><span class="line">				<span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; recType[j])&#123;</span><br><span class="line">					recType[j+gap] = recType[j];</span><br><span class="line">					j = j-gap;</span><br><span class="line">				&#125;</span><br><span class="line">				recType[j+gap] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">			gap = gap/<span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">////////////////////////插入排序 end/////////////////////////////</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">////////////////////////交换排序 start/////////////////////////////</span></span><br><span class="line">	<span class="comment">//快速排序</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span> s,<span class="type">int</span> t)</span>&#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> s,j = t;</span><br><span class="line">		<span class="type">int</span> tmp;</span><br><span class="line">		<span class="keyword">if</span> (s &lt; t) &#123;</span><br><span class="line">			tmp = recType[s];</span><br><span class="line">			<span class="keyword">while</span> (i != j) &#123;</span><br><span class="line">				<span class="keyword">while</span>(j &gt; i &amp;&amp; tmp &lt;= recType[j])</span><br><span class="line">					j--;</span><br><span class="line">				recType[i] = recType[j];</span><br><span class="line">				<span class="keyword">while</span>(i &lt; j &amp;&amp; tmp &gt; recType[i])</span><br><span class="line">					i++;</span><br><span class="line">				recType[j] = recType[i];</span><br><span class="line">			&#125;</span><br><span class="line">			recType[i] = tmp;</span><br><span class="line">			quickSort(s, i-<span class="number">1</span>);</span><br><span class="line">			quickSort(i+<span class="number">1</span>, t);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//冒泡排序</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">bubbleSort</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">int</span> i,j,tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;recType.length; i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=i+<span class="number">1</span>; j&lt;recType.length; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (recType[i] &gt; recType[j] ) &#123;</span><br><span class="line">					tmp = recType[i];</span><br><span class="line">					recType[i] = recType[j];</span><br><span class="line">					recType[j] = tmp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">////////////////////////交换排序 end/////////////////////////////	</span></span><br><span class="line"></span><br><span class="line"><span class="comment">////////////////////////选择排序 start///////////////////////////</span></span><br><span class="line">	<span class="comment">//简单选择排序</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">selectionSort</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">int</span> i,j,tmp;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;recType.length; i++)&#123;</span><br><span class="line">			tmp = recType[i];</span><br><span class="line">			j=i-<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; tmp&lt;recType[j])&#123;</span><br><span class="line">				recType[j+<span class="number">1</span>] = recType[j];</span><br><span class="line">				j--;</span><br><span class="line">			&#125;</span><br><span class="line">			recType[j+<span class="number">1</span>] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//堆排序，排序是从数组的下标是1的元素开始排序的。</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">heapSort</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=recType.length-<span class="number">1</span>; i&gt;<span class="number">0</span>; i--)&#123;</span><br><span class="line">			buildHeap(i);</span><br><span class="line">			<span class="comment">//每次排序完将将最大的元素调到最后</span></span><br><span class="line">			recType[<span class="number">0</span>] = recType[i];</span><br><span class="line">			recType[i] = recType[<span class="number">1</span>];</span><br><span class="line">			recType[<span class="number">1</span>] = recType[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//调整二叉堆</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">percolateDown</span> <span class="params">(<span class="type">int</span> hole, <span class="type">int</span> currentSize)</span> &#123;</span><br><span class="line">		<span class="type">int</span> child;</span><br><span class="line">		<span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> recType[hole];</span><br><span class="line">		<span class="keyword">for</span> (; hole*<span class="number">2</span> &lt;= currentSize; hole = child) &#123;</span><br><span class="line">			child = hole*<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span> (child != currentSize &amp;&amp; recType[child+<span class="number">1</span>]&gt;recType[child])</span><br><span class="line">				child++;</span><br><span class="line">			<span class="keyword">if</span> (recType[child]&gt;tmp)</span><br><span class="line">				recType[hole] = recType[child];</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		recType[hole] = tmp; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">buildHeap</span> <span class="params">(<span class="type">int</span> currentSize)</span> &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i=currentSize/<span class="number">2</span>; i&gt;<span class="number">0</span>; i--) </span><br><span class="line">			percolateDown(i, currentSize);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">////////////////////////选择排序 end/////////////////////////////	</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printArr</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;recType.length; i++ )&#123;</span><br><span class="line">			System.out.print(recType[i]+<span class="string">&quot; &quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">int</span>[] arr = &#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">11</span>,<span class="number">25</span>,<span class="number">22</span>&#125;;</span><br><span class="line">		<span class="type">AllSort</span> <span class="variable">allSort</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AllSort</span>(arr);</span><br><span class="line"><span class="comment">//		allSort.quickSort(0, arr.length-1);</span></span><br><span class="line"><span class="comment">//		allSort.selectionSort();</span></span><br><span class="line">		allSort.heapSort();</span><br><span class="line">		allSort.printArr();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng"
+      src="/uploads/qrcode_wechat.jpg">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备2023007649号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

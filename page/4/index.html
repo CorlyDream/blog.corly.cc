@@ -1,20 +1,1355 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
 
-{% block title %}{{ title }}{%- if theme.index_with_subtitle and subtitle %} - {{ subtitle }}{%- endif %}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block class %}index posts-expand{% endblock %}
 
-{% block content %}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {%- for post in page.posts.toArray() %}
-    {{ partial('_macro/post.swig', {post: post, is_index: true}) }}
-  {%- endfor %}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  {% include '_partials/pagination.swig' %}
+  <meta property="og:type" content="website">
+<meta property="og:title" content="CoderMeng">
+<meta property="og:url" content="http://blog.corly.cc/page/4/index.html">
+<meta property="og:site_name" content="CoderMeng">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CoderMeng">
+<meta name="twitter:card" content="summary">
 
-{% endblock %}
+<link rel="canonical" href="http://blog.corly.cc/page/4/">
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CoderMeng</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/07/11/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F(%E5%88%AB%E5%90%8D%EF%BC%9A%E5%8A%A8%E4%BD%9C%EF%BC%8C%E4%BA%8B%E5%8A%A1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/11/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F(%E5%88%AB%E5%90%8D%EF%BC%9A%E5%8A%A8%E4%BD%9C%EF%BC%8C%E4%BA%8B%E5%8A%A1)/" class="post-title-link" itemprop="url">命令模式（别名：动作，事务）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-11 16:54:00" itemprop="dateCreated datePublished" datetime="2015-07-11T16:54:00+00:00">2015-07-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>将一个请求封装为一个对象，从而是用户可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销操作。</p>
+</blockquote>
+<p><strong>概述</strong></p>
+<p>例如：在军队作战时中，指挥官请求三连偷袭人，但是指挥官不希望或无法直接与三连取得联系，那么可以将该请求：”三连偷袭敌人”形成一个“作战命令”，该作战命令的核心就是“三连偷袭敌人”。只要能让该“作战命令”被执行（即使指挥官已经不存在），就会实现三连偷袭敌人的目的。如图所示：<br><img src="/uploads/2015/07/1493311718.jpg" alt="军官要求三连偷袭敌人"></p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><p>命令模式的结构中包括四种角色。</p>
+<ul>
+<li><p>接收者（Receiver）：接收者是一个类的实例，该实例负责执行与请求相关的操作。</p>
+</li>
+<li><p>命令（Command）接口：命令是一个接口，规定了用来封装“请求”的若干方法，比如： execute() undo()等方法。</p>
+</li>
+<li><p>具体命令（ConcreteCommand）具体命令是实现命令接口的类的实例。具体命令必须实现命令接口中的方法，比如execute()方法，使该方法封装一个“请求”。</p>
+</li>
+<li><p>请求者（Invoker），请求者是一个包含Command接口变量的类的实例，请求者中的Command接口的变量可以存放任何具体命令的引用，请求者负责调用具体命令，让具体命令执行那些封装了“请求”的方法，比如execute()方法。</p>
+</li>
+</ul>
+<p><strong>UML类图</strong></p>
+<p><img src="/uploads/2015/07/1517314737.jpg" alt="类图"></p>
+<h2 id="结构描述"><a href="#结构描述" class="headerlink" title="结构描述"></a>结构描述</h2><p>下面通过前面举的例子，来对命令模式中涉及的各个角色进行简单的描述</p>
+<h4 id="1-接收者（Receiver）"><a href="#1-接收者（Receiver）" class="headerlink" title="1.接收者（Receiver）"></a>1.接收者（Receiver）</h4><p>接收者是下列TripleArmy类的一个实例，该实例的sneakAttack()方法可以实现如何偷袭敌人。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TripleArmy</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sneakAttack</span><span class="params">()</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;我们知道如何偷袭敌人，保证完成任务。&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-命令（Command-接口"><a href="#2-命令（Command-接口" class="headerlink" title="2.命令（Command)接口"></a>2.命令（Command)接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Command</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-具体命令（ConcreteCommand）"><a href="#3-具体命令（ConcreteCommand）" class="headerlink" title="3.具体命令（ConcreteCommand）"></a>3.具体命令（ConcreteCommand）</h4><p>指挥官想调动三连sneakAttack()方法偷袭敌人，但是指挥官不想或无法直接与三连打交道。在这种情况下，可以把指挥官的请求：“三连的实例调用sneakAttack()”封装到一个具体命令对象的execute()方法中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteCommand</span> <span class="keyword">implements</span> <span class="title class_">Command</span> &#123;</span><br><span class="line">	TripleArmy army;  <span class="comment">//含有接收者的应用</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ConcreteCommand</span><span class="params">(TripleArmy army)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.army = army;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">()</span> &#123;</span><br><span class="line">		army.sneakAttack();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-请求者（Invoker）"><a href="#4-请求者（Invoker）" class="headerlink" title="4.请求者（Invoker）"></a>4.请求者（Invoker）</h4><p>请求者含有Command接口声明的变量。请求者通过执行具体的命令，实现自己的请求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArmySuperior</span> &#123;</span><br><span class="line">	Command command;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setCommand</span><span class="params">(Command command)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.command = command;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">executeCommand</span><span class="params">()</span> &#123;</span><br><span class="line">		command.execute();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-模式的使用"><a href="#5-模式的使用" class="headerlink" title="5.模式的使用"></a>5.模式的使用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">TripleArmy</span> <span class="variable">tripleArmy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TripleArmy</span>(); <span class="comment">//创建接收者</span></span><br><span class="line">	<span class="type">Command</span> <span class="variable">command</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteCommand</span>(tripleArmy); <span class="comment">// 创建具体命令并指定接收者</span></span><br><span class="line">	<span class="type">ArmySuperior</span> <span class="variable">superior</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArmySuperior</span>(); <span class="comment">//创建请求者</span></span><br><span class="line">	superior.setCommand(command);</span><br><span class="line">	superior.executeCommand();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令接口中的撤销方法"><a href="#命令接口中的撤销方法" class="headerlink" title="命令接口中的撤销方法"></a>命令接口中的撤销方法</h2><p>现在有如下问题：请求者请求在硬盘建立目录，请求成功后，还可以撤销请求。这就要求接收者不仅可以在硬盘上建立目录，也可以删除目录。针对该问题所设计的类图如图：</p>
+<p><img src="/uploads/2015/07/2864621061.jpg" alt="命令接口中的撤销方法"></p>
+<p>####1. 接收者</p>
+<p>接收者是MakeDir类的一个实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MakeDir</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createDir</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="type">File</span> <span class="variable">dir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(name);</span><br><span class="line">		dir.mkdir();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteDir</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="type">File</span> <span class="variable">dir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(name);</span><br><span class="line">		dir.delete();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>####2. 命令接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MakeDir</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createDir</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="type">File</span> <span class="variable">dir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(name);</span><br><span class="line">		dir.mkdir();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deleteDir</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="type">File</span> <span class="variable">dir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(name);</span><br><span class="line">		dir.delete();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>####3. 具体命令</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteCommand</span> <span class="keyword">implements</span> <span class="title class_">Command</span> &#123;</span><br><span class="line">	ArrayList&lt;String&gt; dirNameList;</span><br><span class="line">	MakeDir makeDir;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ConcreteCommand</span><span class="params">(MakeDir makeDir)</span> &#123;</span><br><span class="line">		dirNameList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">		<span class="built_in">this</span>.makeDir = makeDir;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		makeDir.createDir(name);</span><br><span class="line">		dirNameList.add(name);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">undo</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (dirNameList.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> dirNameList.size();</span><br><span class="line">			<span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> dirNameList.get(m-<span class="number">1</span>);</span><br><span class="line">			makeDir.deleteDir(str);</span><br><span class="line">			dirNameList.remove(m-<span class="number">1</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span></span><br><span class="line">			System.out.println(<span class="string">&quot;没有需要撤销的操作&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>####4. 请求者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RequestMakeDir</span> &#123;</span><br><span class="line">	Command command;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setCommand</span><span class="params">(Command command)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.command = command;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">executeCommand</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		command.execute(name);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">undoCommand</span><span class="params">()</span> &#123;</span><br><span class="line">		command.undo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>####5. 测试程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">	<span class="type">MakeDir</span> <span class="variable">makeDir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MakeDir</span>();  <span class="comment">//创建接收者</span></span><br><span class="line">	<span class="type">Command</span> <span class="variable">command</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteCommand</span>(makeDir); <span class="comment">// 创建具体命令并指定接收者</span></span><br><span class="line">	<span class="type">RequestMakeDir</span> <span class="variable">askMakeDir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RequestMakeDir</span>(); <span class="comment">//创建请求者</span></span><br><span class="line">	askMakeDir.setCommand(command);</span><br><span class="line">	askMakeDir.executeCommand(<span class="string">&quot;corly&quot;</span>);</span><br><span class="line">	askMakeDir.executeCommand(<span class="string">&quot;meng&quot;</span>);</span><br><span class="line">	askMakeDir.undoCommand();</span><br><span class="line">	askMakeDir.undoCommand();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>在命令模式中，请求者（Invoker）不直接与接收者（Receiver）交互，即请求者（Invoker）不包含接收者（Receiver）的引用，因此彻底消除了彼此之间的耦合。</p>
+</li>
+<li><p>命令模式满足“开-闭原则”。如果增加新的具体命令和该命令的接收者，不必修改调用者的代码调用者就可以使用新的命令对象；反之，如果增加新的调用者，不必修改现有的具体命令和接收者，新增加的调用者就可以使用已有的具体命令。</p>
+</li>
+<li><p>由于请求者的请求被封装到了具体命令中，那么就可以将具体命令保存到持久化的媒介中，在需要的时候，重新执行这个具体命令因此，因此，使用命令模式可以记录日志。</p>
+</li>
+<li><p>使用命令模式可以对请求者的“请求”进行排队。每个请求都各自对应一个具体命令。因此可以按一定顺序执行这些具体命令。</p>
+</li>
+</ul>
+<hr>
+<p>举例：</p>
+<p><a target="_blank" rel="noopener" href="http://corlymeng.com/archives/361.html">模拟小电器</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/07/06/centos%206%20%E5%AE%89%E8%A3%85LAMP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/06/centos%206%20%E5%AE%89%E8%A3%85LAMP/" class="post-title-link" itemprop="url">centos 6 安装LAMP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-06 18:15:00" itemprop="dateCreated datePublished" datetime="2015-07-06T18:15:00+00:00">2015-07-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd</span><br><span class="line">chkconfig httpd on <span class="comment">#设为开机启动</span></span><br><span class="line">/etc/init.d/httpd restart <span class="comment">#重启Apache</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><h3 id="安装MySQL-1"><a href="#安装MySQL-1" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql mysql-server <span class="comment">#询问是否要安装，输入Y即可自动安装,直到安装完成</span></span><br><span class="line">/etc/init.d/mysqld start <span class="comment">#启动MySQL</span></span><br><span class="line">chkconfig mysqld on <span class="comment">#设为开机启动</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p>根据提示设置root用户密码，然后根据提示输入Y&#x2F;N对数据库进行配置。</p>
+<p>重启MySQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysqld restart <span class="comment">#重启</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装php"><a href="#安装php" class="headerlink" title="安装php"></a>安装php</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install php</span><br><span class="line">//安装MySQL数据库与其它模块(根据自己的需要选择)</span><br><span class="line">yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc</span><br></pre></td></tr></table></figure>
+<h2 id="相关配置与环境"><a href="#相关配置与环境" class="headerlink" title="相关配置与环境"></a>相关配置与环境</h2><blockquote>
+<p>Apache主配置文件：&#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf<br>Apache主配置目录，可以将不同类型的配置分门别类放入这个目录中：&#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;<br>Apache网站根目录：&#x2F;var&#x2F;www&#x2F;html&#x2F;<br>Apache日志文件目录：&#x2F;var&#x2F;log&#x2F;httpd<br>MySQL的my.cnf配置文件：&#x2F;etc&#x2F;my.cnf<br>MySQL数据库文件位置：&#x2F;usr&#x2F;lib&#x2F;mysql</p>
+</blockquote>
+<h3 id="1-Apache配置"><a href="#1-Apache配置" class="headerlink" title="1.Apache配置"></a>1.Apache配置</h3><blockquote>
+<p>vi &#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf #编辑文件<br>ServerTokens OS　 在44行 修改为：ServerTokens Prod （在出现错误页的时候不显示服务器操作系统的名称）<br>ServerSignature On　 在536行 修改为：ServerSignature Off （在错误页中不显示Apache的版本）<br>Options Indexes FollowSymLinks　 在331行 修改为：Options Includes ExecCGI FollowSymLinks（允许服务器执行CGI及SSI，禁止列出目录）<br>AllowOverride None　 在338行 修改为：AllowOverride All （允许.htaccess）<br>Options Indexes MultiViews FollowSymLinks 在554行 修改为 Options MultiViews FollowSymLinks（不在浏览器上显示树状目录结构）<br>DirectoryIndex index.html index.html.var 在402行 修改为：DirectoryIndex index.html index.htm Default.html Default.htm<br>index.php Default.php index.html.var （设置默认首页文件，增加index.php）<br>MaxKeepAliveRequests 100 在83行 修改为：MaxKeepAliveRequests 1000 （增加同时连接数）<br>:wq! #保存退出<br>&#x2F;etc&#x2F;init.d&#x2F;httpd restart #重启<br>rm -f &#x2F;etc&#x2F;httpd&#x2F;conf.d&#x2F;welcome.conf &#x2F;var&#x2F;www&#x2F;error&#x2F;noindex.html #删除默认测试页</p>
+</blockquote>
+<h3 id="2-php配置"><a href="#2-php配置" class="headerlink" title="2.php配置"></a>2.php配置</h3><p>&#x2F;etc&#x2F;php.ini</p>
+<blockquote>
+<p>date.timezone &#x3D; Asia&#x2F;Shanghai #在946行 把前面的分号去掉<br>expose_php &#x3D; Off #在432行 禁止显示php版本的信息<br>magic_quotes_gpc &#x3D; On #在745行 打开magic_quotes_gpc来防止SQL注入<br>short_open_tag &#x3D; On #在229行支持php短标签<br>:wq! #保存退出<br>&#x2F;etc&#x2F;init.d&#x2F;mysqld restart #重启MySql<br>&#x2F;etc&#x2F;init.d&#x2F;httpd restart #重启Apche</p>
+</blockquote>
+<h2 id="安装FTP"><a href="#安装FTP" class="headerlink" title="安装FTP"></a>安装FTP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install vsftpd</span><br><span class="line">chkconfig vsftpd on <span class="comment">#设为开机启动</span></span><br><span class="line">/etc/init.d/httpd vsftpd <span class="comment">#重启vsftpd服务</span></span><br></pre></td></tr></table></figure>
+<p>配置防火墙<br>打开&#x2F;etc&#x2F;sysconfig&#x2F;iptables文件</p>
+<blockquote>
+<p>vim &#x2F;etc&#x2F;sysconfig&#x2F;iptables</p>
+</blockquote>
+<p>在REJECT行之前添加如下代码</p>
+<blockquote>
+<p>-A INPUT -m state –state NEW -m tcp -p tcp –dport 21 -j ACCEPT</p>
+</blockquote>
+<p>保存和关闭文件，重启防火墙</p>
+<blockquote>
+<p>service iptables start</p>
+</blockquote>
+<h3 id="vsftpd配置"><a href="#vsftpd配置" class="headerlink" title="vsftpd配置"></a>vsftpd配置</h3><blockquote>
+<p>anonymous_enable&#x3D;NO &#x2F;&#x2F;不允许匿名访问<br>chroot_local_user&#x3D;NO &#x2F;&#x2F;禁止本地用户登出自己的FTP主目录，本身被注释掉<br>chroot_list_enable&#x3D;YES&#x2F;&#x2F;不允许FTP用户离开自己主目录，默认是被注释掉的。<br>chroot_list_file&#x3D;&#x2F;etc&#x2F;vsftpd&#x2F;chroot_list&#x2F;&#x2F;如果开启了chroot_list_enable&#x3D;YES，那么一定要开启这个，这条是锁定登录用户只能家目录的位置，如果不开启用户登录时就会报500 OOPS的错。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/07/01/Javascript%20%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/07/01/Javascript%20%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/" class="post-title-link" itemprop="url">Javascript 对象继承</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-01 21:50:00" itemprop="dateCreated datePublished" datetime="2015-07-01T21:50:00+00:00">2015-07-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="属性的继承：调用父类的构造函数call"><a href="#属性的继承：调用父类的构造函数call" class="headerlink" title="属性的继承：调用父类的构造函数call"></a>属性的继承：调用父类的构造函数call</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params">name, sex</span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">sex</span> = sex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个明星类，它继承自Person类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Star</span>(<span class="params">name, sex, age</span>)&#123;</span><br><span class="line">    <span class="title class_">Person</span>(name, sex);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">age</span> = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="title class_">Star</span>(<span class="string">&quot;小名&quot;</span>, <span class="string">&quot;男&quot;</span>, <span class="number">20</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(s);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/07/01/Javascript%20%E5%AF%B9%E8%B1%A1%E7%BB%A7%E6%89%BF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/05/02/Javascript%20%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/02/Javascript%20%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Javascript 包装对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-05-02 20:40:00" itemprop="dateCreated datePublished" datetime="2015-05-02T20:40:00+00:00">2015-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>先看一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;corlymeng.com&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> str);  <span class="comment">// string </span></span><br><span class="line">str.<span class="title function_">charAt</span>(<span class="number">2</span>);</span><br><span class="line">str.<span class="title function_">indexOf</span>(<span class="string">&#x27;l&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在第二行我们输出str的类型是：字符串，但是我们发现str可以调用charAt、indexOf等方法。这时我们有一个疑问：字符串是一个基本类型，它怎么可能拥有方法呢？ 只有对象类型的才可以调用方法。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/05/02/Javascript%20%E5%8C%85%E8%A3%85%E5%AF%B9%E8%B1%A1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/05/01/Javascript%20%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%AA%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/01/Javascript%20%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%AA%E6%95%B0/" class="post-title-link" itemprop="url">Javascript 统计字符串中字符个数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-05-01 11:06:00" itemprop="dateCreated datePublished" datetime="2015-05-01T11:06:00+00:00">2015-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-js字符串方法"><a href="#1-js字符串方法" class="headerlink" title="1. js字符串方法"></a>1. js字符串方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params">str</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i		<span class="keyword">if</span> ( obj[str[i]]) &#123;</span><br><span class="line">			obj[str[i]] ++;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			obj[str[i]] = <span class="number">1</span>;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/05/01/Javascript%20%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%AA%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/05/01/Javascript%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%88%90%E9%A9%BC%E5%B3%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/01/Javascript%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%88%90%E9%A9%BC%E5%B3%B0/" class="post-title-link" itemprop="url">Javascript 字符串转成驼峰</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-05-01 10:13:00" itemprop="dateCreated datePublished" datetime="2015-05-01T10:13:00+00:00">2015-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>例如：border-buttom-color -&gt; borderButtomColor</p>
+</blockquote>
+<h2 id="1-js字符串处理函数"><a href="#1-js字符串处理函数" class="headerlink" title="1.js字符串处理函数"></a>1.js字符串处理函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params">str</span>)&#123;</span><br><span class="line">	<span class="keyword">var</span> arr = str.<span class="title function_">split</span>(<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">1</span>; i&amp;lt;arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">		arr[i] = arr[i].<span class="title function_">charAt</span>(<span class="number">0</span>).<span class="title function_">toUpperCase</span>() + arr[i].<span class="title function_">substring</span>(<span class="number">1</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="keyword">return</span> arr.<span class="title function_">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/05/01/Javascript%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%88%90%E9%A9%BC%E5%B3%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/04/30/JavaScript%20%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/04/30/JavaScript%20%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="post-title-link" itemprop="url">JavaScript 作用域</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-04-30 19:38:00" itemprop="dateCreated datePublished" datetime="2015-04-30T19:38:00+00:00">2015-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-外层变量内层可以找到，内层变量外层找不到"><a href="#1-外层变量内层可以找到，内层变量外层找不到" class="headerlink" title="1. 外层变量内层可以找到，内层变量外层找不到"></a>1. 外层变量内层可以找到，内层变量外层找不到</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">aaa</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="title function_">alert</span>(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bbb</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line">    <span class="title function_">aaa</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">bbb</span>();  <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2015/04/30/JavaScript%20%E4%BD%9C%E7%94%A8%E5%9F%9F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/04/15/css%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E3%80%81%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/04/15/css%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E3%80%81%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D/" class="post-title-link" itemprop="url">css相对定位、绝对定位</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-04-15 16:31:00" itemprop="dateCreated datePublished" datetime="2015-04-15T16:31:00+00:00">2015-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"> 	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"> 		<span class="selector-tag">span</span>&#123;</span></span><br><span class="line"><span class="language-css"> 			<span class="attribute">background-color</span>: gray;</span></span><br><span class="line"><span class="language-css"> 			<span class="attribute">padding</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css"> 			<span class="attribute">margin</span>: <span class="number">2px</span>;</span></span><br><span class="line"><span class="language-css"> 		&#125;</span></span><br><span class="line"><span class="language-css"> 		<span class="selector-class">.pos</span>&#123;</span></span><br><span class="line"><span class="language-css"> 			<span class="attribute">left</span>:<span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css"> 			<span class="attribute">top</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css"> 		&#125;</span></span><br><span class="line"><span class="language-css"> 	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span>内容一<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;pos&quot;</span>&gt;</span>内容二<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span>内容三<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span>&gt;</span>内容四<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<iframe src="/usr/examples/2015/04/position_normal.html" width="420" height="240"></iframe>
+
+<p>position:relative定位后：</p>
+<p><img class="alignnone size-full wp-image-185" title="2015-04-15_155225" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/04/2015-04-15_155225.jpg-meng" alt="" width="340" height="210" /></a></p>
+<p><em><span style="font-size: large;"><strong>所谓相对定位是指，相对该元素应当显示的右上角重新定位，虽然它脱离了实际标准流，但它的空间不能被占用。</strong></span></em></p>
+<p>position:absolute定位后：</p>
+<p><img class="alignnone size-full wp-image-187" title="2015-04-15_160008" src="http://7xk7jg.com1.z0.glb.clouddn.com/uploads/2015/04/2015-04-15_160008.jpg-meng" alt="" width="251" height="158" /></a></p>
+<p><em><strong><span style="font-size: large;"> 所谓绝对定位是指，对该元素最近的那个脱离了标准流的元素定位。如果没有父元素，则相对body左上角定位。</span></strong></em></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/04/06/kali%20Linux%20%E8%BD%AF%E4%BB%B6%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/04/06/kali%20Linux%20%E8%BD%AF%E4%BB%B6%E6%BA%90/" class="post-title-link" itemprop="url">kali Linux 软件源</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-04-06 15:35:00" itemprop="dateCreated datePublished" datetime="2015-04-06T15:35:00+00:00">2015-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>修改sources.list文件：<br><span style="color: #ff0000;">leafpad &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br>然后选择添加以下适合自己较快的源（可自由选择，不一定要全部）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#官方源</span></span><br><span class="line">deb http://http.kali.org/kali kali main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali main non-free contrib</span><br><span class="line">deb http://security.kali.org/kali-security kali/updates main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment">#激进源，新手不推荐使用这个软件源</span></span><br><span class="line">deb http://repo.kali.org/kali kali-bleeding-edge main</span><br><span class="line">deb-src http://repo.kali.org/kali kali-bleeding-edge main</span><br><span class="line"></span><br><span class="line"><span class="comment">#中科大kali源</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali main non-free contrib</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali main non-free contrib</span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali-security kali/updates main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment">#阿里云kali源</span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali main non-free contrib</span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali main non-free contrib</span><br><span class="line">deb http://mirrors.aliyun.com/kali-security kali/updates main contrib non-free</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/04/04/sql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/04/04/sql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">sql基本操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-04-04 16:18:00" itemprop="dateCreated datePublished" datetime="2015-04-04T16:18:00+00:00">2015-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/sql/" itemprop="url" rel="index"><span itemprop="name">sql</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数据库结构的操作</p>
+<p>[toc]</p>
+<h1 id="一-库操作"><a href="#一-库操作" class="headerlink" title="一. 库操作"></a>一. 库操作</h1><h2 id="1-查看已创建的数据库"><a href="#1-查看已创建的数据库" class="headerlink" title="1. 查看已创建的数据库"></a>1. 查看已创建的数据库</h2><blockquote>
+<p>show databases;</p>
+</blockquote>
+<h2 id="2-创建数据库"><a href="#2-创建数据库" class="headerlink" title="2. 创建数据库"></a>2. 创建数据库</h2><blockquote>
+<p>create database 数据库名 ;</p>
+</blockquote>
+<h2 id="3-查看数据库创建"><a href="#3-查看数据库创建" class="headerlink" title="3. 查看数据库创建"></a>3. 查看数据库创建</h2><blockquote>
+<p>show create database “db_name”;</p>
+</blockquote>
+<h2 id="4-删除数据库"><a href="#4-删除数据库" class="headerlink" title="4. 删除数据库"></a>4. 删除数据库</h2><blockquote>
+<p>drop database “db_name”;</p>
+</blockquote>
+<h2 id="5-获得用户账户列表"><a href="#5-获得用户账户列表" class="headerlink" title="5. 获得用户账户列表"></a>5. 获得用户账户列表</h2><blockquote>
+<p>mysql -u root -p -e “SELECT User, Host FROM User” mysql</p>
+</blockquote>
+<h2 id="6-修改数据库信息"><a href="#6-修改数据库信息" class="headerlink" title="6. 修改数据库信息"></a>6. 修改数据库信息</h2><blockquote>
+<p>alter database “db_name”;<br>alter database php_one character set gbk;</p>
+</blockquote>
+<h1 id="二．表操作"><a href="#二．表操作" class="headerlink" title="二．表操作"></a>二．表操作</h1><h2 id="1-创建表"><a href="#1-创建表" class="headerlink" title="1. 创建表"></a>1. 创建表</h2><p><code>sql</code><br>create table php_one.php_class(<br>    class_no varchar(20),<br>    date_start date<br>);<br>php_one:数据库名，php_class:表名<br><code>sql</code></p>
+<h2 id="2-查看表"><a href="#2-查看表" class="headerlink" title="2. 查看表"></a>2. 查看表</h2><p>[sql]<br>show tables;<br>show tables like ‘%_class’;(也可以用于数据库：show databses like ‘%_class’;)<br>show create table php_class;&#x2F;&#x2F;可以用”\G”代替结束符”;”。<br>describe tb_name;<br>[&#x2F;sql]</p>
+<h2 id="3-删除表"><a href="#3-删除表" class="headerlink" title="3. 删除表"></a>3. 删除表</h2><blockquote>
+<p>drop table [if exists] tb_name;</p>
+</blockquote>
+<h2 id="4-修改表名"><a href="#4-修改表名" class="headerlink" title="4. 修改表名"></a>4. 修改表名</h2><blockquote>
+<p>rename table old_tb_name to new_tb_name;</p>
+</blockquote>
+<p>可以同时支持修改多个表</p>
+<blockquote>
+<p>rename table old_tb_name to new_tb_name,old_tb_name to new_tb_name;</p>
+</blockquote>
+<p>可以将一个数据库中的表移动到另一个数据库中</p>
+<blockquote>
+<p>raname table tb_name to db_name.user;</p>
+</blockquote>
+<h2 id="5-修改列"><a href="#5-修改列" class="headerlink" title="5. 修改列"></a>5. 修改列</h2><p>修改表结构</p>
+<blockquote>
+<p>alter table tb_name [add|modify|drop|change]</p>
+</blockquote>
+<p>增加一个列（add）</p>
+<blockquote>
+<p>alter table tb_name add 新列的定义;<br>alter table tb_name add money decimal(10,2) zerolfill;<br>增加的name列在age列后面<br>alter table tb_name add name varchar(64) not null after age;</p>
+</blockquote>
+<p>修改一个列（modify）</p>
+<blockquote>
+<p>modify tb_name 类型;</p>
+</blockquote>
+<p>删除一个列（drop）<br>重命名一个列（change）</p>
+<blockquote>
+<p>change old_name new_name 类型;</p>
+</blockquote>
+<p>修改表选项</p>
+<blockquote>
+<p>alter table tb_name 新的表选项;<br>alter table test character set gbk;</p>
+</blockquote>
+<h1 id="三-数据操作"><a href="#三-数据操作" class="headerlink" title="三. 数据操作"></a>三. 数据操作</h1><h2 id="1-插入数据"><a href="#1-插入数据" class="headerlink" title="1. 插入数据"></a>1. 插入数据</h2><p>[sql]<br>insert into 表名（字段列表） values（列表值）<br>insert into php_class (class_no,name) values (‘php110’,’孟爽’);<br>表的数据自我复制<br>insert into emp (name,grade,email,salary) select name,grade,email,salary from emp;<br>[&#x2F;sql]</p>
+<h2 id="2-查询数据"><a href="#2-查询数据" class="headerlink" title="2. 查询数据"></a>2. 查询数据</h2><p>[sql]<br>select 字段列表 from 表名 [查询条件];<br>select * from php_class;<br>select * from php_class limit 0,1; #表示显示第一次查到的符合条件的数据（如果是1,1表示显示第二个符合条件的数据）。[&#x2F;sql]</p>
+<h2 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3. 删除数据"></a>3. 删除数据</h2><blockquote>
+<p>delete from 表名 条件;</p>
+</blockquote>
+<h2 id="4-修改数据"><a href="#4-修改数据" class="headerlink" title="4. 修改数据"></a>4. 修改数据</h2><blockquote>
+<p>update 表名 set 字段&#x3D;新值……条件;</p>
+</blockquote>
+<h2 id="5-统计表中数据个数"><a href="#5-统计表中数据个数" class="headerlink" title="5. 统计表中数据个数"></a>5. 统计表中数据个数</h2><blockquote>
+<p>select count(字段名或’*’) from tb_name;</p>
+</blockquote>
+<h2 id="6-Order-by"><a href="#6-Order-by" class="headerlink" title="6. Order by"></a>6. Order by</h2><blockquote>
+<p>select * from tb_name order by 表项 升序|降序;（asc|desc）<br>select *from tb_name order by id desc;</p>
+</blockquote>
+<p>多字段排序:	先按照一个字段排序，如果说不能区分，才使用第二个字段。
+ </p>
+<h1 id="四-列类型"><a href="#四-列类型" class="headerlink" title="四. 列类型"></a>四. 列类型</h1><h2 id="1-数值类型"><a href="#1-数值类型" class="headerlink" title="1. 数值类型"></a>1. 数值类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="right">字节</th>
+<th align="center">最小值</th>
+<th align="center">最大值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td align="right"></td>
+<td align="center">(带符号的&#x2F;无符号的)</td>
+<td align="center">(带符号的&#x2F;无符号的)</td>
+</tr>
+<tr>
+<td>TINYINT</td>
+<td align="right">1</td>
+<td align="center">-128&#x2F;0</td>
+<td align="center">127&#x2F;255</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td align="right">2</td>
+<td align="center">-32768&#x2F;0</td>
+<td align="center">32767&#x2F;65535</td>
+</tr>
+<tr>
+<td>MEDIUMINT</td>
+<td align="right">3</td>
+<td align="center">-8388608&#x2F;0</td>
+<td align="center">8388607&#x2F;16777215</td>
+</tr>
+<tr>
+<td>INT</td>
+<td align="right">4</td>
+<td align="center">-2147483648&#x2F;0</td>
+<td align="center">2147483647&#x2F;4294967295</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td align="right">8</td>
+<td align="center">-9223372036854775808&#x2F;0</td>
+<td align="center">9223372036854775807&#x2F;18446744073709551615</td>
+</tr>
+</tbody></table>
+<h2 id="2-定义显示宽度"><a href="#2-定义显示宽度" class="headerlink" title="2. 定义显示宽度"></a>2. 定义显示宽度</h2><p>通过规定数据的显示宽度，达到统一显示的目的</p>
+<blockquote>
+<p>alter table tb_name add 列名 类型(M); &#x2F;&#x2F;M表示显示的最小宽度。<br>alter table num_1 modify a int(3) zerofill;</p>
+</blockquote>
+<h2 id="3-小数"><a href="#3-小数" class="headerlink" title="3. 小数"></a>3. 小数</h2><p> [sql]<br>create table num_2(<br> a float(5,2), #表示精度为5小数点后保留2位有效数字<br> b double(8,3)<br>);[&#x2F;sql]</p>
+<h2 id="4-时间类型"><a href="#4-时间类型" class="headerlink" title="4. 时间类型"></a>4. 时间类型</h2><p> [sql]<br>create table time(<br>a datetime,<br>b timestamp<br>);<br>insert into time values (‘2013-07-27 10:10:10’, ‘2013-07-27 10:11:10’);<br>insert into time values (‘20:12:19’,’20370119031407’);<br>insert into time values (0,0);<br>[&#x2F;sql]</p>
+<p>以时间戳显示</p>
+<p>Time类型</p>
+<blockquote>
+<p>表示意义：<br>1.	一天中的时间<br>2.	时间间隔<br>[sql]<br>create table t_1(<br>ago time<br>)<br>insert into t_1 values (‘23:12:11’);<br>insert into t_1 values (‘231211’);<br>insert into t_1 values (‘5 12:34:11’); # 5天</p>
+</blockquote>
+<h2 id="5-字符型"><a href="#5-字符型" class="headerlink" title="5.	字符型"></a>5.	字符型</h2><p>create table char1(<br>a varchar(21845)   &#x2F;*错误，因为列的最大长度为65535个字节<br>) character set utf-8;<br>text没有65535的限制,总长度为216+2个字节 如：<br>create table text1(<br>a text,<br>b text<br>)<br>enum<br>create table enum1(<br>sex enum(‘boy’,’girl’)<br>);<br>insert into enum1 values (‘boy’);<br>insert into enum1 values (‘2’);</p>
+<p>set<br>create table set1(<br>hobby set(‘basket’,’footbal’,’pingpang’)<br>);<br>insert into set1 values (‘basket,footbal’)<br>五、	列属性，列约束<br>1.	是否为空  not null;<br>create table php1(<br>a int not null<br>b int<br>);<br>2.	默认值<br>create table php2(<br>a int not null default 10,<br>b int not null default 21<br>);<br>insert into php2 (a) values (10);<br>insert into php2 (a) values (11);</p>
+<p>create table php3(<br>a int not null default 10,<br>b int default 21<br>);<br>    insert into php3 values (20,null);</p>
+<ol start="3">
+<li>   主键:一个表只能有一个主键<br>create table teacher(<br>id int primary key,<br>name varchar(10)<br>);<br>也可这样写<br>create table teacher(<br>id int,<br>name varchar(10)，<br>primary key (id)<br>);</li>
+</ol>
+<p>一个主键可以包含多个字段<br>create table teacher(<br>name varchar(9),<br>class_name varchar(8),<br>day tinyint unsigned,<br>primary key (name,class_name)&#x2F;*name和class_name和一起是一个主键<br>)<br>4.	自动增长<br> create table teacher1(<br>    id1 int primary key auto_increment,<br>    name varchar(10)<br> );<br> alter table teacher1 auto_increment 10;<br>insert into teacher1 values (5,’小敏’);可以插入自己定义的</p>
+<p> <br>MYSQL命令大全<br>一、连接MySQL<br>        格式： mysql -h主机地址 -u用户名 －p用户密码<br>        1、例1：连接到本机上的MYSQL。<br>        首先在打开DOS窗口，然后进入目录 mysqlbin，再键入命令mysql -uroot -p，回车后提示你输密码，如果刚安装好MYSQL，超级用户root是没有密码的，故直接回车即可进入到MYSQL中了，MYSQL的提示符是： mysql&gt;。<br>        2、例2：连接到远程主机上的MYSQL。假设远程主机的IP为：110.110.110.110，用户名为root,密码为abcd123。则键入以下命令：<br>        mysql -h110.110.110.110 -uroot -pabcd123<br>        （注:u与root可以不用加空格，其它也一样）<br>        3、退出MYSQL命令： exit （回车）。<br>二、修改密码<br>        格式：mysqladmin -u用户名 -p旧密码 password 新密码<br>        1、例1：给root加个密码ab12。首先在DOS下进入目录mysqlbin，然后键入以下命令：<br>        mysqladmin -uroot -password ab12<br>        注：因为开始时root没有密码，所以-p旧密码一项就可以省略了。<br>        2、例2：再将root的密码改为djg345。<br>        mysqladmin -uroot -pab12 password djg345<br>三、增加新用户。<br>（注意：和上面不同，下面的因为是MySQL环境中的命令，所以后面都带一个分号作为命令结束符）<br>        格式：grant select on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;<br>        例1、增加一个用户test1密码为abc，让他可以在任何主机上登录，并对所有数据库有查询、插入、修改、删除的权限。首先用以root用户连入MySQL，然后键入以下命令：<br>        grant select,insert,update,<br>        delete on <em>.</em> to test2@localhost identified by &quot;abc&quot;;<br>        如果你不想test2有密码，可以再打一个命令将密码消掉。<br>        grant select,insert,update,delete on mydb<br>        .* to test2@localhost identified by &quot;&quot;;<br>        在上面讲了登录、增加用户、密码更改等问题。下面我们来看看MySQL中有关数据库方面的操作。注意：你必须首先登录到MySQL中，以下操作都是在MySQL的提示符下进行的，而且每个命令以分号结束。</p>
+<p>1、MySQL常用命令<br>create database name; 创建数据库<br>use databasename; 选择数据库<br>drop database name 直接删除数据库，不提醒<br>show tables; 显示表<br>describe tablename; 表的详细描述<br>select 中加上distinct去除重复字段<br>mysqladmin drop database name 删除数据库前，有提示。<br>显示当前mysql版本和当前日期<br>select version(),current_date;<br>2、修改mysql中root的密码：<br>shell&gt;mysql -u root -p<br>mysql&gt; update user set password&#x3D;password(”xueok654123″) where user&#x3D;’root’;<br>mysql&gt; flush privileges &#x2F;&#x2F;刷新数据库<br>mysql&gt;use dbname； 打开数据库：<br>mysql&gt;show databases; 显示所有数据库<br>mysql&gt;show tables; 显示数据库mysql中所有的表：先use mysql；然后<br>mysql&gt;describe user; 显示表mysql数据库中user表的列信息）；<br>3、grant<br>创建一个可以从任何地方连接服务器的一个完全的超级用户，但是必须使用一个口令something做这个<br>mysql&gt; grant all privileges on <em>.</em> to user@localhost identified by ’something’ with<br>增加新用户<br>格式：grant select on 数据库.* to 用户名@登录主机 identified by “密码”<br>GRANT ALL PRIVILEGES ON <em>.</em> TO monty@localhost IDENTIFIED BY ’something’ WITH GRANT OPTION;<br>GRANT ALL PRIVILEGES ON <em>.</em> TO monty@”%” IDENTIFIED BY ’something’ WITH GRANT OPTION;<br>删除授权：<br>mysql&gt; revoke all privileges on <em>.</em> from root@”%”;<br>mysql&gt; delete from user where user&#x3D;”root” and host&#x3D;”%”;<br>mysql&gt; flush privileges;<br>创建一个用户custom在特定客户端it363.com登录，可访问特定数据库fangchandb<br>mysql &gt;grant select, insert, update, delete, create,drop on fangchandb.* to custom@ it363.com identified by ‘ passwd’<br>重命名表:<br>mysql &gt; alter table t1 rename t2;<br>4、mysqldump<br>备份数据库<br>shell&gt; mysqldump -h host -u root -p dbname &gt;dbname_backup.sql<br>恢复数据库<br>shell&gt; mysqladmin -h myhost -u root -p create dbname<br>shell&gt; mysqldump -h host -u root -p dbname &lt; dbname_backup.sql<br>如果只想卸出建表指令，则命令如下：<br>shell&gt; mysqladmin -u root -p -d databasename &gt; a.sql<br>如果只想卸出插入数据的sql命令，而不需要建表命令，则命令如下：<br>shell&gt; mysqladmin -u root -p -t databasename &gt; a.sql<br>那么如果我只想要数据，而不想要什么sql命令时，应该如何操作呢？<br>　　 mysqldump -T.&#x2F; phptest driver<br>其中，只有指定了-T参数才可以卸出纯文本文件，表示卸出数据的目录，.&#x2F;表示当前目录，即与mysqldump同一目录。如果不指定driver 表，则将卸出整个数据库的数据。每个表会生成两个文件，一个为.sql文件，包含建表执行。另一个为.txt文件，只包含数据，且没有sql指令。<br>5、从文件中输入查询<br>可将查询存储在一个文件中并告诉mysql从文件中读取查询而不是等待键盘输入。可利用外壳程序键入重定向实用程序来完成这项工作。例如，如果在文件my_file.sql 中存放有查<br>询，可如下执行这些查询：<br>例如，如果您想将建表语句提前写在sql.txt中:<br>mysql &gt; mysql -h myhost -u root -p database &lt; sql.txt<br>1、安装环境：<br>      Windows XP<br>      Mysql 4.0.17 从     下次就需要用mysql -uroot -proot才可以登陆<br>    在远程或本机可以使用 mysql -h 172.5.1.183 -uroot 登陆，这个根据第二行的策略确定<br>    权限修改生效：<br>       1)net stop mysql<br>         net start mysql<br>       2)c:\mysql\bin\mysqladmin flush-privileges<br>       3)登陆mysql后，用flush privileges语句<br>6、创建数据库staffer<br>    create database staffer;<br>    显示用户拥有权限的数据库        show databases;<br>    切换到staffer数据库        use staffer;<br>    显示当前数据库中有权限的表 show tables;<br>    显示表staffer的结构    desc staffer;<br>7、创建测试环境<br>创建数据库staffer<br>      mysql&gt; create database staffer<br>创建表<br>staffer,department,position,depart_pos<br>      create table s_position<br>      (<br>          id int not null auto_increment,<br>          name varchar(20) not null default ‘经理’, #设定默认值<br>          description varchar(100),<br>          primary key PK_positon (id)   #设定主键<br>      );<br>      create table department<br>      (<br>          id int not null auto_increment,<br>          name varchar(20) not null default ‘系统部’, #设定默认值<br>          description varchar(100),<br>          primary key PK_department (id)   #设定主键<br>      );<br>      create table depart_pos<br>      (<br>          department_id int not null,<br>          position_id int not null,<br>          primary key PK_depart_pos (department_id,position_id)   #设定复和主键<br>      );<br>      create table staffer<br>      (<br>          id int not null auto_increment primary key,   #设定主键<br>          name varchar(20) not null default ‘无名氏’,   #设定默认值<br>          department_id int not null,<br>          position_id int not null,<br>          unique (department_id,position_id)   #设定唯一值<br>      );<br>删除<br>      mysql&gt;<br>         drop table depart_pos;<br>         drop table department;<br>         drop table s_position;<br>         drop table staffer;<br>         drop database staffer;<br>8、修改结构<br>    mysql&gt;<br>    #表position增加列test<br>    alter table position add(test char(10));<br>    #表position修改列test<br>    alter table position modify test char(20) not null;<br>    #表position修改列test默认值<br>    alter table position alter test set default ‘system’;<br>    #表position去掉test默认值<br>    alter table position alter test drop default;<br>    #表position去掉列test<br>    alter table position drop column test;<br>    #表depart_pos删除主键<br>    alter table depart_pos drop primary key;<br>    #表depart_pos增加主键<br>    alter table depart_pos add primary key PK_depart_pos (department_id,position_id);<br>9、操作数据<br>    #插入表department<br>    insert into department(name,description) values(‘系统部’,’系统部’);<br>    insert into department(name,description) values(‘公关部’,’公关部’);<br>    insert into department(name,description) values(‘客服部’,’客服部’);<br>    insert into department(name,description) values(‘财务部’,’财务部’);<br>    insert into department(name,description) values(‘测试部’,’测试部’);<br>    #插入表s_position<br>    insert into s_position(name,description) values(‘总监’,’总监’);<br>    insert into s_position(name,description) values(‘经理’,’经理’);<br>    insert into s_position(name,description) values(‘普通员工’,’普通员工’);<br>    #插入表depart_pos<br>    insert into depart_pos(department_id,position_id)<br>    select a.id department_id,b.id postion_id<br>    from department a,s_position b;<br>    #插入表staffer<br>    insert into staffer(name,department_id,position_id) values(‘陈达治’,1,1);<br>    insert into staffer(name,department_id,position_id) values(‘李文宾’,1,2);<br>    insert into staffer(name,department_id,position_id) values(‘马佳’,1,3);<br>    insert into staffer(name,department_id,position_id) values(‘亢志强’,5,1);<br>    insert into staffer(name,department_id,position_id) values(‘杨玉茹’,4,1);<br>10、查询及删除操作<br>    #显示系统部的人员和职位<br>    select a.name,b.name department_name,c.name position_name<br>    from staffer a,department b,s_position c<br>    where a.department_id&#x3D;b.id and a.position_id&#x3D;c.id and b.name&#x3D;’系统部’;<br>    #显示系统部的人数<br>    select count(<em>) from staffer a,department b<br>    where a.department_id&#x3D;b.id and b.name&#x3D;’系统部’<br>    #显示各部门的人数<br>    select count(</em>) cou,b.name<br>    from staffer a,department b<br>    where a.department_id&#x3D;b.id<br>    group by b.name;<br>    #删除客服部<br>    delete from department where name&#x3D;’客服部’;<br>    #将财务部修改为财务一部<br>    update department set name&#x3D;’财务一部’ where name&#x3D;’财务部’;<br>11、备份和恢复<br>     备份数据库staffer<br>      c:\mysql\bin\mysqldump -uroot -proot staffer&gt;e:\staffer.sql<br>      得到的staffer.sql是一个sql脚本，不包括建库的语句，所以你需要手工<br>      创建数据库才可以导入<br>     恢复数据库staffer,需要创建一个空库staffer<br>      c:\mysql\bin\mysql -uroot -proot staffer&lt;staffer.sql<br>      如果不希望后来手工创建staffer,可以<br>      c:\mysql\bin\mysqldump -uroot -proot –databases staffer&gt;e:\staffer.sql<br>      mysql -uroot -proot &gt;e:\staffer.sql<br>      但这样的话系统种就不能存在staffer库，且无法导入其他名字的数据库，<br>      当然你可以手工修改staffer.sql文件<br>13、从文本向数据库导入数据<br>     1)使用工具c:\mysql\bin\mysqlimport<br>     这个工具的作用是将文件导入到和去掉文件扩展名名字相同的表里，如<br>     staffer.txt,staffer都是导入到staffer表中<br>     常用选项及功能如下<br>-d or –delete 新数据导入数据表中之前删除数据数据表中的所有信息<br>-f or –force 不管是否遇到错误，mysqlimport将强制继续插入数据<br>-i or –ignore mysqlimport跳过或者忽略那些有相同唯一<br>关键字的行， 导入文件中的数据将被忽略。<br>-l or -lock-tables 数据被插入之前锁住表，这样就防止了，<br>你在更新数据库时，用户的查询和更新受到影响。<br>-r or -replace 这个选项与－i选项的作用相反；此选项将替代<br>表中有相同唯一关键字的记录。<br>–fields-enclosed- by&#x3D; char<br>指定文本文件中数据的记录时以什么括起的， 很多情况下<br>数据以双引号括起。 默认的情况下数据是没有被字符括起的。<br>–fields-terminated- by&#x3D;char<br>指定各个数据的值之间的分隔符，在句号分隔的文件中，<br>分隔符是句号。您可以用此选项指定数据之间的分隔符。<br>默认的分隔符是跳格符（Tab）<br>–lines-terminated- by&#x3D;str<br>此选项指定文本文件中行与行之间数据的分隔字符串<br>或者字符。 默认的情况下mysqlimport以newline为行分隔符。<br>您可以选择用一个字符串来替代一个单个的字符：<br>一个新行或者一个回车。<br>mysqlimport命令常用的选项还有-v 显示版本（version），<br>             -p 提示输入密码（password）等。<br>    这个工具有个问题，无法忽略某些列，这样对我们的数据导入有很大的麻烦，虽然<br>    可以手工设置这个字段，但会出现莫名其妙的结果，我们做一个简单的示例<br>    我们定义如下的depart_no.txt，保存在e盘，间隔为制表符\t<br>10 10<br>11 11<br>12 24<br>执行如下命令<br>     c:\mysql\bin\mysqlimport -uroot -proot staffer e:\depart_pos.txt<br>     在这里没有使用列的包围符号，分割采用默认的\t，因为采用别的符号会有问题，<br>     不知道是不是windows的原因<br>     2)Load Data INFILE file_name into table_name(column1_name,column2_name)<br>       这个命令在mysql&gt;提示符下使用，优点是可以指定列导入，示例如下<br>       c:\mysql\bin\mysql -uroot -proot staffer<br>       mysql&gt;load data infile “e:&#x2F;depart_no.txt” into depart_no(department_id,position_id);</p>
+<pre><code> 这两个工具在Windows下使用都有问题，不知道是Windows的原因还是中文的问题，
+ 而且不指定的列它产生了空值，这显然不是我们想要的，所以谨慎使用这些工具
+</code></pre>
+<p>进入MySQL:mysql -uuser -ppassword –port&#x3D;3307<br>1:使用SHOW语句找出在服务器上当前存在什么数据库：<br>mysql&gt; SHOW DATABASES;<br>2:2、创建一个数据库MYSQLDATA<br>mysql&gt; Create DATABASE MYSQLDATA;<br>3:选择你所创建的数据库<br>mysql&gt; USE MYSQLDATA; (按回车键出现Database changed 时说明操作成功！)<br>4:查看现在的数据库中存在什么表<br>mysql&gt; SHOW TABLES;<br>5:创建一个数据库表<br>mysql&gt; Create TABLE MYTABLE (name VARCHAR(20), sex CHAR(1));<br>6:显示表的结构：<br>mysql&gt; DESCRIBE MYTABLE;<br>7:往表中加入记录<br>mysql&gt; insert into MYTABLE values (“hyq”,”M”);<br>8:用文本方式将数据装入数据库表中（例如D:&#x2F;mysql.txt）<br>mysql&gt; LOAD DATA LOCAL INFILE “D:&#x2F;mysql.txt” INTO TABLE MYTABLE;<br>9:导入.sql文件命令（例如D:&#x2F;mysql.sql）<br>mysql&gt;use database;<br>mysql&gt;source d:&#x2F;mysql.sql;<br>10:删除表<br>mysql&gt;drop TABLE MYTABLE;<br>11:清空表<br>mysql&gt;delete from MYTABLE;<br>12:更新表中数据<br>mysql&gt;update MYTABLE set sex&#x3D;”f” where name&#x3D;’hyq’;<br>UPDATE [LOW_PRIORITY] [IGNORE] tbl_name<br>    SET col_name1&#x3D;expr1 [, col_name2&#x3D;expr2 …]<br>    [WHERE where_definition]<br>    [ORDER BY …]<br>    [LIMIT rows]<br>or<br>UPDATE [LOW_PRIORITY] [IGNORE] tbl_name [, tbl_name …]<br>    SET col_name1&#x3D;expr1 [, col_name2&#x3D;expr2 …]<br>    [WHERE where_definition]<br>UPDATE 以新的值更新现存表中行的列。SET 子句指出要修改哪个列和他们应该给定的值。WHERE<br>      子句如果被给出，指定哪个记录行应该被更新。否则，所有的记录行被更新。如果 ORDER BY 子句被指定，记录行将被以指定的次序更新。<br>      如果你指定关键词 LOW_PRIORITY，UPDATE 的执行将被延迟，直到没有其它的客户端正在读取表。<br>      如果你指定关键词 IGNORE，该更新语句将不会异常中止，即使在更新过程中出现重复键错误。导致冲突的记录行将不会被更新。<br>      如果在一个表达式中从 tbl_name 中访问一个列，UPDATE 使用列的当前值。举例来说，下面的语句设置 age 列值为它的当前值加 1 ：<br>mysql&gt; UPDATE persondata SET age&#x3D;age+1;<br>UPDATE 赋值是从左到右计算的。举例来说，下列语句将 age 列设置为它的两倍，然后再加 1 ：<br>mysql&gt; UPDATE persondata SET age&#x3D;age<em>2, age&#x3D;age+1;<br>如果你设置列为其当前的值，MySQL 注意到这点，并不更新它。<br>      UPDATE 返回实际被改变的记录行数目。在 MySQL 3.22 或更新的版本中，C API 函数 mysql_info()<br>      返回被匹配并更新的记录行数目，以及在 UPDATE 期间发生的警告的数目。<br>      在 MySQL 3.23 中，你可以使用 LIMIT # 来确保只有给定的记录行数目被更改。<br>      如果一个 ORDER BY 子句被使用(从 MySQL 4.0.0 开始支持)，记录行将以指定的次序被更新。这实际上只有连同 LIMIT<br>      一起才有用。<br>      从 MySQL 4.0.4 开始，你也可以执行一个包含多个表的 UPDATE 的操作：<br>UPDATE items,month SET items.price&#x3D;month.price<br>WHERE items.id&#x3D;month.id;<br>注意：多表 UPDATE 不可以使用 ORDER BY 或 LIMIT。<br>关键字:   mysql<br>启动：net start mySql;<br>　　进入：mysql -u root -p&#x2F;mysql -h localhost -u root -p databaseName;<br>　　列出数据库：show databases;<br>　　选择数据库：use databaseName;<br>　　列出表格：show tables；<br>　　显示表格列的属性：show columns from tableName；<br>　　建立数据库：source fileName.txt;<br>　　匹配字符：可以用通配符_代表任何一个字符，％代表任何字符串;<br>　　增加一个字段：alter table tabelName add column fieldName dateType;<br>　　增加多个字段：alter table tabelName add column fieldName1 dateType,add columns fieldName2 dateType;<br>　　多行命令输入:注意不能将单词断开;当插入或更改数据时，不能将字段的字符串展开到多行里，否则硬回车将被储存到数据中;<br>　　增加一个管理员帐户：grant all on <em>.</em> to user@localhost identified by “password”;<br>　　每条语句输入完毕后要在末尾填加分号’;’，或者填加’\g’也可以；<br>　　查询时间：select now();<br>　　查询当前用户：select user();<br>　　查询数据库版本：select version();<br>　　查询当前使用的数据库：select database();<br>　　<br>　　1、删除student_course数据库中的students数据表：<br>　　rm -f student_course&#x2F;students.</em><br>　　<br>　　2、备份数据库：(将数据库test备份)<br>　　mysqldump -u root -p test&gt;c:\test.txt<br>　　备份表格：(备份test数据库下的mytable表格)<br>　　mysqldump -u root -p test mytable&gt;c:\test.txt<br>　　将备份数据导入到数据库：(导回test数据库)<br>　　mysql -u root -p test<br>　　<br>　　3、创建临时表：(建立临时表zengchao)<br>　　create temporary table zengchao(name varchar(10));<br>　　<br>　　4、创建表是先判断表是否存在<br>　　create table if not exists students(……);<br>　　<br>　　5、从已经有的表中复制表的结构<br>　　create table table2 select * from table1 where 1&lt;&gt;1;<br>　　<br>　　6、复制表<br>　　create table table2 select * from table1;<br>　　<br>　　7、对表重新命名<br>　　alter table table1 rename as table2;<br>　　<br>　　8、修改列的类型<br>　　alter table table1 modify id int unsigned;&#x2F;&#x2F;修改列id的类型为int unsigned<br>　　alter table table1 change id sid int unsigned;&#x2F;&#x2F;修改列id的名字为sid，而且把属性修改为int unsigned<br>　　<br>　　9、创建索引<br>　　alter table table1 add index ind_id (id);<br>　　create index ind_id on table1 (id);<br>　　create unique index ind_id on table1 (id);&#x2F;&#x2F;建立唯一性索引<br>　　<br>　　10、删除索引<br>　　drop index idx_id on table1;<br>　　alter table table1 drop index ind_id;<br>　　<br>　　11、联合字符或者多个列(将列id与”:”和列name和”&#x3D;”连接)<br>　　select concat(id,’:’,name,’&#x3D;’) from students;<br>　　<br>　　12、limit(选出10到20条)&lt;第一个记录集的编号是0&gt;<br>　　select * from students order by id limit 9,10;<br>　　<br>　　13、MySQL不支持的功能<br>　　事务，视图，外键和引用完整性，存储过程和触发器<br>　　<br>　　<br>　　14、MySQL会使用索引的操作符号<br>　　&lt;,&lt;&#x3D;,&gt;&#x3D;,&gt;,&#x3D;,between,in,不带%或者_开头的like<br>　　<br>　　15、使用索引的缺点<br>　　1)减慢增删改数据的速度；<br>　　2）占用磁盘空间；<br>　　3）增加查询优化器的负担；<br>　　当查询优化器生成执行计划时，会考虑索引，太多的索引会给查询优化器增加工作量，导致无法选择最优的查询方案；<br>　　<br>　　16、分析索引效率<br>　　方法：在一般的SQL语句前加上explain；<br>　　分析结果的含义：<br>　　1）table：表名；<br>　　2）type：连接的类型，(ALL&#x2F;Range&#x2F;Ref)。其中ref是最理想的；<br>　　3）possible_keys：查询可以利用的索引名；<br>　　4）key：实际使用的索引；<br>　　5）key_len：索引中被使用部分的长度（字节）；<br>　　6）ref：显示列名字或者”const”（不明白什么意思）；<br>　　7）rows：显示MySQL认为在找到正确结果之前必须扫描的行数；<br>　　8）extra：MySQL的建议；<br>　　<br>　　17、使用较短的定长列<br>　　1）尽可能使用较短的数据类型；<br>　　2）尽可能使用定长数据类型；<br>　　a）用char代替varchar，固定长度的数据处理比变长的快些；<br>　　b）对于频繁修改的表，磁盘容易形成碎片，从而影响数据库的整体性能；<br>　　c）万一出现数据表崩溃，使用固定长度数据行的表更容易重新构造。使用固定长度的数据行，每个记录的开始位置都是固定记录长度的倍数，可以很容易被检测到，但是使用可变长度的数据行就不一定了；<br>　　d）对于MyISAM类型的数据表，虽然转换成固定长度的数据列可以提高性能，但是占据的空间也大；<br>　　<br>　　18、使用not null和enum<br>　　尽量将列定义为not null，这样可使数据的出来更快，所需的空间更少，而且在查询时，MySQL不需要检查是否存在特例，即null值，从而优化查询；<br>　　如果一列只含有有限数目的特定值，如性别，是否有效或者入学年份等，在这种情况下应该考虑将其转换为enum列的值，MySQL处理的更快，因为所有的enum值在系统内都是以标识数值来表示的；<br>　　<br>　　19、使用optimize table<br>　　对于经常修改的表，容易产生碎片，使在查询数据库时必须读取更多的磁盘块，降低查询性能。具有可变长的表都存在磁盘碎片问题，这个问题对blob数据类型更为突出，因为其尺寸变化非常大。可以通过使用optimize table来整理碎片，保证数据库性能不下降，优化那些受碎片影响的数据表。 optimize table可以用于MyISAM和BDB类型的数据表。实际上任何碎片整理方法都是用mysqldump来转存数据表，然后使用转存后的文件并重新建数据表；<br>　　<br>　　20、使用procedure analyse()<br>　　可以使用procedure analyse()显示最佳类型的建议，使用很简单，在select语句后面加上procedure analyse()就可以了；例如：<br>　　select * from students procedure analyse();<br>　　select * from students procedure analyse(16,256);<br>　　第二条语句要求procedure analyse()不要建议含有多于16个值，或者含有多于256字节的enum类型，如果没有限制，输出可能会很长；<br>　　<br>　　21、使用查询缓存<br>　　1）查询缓存的工作方式：<br>　　第一次执行某条select语句时，服务器记住该查询的文本内容和查询结果，存储在缓存中，下次碰到这个语句时，直接从缓存中返回结果；当更新数据表后，该数据表的任何缓存查询都变成无效的，并且会被丢弃。<br>　　2）配置缓存参数：<br>　　变量：query_cache _type，查询缓存的操作模式。有3中模式，0：不缓存；1：缓存查询，除非与 select sql_no_cache开头；2：根据需要只缓存那些以select sql_cache开头的查询； query_cache_size：设置查询缓存的最大结果集的大小，比这个值大的不会被缓存。<br>　　<br>　　22、调整硬件<br>　　1）在机器上装更多的内存；<br>　　2）增加更快的硬盘以减少I&#x2F;O等待时间；<br>　　寻道时间是决定性能的主要因素，逐字地移动磁头是最慢的，一旦磁头定位，从磁道读则很快；<br>　　3）在不同的物理硬盘设备上重新分配磁盘活动；<br>如果可能，应将最繁忙的数据库存放在不同的物理设备上，这跟使用同一物理设备的不同分区是不同的，因为它们将争用相同的物理资源（磁头）。</p>
+<p> <br>LEFT JOIN<br>关于 MySQL LEFT JOIN 你可能需要了解的三点<br>即使你认为自己已对 MySQL 的 LEFT JOIN 理解深刻，但我敢打赌，这篇文章肯定能让你学会点东西！<br>•	ON 子句与 WHERE 子句的不同<br>•	一种更好地理解带有 WHERE … IS NULL 子句的复杂匹配条件的简单方法<br>•	Matching-Conditions 与 Where-conditions 的不同<br>关于 “A LEFT JOIN B ON 条件表达式” 的一点提醒<br>ON 条件（“A LEFT JOIN B ON 条件表达式”中的ON）用来决定如何从 B 表中检索数据行。<br>如果 B 表中没有任何一行数据匹配 ON 的条件,将会额外生成一行所有列为 NULL 的数据<br>在匹配阶段 WHERE 子句的条件都不会被使用。仅在匹配阶段完成以后，WHERE 子句条件才会被使用。它将从匹配阶段产生的数据中检索过滤。<br>让我们看一个 LFET JOIN 示例：<br>01	mysql&gt; CREATE TABLE <code>product</code> (<br>02	  <code>id</code> int(10) unsigned NOT NULL auto_increment,<br>03	  <code>amount</code> int(10) unsigned default NULL,<br>04	  PRIMARY KEY  (<code>id</code>)<br>05	) ENGINE&#x3D;MyISAM AUTO_INCREMENT&#x3D;5 DEFAULT CHARSET&#x3D;latin1<br>06	<br>07	mysql&gt; CREATE TABLE <code>product_details</code> (<br>08	  <code>id</code> int(10) unsigned NOT NULL,<br>09	  <code>weight</code> int(10) unsigned default NULL,<br>10	  <code>exist</code> int(10) unsigned default NULL,<br>11	  PRIMARY KEY  (<code>id</code>)<br>12	) ENGINE&#x3D;MyISAM DEFAULT CHARSET&#x3D;latin1<br>13	<br>14	mysql&gt; INSERT INTO product (id,amount)<br>15	       VALUES (1,100),(2,200),(3,300),(4,400);<br>16	Query OK, 4 rows affected (0.00 sec)<br>17	Records: 4  Duplicates: 0  Warnings: 0<br>18	<br>19	mysql&gt; INSERT INTO product_details (id,weight,exist)<br>20	       VALUES (2,22,0),(4,44,1),(5,55,0),(6,66,1);<br>21	Query OK, 4 rows affected (0.00 sec)<br>22	Records: 4  Duplicates: 0  Warnings: 0<br>23	<br>24	mysql&gt; SELECT * FROM product;<br>25	+—-+——–+<br>26	| id | amount |<br>27	+—-+——–+<br>28	|  1 |    100 |<br>29	|  2 |    200 |<br>30	|  3 |    300 |<br>31	|  4 |    400 |<br>32	+—-+——–+<br>33	4 rows in set (0.00 sec)<br>34	<br>35	mysql&gt; SELECT * FROM product_details;<br>36	+—-+——–+——-+<br>37	| id | weight | exist |<br>38	+—-+——–+——-+<br>39	|  2 |     22 |     0 |<br>40	|  4 |     44 |     1 |<br>41	|  5 |     55 |     0 |<br>42	|  6 |     66 |     1 |<br>43	+—-+——–+——-+<br>44	4 rows in set (0.00 sec)<br>45	<br>46	mysql&gt; SELECT * FROM product LEFT JOIN product_details<br>47	       ON (product.id &#x3D; product_details.id);<br>48	+—-+——–+——+——–+——-+<br>49	| id | amount | id   | weight | exist |<br>50	+—-+——–+——+——–+——-+<br>51	|  1 |    100 | NULL |   NULL |  NULL |<br>52	|  2 |    200 |    2 |     22 |     0 |<br>53	|  3 |    300 | NULL |   NULL |  NULL |<br>54	|  4 |    400 |    4 |     44 |     1 |<br>55	+—-+——–+——+——–+——-+<br>56	4 rows in set (0.00 sec)<br>ON 子句和 WHERE 子句有什么不同？<br>一个问题：下面两个查询的结果集有什么不同么？<br>1	1. SELECT * FROM product LEFT JOIN product_details<br>2	         ON (product.id &#x3D; product_details.id)<br>3	         AND   product_details.id&#x3D;2;<br>4	2. SELECT * FROM product LEFT JOIN product_details<br>5	         ON (product.id &#x3D; product_details.id)<br>6	         WHERE product_details.id&#x3D;2;<br>用例子来理解最好不过了：<br>01	mysql&gt; SELECT * FROM product LEFT JOIN product_details<br>02	       ON (product.id &#x3D; product_details.id)<br>03	       AND product_details.id&#x3D;2;<br>04	+—-+——–+——+——–+——-+<br>05	| id | amount | id   | weight | exist |<br>06	+—-+——–+——+——–+——-+<br>07	|  1 |    100 | NULL |   NULL |  NULL |<br>08	|  2 |    200 |    2 |     22 |     0 |<br>09	|  3 |    300 | NULL |   NULL |  NULL |<br>10	|  4 |    400 | NULL |   NULL |  NULL |<br>11	+—-+——–+——+——–+——-+<br>12	4 rows in set (0.00 sec)<br>13	<br>14	mysql&gt; SELECT * FROM product LEFT JOIN product_details<br>15	       ON (product.id &#x3D; product_details.id)<br>16	       WHERE product_details.id&#x3D;2;<br>17	+—-+——–+—-+——–+——-+<br>18	| id | amount | id | weight | exist |<br>19	+—-+——–+—-+——–+——-+<br>20	|  2 |    200 |  2 |     22 |     0 |<br>21	+—-+——–+—-+——–+——-+<br>22	1 row in set (0.01 sec)<br>第一条查询使用 ON 条件决定了从 LEFT JOIN的 product_details表中检索符合的所有数据行。<br>第二条查询做了简单的LEFT JOIN，然后使用 WHERE 子句从 LEFT JOIN的数据中过滤掉不符合条件的数据行。<br>再来看一些示例：<br>01	mysql&gt;<br>02	mysql&gt; SELECT * FROM product LEFT JOIN product_details<br>03	       ON product.id &#x3D; product_details.id<br>04	       AND product.amount&#x3D;100;<br>05	+—-+——–+——+——–+——-+<br>06	| id | amount | id   | weight | exist |<br>07	+—-+——–+——+——–+——-+<br>08	|  1 |    100 | NULL |   NULL |  NULL |<br>09	|  2 |    200 | NULL |   NULL |  NULL |<br>10	|  3 |    300 | NULL |   NULL |  NULL |<br>11	|  4 |    400 | NULL |   NULL |  NULL |<br>12	+—-+——–+——+——–+——-+<br>13	4 rows in set (0.00 sec)<br>所有来自product表的数据行都被检索到了，但没有在product_details表中匹配到记录（product.id &#x3D; product_details.id AND product.amount&#x3D;100 条件并没有匹配到任何数据）<br>01	mysql&gt; SELECT * FROM product LEFT JOIN product_details<br>02	       ON (product.id &#x3D; product_details.id)<br>03	       AND product.amount&#x3D;200;<br>04	+—-+——–+——+——–+——-+<br>05	| id | amount | id   | weight | exist |<br>06	+—-+——–+——+——–+——-+<br>07	|  1 |    100 | NULL |   NULL |  NULL |<br>08	|  2 |    200 |    2 |     22 |     0 |<br>09	|  3 |    300 | NULL |   NULL |  NULL |<br>10	|  4 |    400 | NULL |   NULL |  NULL |<br>11	+—-+——–+——+——–+——-+<br>12	4 rows in set (0.01 sec)<br>同样，所有来自product表的数据行都被检索到了，有一条数据匹配到了。<br>使用 WHERE … IS NULL 子句的 LEFT JOIN<br>当你使用 WHERE … IS NULL 子句时会发生什么呢？<br>如前所述，WHERE 条件查询发生在 匹配阶段之后，这意味着 WHERE … IS NULL 子句将从匹配阶段后的数据中过滤掉不满足匹配条件的数据行。<br>纸面上看起来很清楚，但是当你在 ON 子句中使用多个条件时就会感到困惑了。<br>我总结了一种简单的方式来理解上述情况：<br>•	将 IS NULL 作为否定匹配条件<br>•	使用 !(A and B) &#x3D;&#x3D; !A OR !B 逻辑判断<br>看看下面的示例：<br>01	mysql&gt; SELECT a.* FROM product a LEFT JOIN product_details b<br>02	       ON a.id&#x3D;b.id AND b.weight!&#x3D;44 AND b.exist&#x3D;0<br>03	       WHERE b.id IS NULL;<br>04	+—-+——–+<br>05	| id | amount |<br>06	+—-+——–+<br>07	|  1 |    100 |<br>08	|  3 |    300 |<br>09	|  4 |    400 |<br>10	+—-+——–+<br>11	3 rows in set (0.00 sec)<br>让我们检查一下 ON 匹配子句：<br>1	(a.id&#x3D;b.id) AND (b.weight!&#x3D;44) AND (b.exist&#x3D;0)<br>我们可以把 IS NULL 子句 看作是否定匹配条件。<br>这意味着我们将检索到以下行：<br>1	!( exist(b.id that equals to a.id) AND b.weight !&#x3D;44 AND b.exist&#x3D;0 )<br>2	!exist(b.id that equals to a.id) || !(b.weight !&#x3D;44) || !(b.exist&#x3D;0)<br>3	!exist(b.id that equals to a.id) || b.weight &#x3D;44 || b.exist&#x3D;1<br>就像在C语言中的逻辑 AND 和 逻辑 OR表达式一样，其操作数是从左到右求值的。如果第一个参数做够判断操作结果，那么第二个参数便不会被计算求值（短路效果）<br>看看别的示例：<br>01	mysql&gt; SELECT a.* FROM product a LEFT JOIN product_details b<br>02	       ON a.id&#x3D;b.id AND b.weight!&#x3D;44 AND b.exist&#x3D;1<br>03	       WHERE b.id IS NULL;<br>04	+—-+——–+<br>05	| id | amount |<br>06	+—-+——–+<br>07	|  1 |    100 |<br>08	|  2 |    200 |<br>09	|  3 |    300 |<br>10	|  4 |    400 |<br>11	+—-+——–+<br>12	4 rows in set (0.00 sec)<br>Matching-Conditions 与 Where-conditions 之战<br>如果你吧基本的查询条件放在 ON 子句中，把剩下的否定条件放在 WHERE 子句中，那么你会获得相同的结果。<br>例如，你可以不这样写：<br>1	SELECT a.* FROM product a LEFT JOIN product_details b<br>2	ON a.id&#x3D;b.id AND b.weight!&#x3D;44 AND b.exist&#x3D;0<br>3	WHERE b.id IS NULL;<br>你可以这样写：<br>1	SELECT a.* FROM product a LEFT JOIN product_details b<br>2	ON a.id&#x3D;b.id<br>3	WHERE b.id is null OR b.weight&#x3D;44 OR b.exist&#x3D;1;<br>01	mysql&gt; SELECT a.* FROM product a LEFT JOIN product_details b<br>02	       ON a.id&#x3D;b.id<br>03	       WHERE b.id is null OR b.weight&#x3D;44 OR b.exist&#x3D;1;<br>04	+—-+——–+<br>05	| id | amount |<br>06	+—-+——–+<br>07	|  1 |    100 |<br>08	|  3 |    300 |<br>09	|  4 |    400 |<br>10	+—-+——–+<br>11	3 rows in set (0.00 sec)<br>你可以不这样写：<br>1	SELECT a.* FROM product a LEFT JOIN product_details b<br>2	ON a.id&#x3D;b.id AND b.weight!&#x3D;44 AND b.exist!&#x3D;0<br>3	WHERE b.id IS NULL;<br>可以这样写：<br>1	SELECT a.* FROM product a LEFT JOIN product_details b<br>2	ON a.id&#x3D;b.id<br>3	WHERE b.id is null OR b.weight&#x3D;44 OR b.exist&#x3D;0;<br>01	mysql&gt; SELECT a.* FROM product a LEFT JOIN product_details b<br>02	       ON a.id&#x3D;b.id<br>03	       WHERE b.id is null OR b.weight&#x3D;44 OR b.exist&#x3D;0;<br>04	+—-+——–+<br>05	| id | amount |<br>06	+—-+——–+<br>07	|  1 |    100 |<br>08	|  2 |    200 |<br>09	|  3 |    300 |<br>10	|  4 |    400 |<br>11	+—-+——–+<br>12	4 rows in set (0.00 sec)<br>这些查询真的效果一样？<br>如果你只需要第一个表中的数据的话，这些查询会返回相同的结果集。有一种情况就是，如果你从 LEFT JOIN的表中检索数据时，查询的结果就不同了。<br>如前所属，WHERE 子句是在匹配阶段之后用来过滤的。<br>例如：<br>01	mysql&gt; SELECT * FROM product a LEFT JOIN product_details b<br>02	       ON a.id&#x3D;b.id AND b.weight!&#x3D;44 AND b.exist&#x3D;1<br>03	       WHERE b.id is null;<br>04	+—-+——–+——+——–+——-+<br>05	| id | amount | id   | weight | exist |<br>06	+—-+——–+——+——–+——-+<br>07	|  1 |    100 | NULL |   NULL |  NULL |<br>08	|  2 |    200 | NULL |   NULL |  NULL |<br>09	|  3 |    300 | NULL |   NULL |  NULL |<br>10	|  4 |    400 | NULL |   NULL |  NULL |<br>11	+—-+——–+——+——–+——-+<br>12	4 rows in set (0.00 sec)<br>13	<br>14	mysql&gt; SELECT * FROM product a LEFT JOIN product_details b<br>15	       ON a.id&#x3D;b.id<br>16	       WHERE b.id IS NULL OR b.weight&#x3D;44 OR b.exist&#x3D;0;<br>17	+—-+——–+——+——–+——-+<br>18	| id | amount | id   | weight | exist |<br>19	+—-+——–+——+——–+——-+<br>20	|  1 |    100 | NULL |   NULL |  NULL |<br>21	|  2 |    200 |    2 |     22 |     0 |<br>22	|  3 |    300 | NULL |   NULL |  NULL |<br>23	|  4 |    400 |    4 |     44 |     1 |<br>24	+—-+——–+——+——–+——-+<br>25	4 rows in set (0.00 sec)<br>总附注：<br>如果你使用 LEFT JOIN 来寻找在一些表中不存在的记录，你需要做下面的测试：WHERE 部分的 col_name IS NULL(其中 col_name 列被定义为 NOT NULL)，MYSQL 在查询到一条匹配 LEFT JOIN 条件后将停止搜索更多行（在一个特定的组合键下）。</p>
+<p> <br>数据库编程陷阱<br>create database spdb;<br>create table users(<br>id int primary key auto_increment,<br>usernaem varchar(64) unique not null,<br>password varchar(64) not null<br>)<br>insert into users (username,password) values (‘mengshung’,’mengshuang’);<br>insert into users (username,password) values (‘Corly’,’Corly’);</p>
+<p>小知识<br>	select * from student where sid in (select sid from stucourse where cid&#x3D;21)<br>	phpmyadmin免登录<br>$cfg[‘Servers’][$i][‘auth_type’] 字符串 [‘http’|’cookie’|’config’]<br>设为config<br>并在config.default.php文件中配置用户名和密码</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng"
+      src="/uploads/qrcode_wechat.jpg">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备2023007649号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

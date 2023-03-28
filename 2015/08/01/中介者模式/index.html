@@ -1,16 +1,500 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block class %}post posts-expand{% endblock %}
 
-{% block content %}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {{ partial('_macro/post.swig', {post: page}) }}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-{% endblock %}
+  <meta name="description" content="概念用一个中介者对象来封装一系列对象的交互。中介者使个对象不需要显示的互相引用，从而使其耦合松散，而且可以独立第改变他们之间的交互。 中介者模式是封装了一系列的对象交互的成熟模式，其关键是将对象之间的交互封装在称作中介者的对象中，中介者使每个对象不需要显示的相互引用，这些对象只包括中介者的引用。当系统中某个对象需要和系统中的另一个对象进行交互的时候，只需要将自己的请求通知中介者即可。 结构与使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中介者模式">
+<meta property="og:url" content="http://blog.corly.cc/2015/08/01/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="CoderMeng">
+<meta property="og:description" content="概念用一个中介者对象来封装一系列对象的交互。中介者使个对象不需要显示的互相引用，从而使其耦合松散，而且可以独立第改变他们之间的交互。 中介者模式是封装了一系列的对象交互的成熟模式，其关键是将对象之间的交互封装在称作中介者的对象中，中介者使每个对象不需要显示的相互引用，这些对象只包括中介者的引用。当系统中某个对象需要和系统中的另一个对象进行交互的时候，只需要将自己的请求通知中介者即可。 结构与使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.corly.cc/uploads/2015/08/2649850761.jpg">
+<meta property="article:published_time" content="2015-08-01T18:51:00.000Z">
+<meta property="article:modified_time" content="2023-03-28T08:37:53.449Z">
+<meta property="article:author" content="CoderMeng">
+<meta property="article:tag" content="编程思想">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.corly.cc/uploads/2015/08/2649850761.jpg">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+<link rel="canonical" href="http://blog.corly.cc/2015/08/01/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>中介者模式 | CoderMeng</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/08/01/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          中介者模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-08-01 18:51:00" itemprop="dateCreated datePublished" datetime="2015-08-01T18:51:00+00:00">2015-08-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>用一个中介者对象来封装一系列对象的交互。中介者使个对象不需要显示的互相引用，从而使其耦合松散，而且可以独立第改变他们之间的交互。</p>
+<p>中介者模式是封装了一系列的对象交互的成熟模式，其关键是将对象之间的交互封装在称作中介者的对象中，中介者使每个对象不需要显示的相互引用，这些对象只包括中介者的引用。当系统中某个对象需要和系统中的另一个对象进行交互的时候，只需要将自己的请求通知中介者即可。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><ul>
+<li><p>中介者（Mediator）：中介者是一个接口，该接口定义了用于同事（Colleague）对象之间进行通信的方法。</p>
+</li>
+<li><p>具体中介者（ConcreteMediator）：具体中介者是实现中介者接口的类。具体中介者需要包含所有具体同事的引用，并通过实现中介者接口中的方法来满足具体同事之间的通信请求。</p>
+</li>
+<li><p>同事（Colleague）：一个接口，规定具体同事需要实现的方法。</p>
+</li>
+<li><p>具体同事（ConcreteColleague）：实现同事接口的类。具体同事需要包含具体中介者的引用，一个具体同事需要和其他具体同事交互时，只需将自己的请求通知给它所包含的具体中介者即可。</p>
+</li>
+</ul>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="/uploads/2015/08/2649850761.jpg" alt="Mediator.jpg"></p>
+<h3 id="结构的描述"><a href="#结构的描述" class="headerlink" title="结构的描述"></a>结构的描述</h3><p>以下通过一个简单的例子来描述中介者模式中所涉及的各个角色。</p>
+<p>古代相互交战的 A、B、C 三方，想通过一个中介者调停之间的战火。A、B、C 三方分别需要中介者向其他两方传达信息。</p>
+<p><strong>1.同事</strong></p>
+<p>本问题中同事接口定义了具体同事，即交战双方需要实现的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Colleague</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">giveMess</span><span class="params">(String [] mess)</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">receiverMess</span><span class="params">(String mess)</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span>;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.具体中介者</strong></p>
+<p>本问题中并不需要中介者接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteMediator</span> &#123;</span><br><span class="line">	ColleagueA colleagueA;</span><br><span class="line">	ColleagueB colleagueB;</span><br><span class="line">	ColleagueC colleagueC;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">registerColleagueA</span><span class="params">(ColleagueA colleagueA)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.colleagueA = colleagueA;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">registerColleagueB</span><span class="params">(ColleagueB colleagueB)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.colleagueB = colleagueB;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">registerColleagueC</span><span class="params">(ColleagueC colleagueC)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.colleagueC = colleagueC;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">deliverMess</span><span class="params">(Colleague colleague, String[] mess)</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> (colleague == colleagueA) &#123;</span><br><span class="line">			colleagueB.receiverMess(colleague.getName() + mess[<span class="number">0</span>]);</span><br><span class="line">			colleagueC.receiverMess(colleague.getName() + mess[<span class="number">1</span>]);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (colleague == colleagueB) &#123;</span><br><span class="line">			colleagueA.receiverMess(colleague.getName() + mess[<span class="number">0</span>]);</span><br><span class="line">			colleagueC.receiverMess(colleague.getName() + mess[<span class="number">1</span>]);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (colleague == colleagueC) &#123;</span><br><span class="line">			colleagueA.receiverMess(colleague.getName() + mess[<span class="number">0</span>]);</span><br><span class="line">			colleagueB.receiverMess(colleague.getName() + mess[<span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.具体同事</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ColleagueA.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ColleagueA</span> <span class="keyword">implements</span> <span class="title class_">Colleague</span> &#123;</span><br><span class="line">	ConcreteMediator mediator;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ColleagueA</span><span class="params">(ConcreteMediator mediator)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.mediator = mediator;</span><br><span class="line">		mediator.registerColleagueA(<span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">giveMess</span><span class="params">(String[] mess)</span> &#123;</span><br><span class="line">		mediator.deliverMess(<span class="built_in">this</span>, mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">receiverMess</span><span class="params">(String mess)</span> &#123;</span><br><span class="line">		System.out.println(name+<span class="string">&quot;收到的信息：&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;\t&quot;</span> + mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ColleagueB.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ColleagueB</span> <span class="keyword">implements</span> <span class="title class_">Colleague</span> &#123;</span><br><span class="line">	ConcreteMediator mediator;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ColleagueB</span><span class="params">(ConcreteMediator mediator)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.mediator = mediator;</span><br><span class="line">		mediator.registerColleagueB(<span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">giveMess</span><span class="params">(String[] mess)</span> &#123;</span><br><span class="line">		mediator.deliverMess(<span class="built_in">this</span>, mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">receiverMess</span><span class="params">(String mess)</span> &#123;</span><br><span class="line">		System.out.println(name+<span class="string">&quot;收到的信息：&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;\t&quot;</span> + mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ColleagueC.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ColleagueC</span> <span class="keyword">implements</span> <span class="title class_">Colleague</span> &#123;</span><br><span class="line">	ConcreteMediator mediator;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ColleagueC</span><span class="params">(ConcreteMediator mediator)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.mediator = mediator;</span><br><span class="line">		mediator.registerColleagueC(<span class="built_in">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">giveMess</span><span class="params">(String[] mess)</span> &#123;</span><br><span class="line">		mediator.deliverMess(<span class="built_in">this</span>, mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">receiverMess</span><span class="params">(String mess)</span> &#123;</span><br><span class="line">		System.out.println(name+<span class="string">&quot;收到的信息：&quot;</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;\t&quot;</span> + mess);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.模式的使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span>&#123;</span><br><span class="line">	<span class="type">ConcreteMediator</span> <span class="variable">mediator</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteMediator</span>();</span><br><span class="line">	<span class="type">ColleagueA</span> <span class="variable">colleagueA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ColleagueA</span>(mediator);</span><br><span class="line">	<span class="type">ColleagueB</span> <span class="variable">colleagueB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ColleagueB</span>(mediator);</span><br><span class="line">	<span class="type">ColleagueC</span> <span class="variable">colleagueC</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ColleagueC</span>(mediator);</span><br><span class="line">	colleagueA.setName(<span class="string">&quot;A国&quot;</span>);</span><br><span class="line">	colleagueB.setName(<span class="string">&quot;B国&quot;</span>);</span><br><span class="line">	colleagueC.setName(<span class="string">&quot;C国&quot;</span>);</span><br><span class="line">	String[] messA = &#123;<span class="string">&quot;要求归还曾抢夺的100斤土豆&quot;</span>, <span class="string">&quot;要求归还曾抢夺的10头牛&quot;</span>&#125;;</span><br><span class="line">	colleagueA.giveMess(messA);</span><br><span class="line">	String[] messB = &#123;<span class="string">&quot;要求归还曾抢夺的10只公鸡&quot;</span>, <span class="string">&quot;要求归还曾抢夺的15匹马&quot;</span>&#125;;</span><br><span class="line">	colleagueB.giveMess(messB);</span><br><span class="line">	String[] messC = &#123;<span class="string">&quot;要求归还曾抢夺的300斤小麦&quot;</span>, <span class="string">&quot;要求归还曾抢夺的50头驴&quot;</span>&#125;;</span><br><span class="line">	colleagueC.giveMess(messC);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>可以避免许多的对象为了之间的相互通信而相互的显示引用。</p>
+</li>
+<li><p>可以通过中介者将原本分布于多个对象之间的交互行为集中在一起。当这些对象之间需要改变之间的通信行为时，只需使用一个具体中介者即可，不必修改具体同事的代码，即这些同事可被重用。</p>
+</li>
+<li><p>具体中介者使得各个具体同事完全解耦，修改任何一个具体同事的代码不会影响到其他同事。</p>
+</li>
+<li><p>具体中介者集中了同事之间的交互细节，使用户比较清楚地知道整个系统中的同事是如何交互的。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注：</strong> 由于具体中介者集中了同事之间如何交互的细节，可能使具体中介者变得复杂，增加了维护难度。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/uploads/qrcode_wechat.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/" rel="tag"># 编程思想</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/07/29/Linux%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%9F%A5%E9%98%85/" rel="prev" title="Linux文件内容查阅">
+      <i class="fa fa-chevron-left"></i> Linux文件内容查阅
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/08/03/Linux%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE/" rel="next" title="Linux文件查找">
+      Linux文件查找 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">结构与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML%E7%B1%BB%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.2.</span> <span class="nav-text">结构的描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">优点</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng"
+      src="/uploads/qrcode_wechat.jpg">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备2023007649号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4603e8cb330c3bcec4e4',
+      clientSecret: 'fbdfd960cbce0f362ecc245824bd1ad113329092',
+      repo        : 'corly.cc',
+      owner       : 'CorlyDream',
+      admin       : ['CorlyDream'],
+      id          : '6652faf31cfbc9f0224d93dbfc643aba',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

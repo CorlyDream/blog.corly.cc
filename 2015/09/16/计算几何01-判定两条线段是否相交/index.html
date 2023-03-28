@@ -1,16 +1,479 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block class %}post posts-expand{% endblock %}
 
-{% block content %}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {{ partial('_macro/post.swig', {post: page}) }}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-{% endblock %}
+  <meta name="description" content="两条线段相交当且仅当下面两个条件至少成立一个：  1.每条线段都跨越了包含另一条线段的直线。2.一条线段的某个端点落在了另一条线段上。（这一情况来自于边界情况）  在判断线段的相交时我们可以利用向量的叉积。当两条向量在一条直线上时，向量的叉积等于 0 ，即上面的第二种情况，所以判断两条线段相交就分为两种情况讨论：1.向量的叉积不等于 0 ；2.向量的叉积等于 0 。 一.叉积不等于 0 首先：我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算几何01-判定两条线段是否相交">
+<meta property="og:url" content="http://blog.corly.cc/2015/09/16/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%9501-%E5%88%A4%E5%AE%9A%E4%B8%A4%E6%9D%A1%E7%BA%BF%E6%AE%B5%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4/index.html">
+<meta property="og:site_name" content="CoderMeng">
+<meta property="og:description" content="两条线段相交当且仅当下面两个条件至少成立一个：  1.每条线段都跨越了包含另一条线段的直线。2.一条线段的某个端点落在了另一条线段上。（这一情况来自于边界情况）  在判断线段的相交时我们可以利用向量的叉积。当两条向量在一条直线上时，向量的叉积等于 0 ，即上面的第二种情况，所以判断两条线段相交就分为两种情况讨论：1.向量的叉积不等于 0 ；2.向量的叉积等于 0 。 一.叉积不等于 0 首先：我们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.corly.cc/uploads/2015/09/1289786736.jpg">
+<meta property="article:published_time" content="2015-09-16T16:50:00.000Z">
+<meta property="article:modified_time" content="2023-03-28T08:37:53.449Z">
+<meta property="article:author" content="CoderMeng">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="计算几何学">
+<meta property="article:tag" content="叉积">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.corly.cc/uploads/2015/09/1289786736.jpg">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+<link rel="canonical" href="http://blog.corly.cc/2015/09/16/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%9501-%E5%88%A4%E5%AE%9A%E4%B8%A4%E6%9D%A1%E7%BA%BF%E6%AE%B5%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算几何01-判定两条线段是否相交 | CoderMeng</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/09/16/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%9501-%E5%88%A4%E5%AE%9A%E4%B8%A4%E6%9D%A1%E7%BA%BF%E6%AE%B5%E6%98%AF%E5%90%A6%E7%9B%B8%E4%BA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算几何01-判定两条线段是否相交
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-09-16 16:50:00" itemprop="dateCreated datePublished" datetime="2015-09-16T16:50:00+00:00">2015-09-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>两条线段相交当且仅当下面两个条件至少成立一个：</p>
+<blockquote>
+<p>1.每条线段都跨越了包含另一条线段的直线。<br>2.一条线段的某个端点落在了另一条线段上。（这一情况来自于边界情况）</p>
+</blockquote>
+<p>在判断线段的相交时我们可以利用向量的叉积。当两条向量在一条直线上时，向量的叉积等于 0 ，即上面的第二种情况，所以判断两条线段相交就分为两种情况讨论：1.向量的叉积不等于 0 ；2.向量的叉积等于 0 。</p>
+<p><strong>一.叉积不等于 0</strong></p>
+<p>首先：我们要判断点 p3，p4 分布在线段 p1 p2 两边。如下图所示：</p>
+<p><img src="/uploads/2015/09/1289786736.jpg" alt="segment_insect.jpg"></p>
+<p>① 根据向量的叉积，如果 p1p4 * p1p2 &gt; 0 则表示向量 p1p2 在向量 p1p4 的逆时针方向，根据 p1p2 * p1p3 &gt; 0，可以判断 p1p3 在 p1p2 的逆时针方向。这时就可以判断点p3，p4 在线段 p1p2 的两端。</p>
+<p>② 同理，我们可以判断 p1,p2 分布在线段 p3 p4 的两端。</p>
+<p>如果同时满足①，② 成立，则这两个线段就相交</p>
+<p><strong>二.叉积等于 0</strong></p>
+<p>当叉积等于 0 的时候，只需要判断这三个点是否在同一条直线上就可以了。</p>
+<p>java 代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> corlymeng.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>  2015年9月16日</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">package</span> geometry;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Segment</span> &#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 返回向量：(pi-pk)*(pi-pj) 的叉积</span></span><br><span class="line"><span class="comment">	 * pi, pj, pk, 分别是平面上的三点坐标，</span></span><br><span class="line"><span class="comment">	 * pi[0] -&gt; x</span></span><br><span class="line"><span class="comment">	 * pi[1] -&gt; y</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> int</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="title function_">direction</span><span class="params">(<span class="type">int</span>[] pi, <span class="type">int</span>[] pj, <span class="type">int</span>[] pk)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (pi[<span class="number">0</span>]-pk[<span class="number">0</span>])*(pi[<span class="number">1</span>]-pj[<span class="number">1</span>]) - (pi[<span class="number">0</span>]-pj[<span class="number">0</span>])*(pi[<span class="number">1</span>]-pk[<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 判断点pk是否在线段 pi,pj 上</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> boolean</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">onSegment</span><span class="params">(<span class="type">int</span>[] pi, <span class="type">int</span>[] pj, <span class="type">int</span>[] pk)</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> ( Math.min(pi[<span class="number">0</span>], pj[<span class="number">0</span>]) &lt;= pk[<span class="number">0</span>] &amp;&amp; pk[<span class="number">0</span>] &lt;= Math.max(pi[<span class="number">0</span>], pj[<span class="number">0</span>]) &amp;&amp; </span><br><span class="line">			 Math.min(pi[<span class="number">1</span>], pj[<span class="number">1</span>]) &lt;= pk[<span class="number">1</span>] &amp;&amp; pk[<span class="number">1</span>] &lt;= Math.max(pi[<span class="number">1</span>], pj[<span class="number">1</span>]) ) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 判断线段 p1,p2 和线段 p3,p4 是否相交</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">segmentInsert</span><span class="params">(<span class="type">int</span>[] p1, <span class="type">int</span>[] p2, <span class="type">int</span>[] p3, <span class="type">int</span>[] p4)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">d1</span> <span class="operator">=</span> direction(p3, p4, p1);</span><br><span class="line">		<span class="type">int</span> <span class="variable">d2</span> <span class="operator">=</span> direction(p3, p4, p2);</span><br><span class="line">		<span class="type">int</span> <span class="variable">d3</span> <span class="operator">=</span> direction(p1, p2, p3);</span><br><span class="line">		<span class="type">int</span> <span class="variable">d4</span> <span class="operator">=</span> direction(p1, p2, p4);</span><br><span class="line">		<span class="keyword">if</span> ( ((d1&gt;<span class="number">0</span> &amp;&amp; d2&lt;<span class="number">0</span>) || (d1&lt;<span class="number">0</span> &amp;&amp; d2&gt;<span class="number">0</span>)) &amp;&amp;</span><br><span class="line">			 ((d3&gt;<span class="number">0</span> &amp;&amp; d4&lt;<span class="number">0</span>) || (d3&lt;<span class="number">0</span> &amp;&amp; d4&gt;<span class="number">0</span>))) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d1==<span class="number">0</span> &amp;&amp; onSegment(p3, p4, p1)) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d2==<span class="number">0</span> &amp;&amp; onSegment(p3, p4, p2)) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d3==<span class="number">0</span> &amp;&amp; onSegment(p1, p2, p3)) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( d4==<span class="number">0</span> &amp;&amp; onSegment(p1, p2, p4)) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">		<span class="type">Segment</span> <span class="variable">segment</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Segment</span>();</span><br><span class="line">		<span class="type">Scanner</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">		<span class="type">int</span>[] p1 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">		<span class="type">int</span>[] p2 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">		<span class="type">int</span>[] p3 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">		<span class="type">int</span>[] p4 = &#123;in.nextInt(), in.nextInt()&#125;;</span><br><span class="line">		<span class="keyword">if</span> (segment.segmentInsert(p1, p2, p3, p4)) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;相交&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;不相交&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/uploads/qrcode_wechat.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E5%AD%A6/" rel="tag"># 计算几何学</a>
+              <a href="/tags/%E5%8F%89%E7%A7%AF/" rel="tag"># 叉积</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/09/12/%E5%B9%B6%E6%9F%A5%E9%9B%86-%E8%B6%8A%E5%A4%9A%E8%B6%8A%E5%A5%BD/" rel="prev" title="并查集-越多越好">
+      <i class="fa fa-chevron-left"></i> 并查集-越多越好
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/09/19/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%9502-%E7%94%A8%E5%8F%89%E7%A7%AF%E6%AF%94%E8%BE%83%E6%9E%81%E8%A7%92%E5%A4%A7%E5%B0%8F%E5%B9%B6%E5%AF%B9%E7%82%B9%E9%9B%86%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/" rel="next" title="计算几何02-用叉积比较极角大小并对点集进行排序">
+      计算几何02-用叉积比较极角大小并对点集进行排序 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng"
+      src="/uploads/qrcode_wechat.jpg">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备2023007649号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4603e8cb330c3bcec4e4',
+      clientSecret: 'fbdfd960cbce0f362ecc245824bd1ad113329092',
+      repo        : 'corly.cc',
+      owner       : 'CorlyDream',
+      admin       : ['CorlyDream'],
+      id          : 'fd4b74d057b4fb0dd4ed7daad147196a',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

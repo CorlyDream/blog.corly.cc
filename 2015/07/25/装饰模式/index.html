@@ -1,16 +1,505 @@
-{% extends '_layout.swig' %}
-{% import '_macro/sidebar.swig' as sidebar_template with context %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.32_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/favicon.32_32.png" color="#222">
 
-{% block title %}{{ page.title }} | {{ title }}{% endblock %}
+<link rel="stylesheet" href="/css/main.css">
 
-{% block class %}post posts-expand{% endblock %}
 
-{% block content %}
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {{ partial('_macro/post.swig', {post: page}) }}
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.corly.cc","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-{% endblock %}
+  <meta name="description" content="概念 动态地给对象添加一些额外的职责。就功能来说装饰模式比生成子类更为灵活。  在许多设计中，可能需要改进类的某个对象的功能，而不是该类创建的全部对象。例如，麻雀类的实例能连续飞行100米，如果用麻雀类创建5只麻雀，那么这5只麻雀都能连续飞行100米。假如想让其中一只麻雀能连续飞行150米，那我们应当怎么做呢？我们不想通过修改麻雀类的代码（也可能根本不允许修改）使得麻雀类创建的麻雀能够连续飞行15">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装饰模式">
+<meta property="og:url" content="http://blog.corly.cc/2015/07/25/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="CoderMeng">
+<meta property="og:description" content="概念 动态地给对象添加一些额外的职责。就功能来说装饰模式比生成子类更为灵活。  在许多设计中，可能需要改进类的某个对象的功能，而不是该类创建的全部对象。例如，麻雀类的实例能连续飞行100米，如果用麻雀类创建5只麻雀，那么这5只麻雀都能连续飞行100米。假如想让其中一只麻雀能连续飞行150米，那我们应当怎么做呢？我们不想通过修改麻雀类的代码（也可能根本不允许修改）使得麻雀类创建的麻雀能够连续飞行15">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.corly.cc/uploads/2015/07/1935470676.jpg">
+<meta property="article:published_time" content="2015-07-25T10:01:00.000Z">
+<meta property="article:modified_time" content="2023-03-28T08:37:53.449Z">
+<meta property="article:author" content="CoderMeng">
+<meta property="article:tag" content="编程思想">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.corly.cc/uploads/2015/07/1935470676.jpg">
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+<link rel="canonical" href="http://blog.corly.cc/2015/07/25/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>装饰模式 | CoderMeng</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91067947-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-91067947-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CoderMeng</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.corly.cc/2015/07/25/%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/qrcode_wechat.jpg">
+      <meta itemprop="name" content="CoderMeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderMeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          装饰模式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2015-07-25 10:01:00" itemprop="dateCreated datePublished" datetime="2015-07-25T10:01:00+00:00">2015-07-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-28 08:37:53" itemprop="dateModified" datetime="2023-03-28T08:37:53+00:00">2023-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>动态地给对象添加一些额外的职责。就功能来说装饰模式比生成子类更为灵活。</p>
+</blockquote>
+<p>在许多设计中，可能需要改进类的某个对象的功能，而不是该类创建的全部对象。例如，麻雀类的实例能连续飞行100米，如果用麻雀类创建5只麻雀，那么这5只麻雀都能连续飞行100米。假如想让其中一只麻雀能连续飞行150米，那我们应当怎么做呢？我们不想通过修改麻雀类的代码（也可能根本不允许修改）使得麻雀类创建的麻雀能够连续飞行150米。一种比较好的方法就是给麻雀装上智能电子翅膀。智能电子翅膀可以使得麻雀不使用自己的翅膀就能飞行50米。</p>
+<p>装饰模式是动态地扩展一个对象的功能，而不需要改变原始类代码的一种成熟的设计模式。在装饰模式中，“具体组件”类和“具体装饰”类是该模式中最重要的两个角色。“具体组件”类的实例称作“被装饰者”，“具体装饰”类的实例称作“装饰者”。“具体装饰”类需要包含有“具体组件”类的一个实例的引用，以便装饰“被装饰者”。</p>
+<p>例如，前面所述的麻雀类就是“具体组件”类，而一只麻雀就是“具体组件”类的一个实例，即是一个“被装饰者”，而安装了电子翅膀的麻雀就是“具体装饰”类的一个实例，即安装了电子翅膀的麻雀是麻雀的“装饰者”。</p>
+<h2 id="结构与使用"><a href="#结构与使用" class="headerlink" title="结构与使用"></a>结构与使用</h2><p>装饰模式的结构中包含四种角色。</p>
+<ul>
+<li><p>抽象组件（Component）：抽象组件是一个抽象类。抽象组件定义了“被装饰者”需要进行“装饰”的方法。</p>
+</li>
+<li><p>具体组件（ConcreteCommponent）：具体组件是抽象组件的一个子类，具体组件的实例称作“被装饰者”。</p>
+</li>
+<li><p>装饰（Decorator）：装饰也是抽象组件的一个子类，但装饰还包括抽象组件申明的变量以保存“被装饰者”的引用。装饰可以使抽象类也可以是非抽象类，如果是非抽象类，它的实例称作“装饰者”。</p>
+</li>
+<li><p>具体装饰（ConcreteDecorator）：具体装饰是装饰的一个非抽象子类，具体装饰的实例称作“装饰者”。</p>
+</li>
+</ul>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="/uploads/2015/07/1935470676.jpg" alt="Decorator.jpg"></p>
+<h3 id="结构的描述"><a href="#结构的描述" class="headerlink" title="结构的描述"></a>结构的描述</h3><p><strong>1.抽象组件</strong></p>
+<p>本问题中，抽象组件规定了具体组件需要实现的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Bird</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">int</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.具体组件</strong></p>
+<p>具体组件是Sparrow类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Sparrow</span> <span class="keyword">extends</span> <span class="title class_">Bird</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DISTANCE</span> <span class="operator">=</span> <span class="number">100</span>; </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> DISTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.装饰</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Decorator</span> <span class="keyword">extends</span> <span class="title class_">Bird</span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> Bird bird;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Decorator</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Decorator</span><span class="params">(Bird bird)</span>&#123;</span><br><span class="line">		<span class="built_in">this</span>.bird = bird;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.具体装饰</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SparrowDecorator</span> <span class="keyword">extends</span> <span class="title class_">Decorator</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DISTANCE</span> <span class="operator">=</span> <span class="number">50</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">SparrowDecorator</span><span class="params">(Bird bird)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(bird);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">//委托被装饰者调用fly方法</span></span><br><span class="line">		<span class="keyword">return</span> bird.fly() + eleFly();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//装饰者新添的方法</span></span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="title function_">eleFly</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> DISTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.测试程序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printFly</span><span class="params">(Bird bird)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;这只鸟能飞行&quot;</span>+bird.fly()+<span class="string">&quot;米。&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">Application</span> <span class="variable">client</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Application</span>();</span><br><span class="line">		<span class="comment">//sparrow 只能飞行100米</span></span><br><span class="line">		<span class="type">Bird</span> <span class="variable">sparrow</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sparrow</span>();</span><br><span class="line">		<span class="comment">//sparrowDecorator1 能飞150米</span></span><br><span class="line">		<span class="type">Bird</span> <span class="variable">sparrowDecorator1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SparrowDecorator</span>(sparrow);</span><br><span class="line">		<span class="comment">//sparrowDecorator2 能飞200米</span></span><br><span class="line">		<span class="type">Bird</span> <span class="variable">sparrowDecorator2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SparrowDecorator</span>(sparrowDecorator1);</span><br><span class="line">		client.printFly(sparrowDecorator1);</span><br><span class="line">		client.printFly(sparrowDecorator2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="使用多个装饰者"><a href="#使用多个装饰者" class="headerlink" title="使用多个装饰者"></a>使用多个装饰者</h2><p>由于装饰是抽象组件的一个子类，因此“装饰者”本身也可作为一个“被装饰者”，这意味着可以使用多个具体装饰类来装饰具体组件的实例。</p>
+<p>比如，对于上面的小问题，假如我们不仅需要飞行150米、200米的鸟，而且需要飞行120米、170米、220米的鸟，这是我们只需再添加一个具体装饰即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SparrowDecoratorTwo</span> <span class="keyword">extends</span> <span class="title class_">Decorator</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DISTANCE</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">SparrowDecoratorTwo</span><span class="params">(Bird bird)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(bird);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> bird.fly()+eleFly();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> <span class="title function_">eleFly</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> DISTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li><p>被装饰者和装饰者是松耦合关系，由于装饰（Decorator）仅仅依赖于抽象的组件（Component），因此具体装饰只知道他要装饰的对象是抽象组件某一个子类的实例，但不需要知道是哪一个具体子类。</p>
+</li>
+<li><p>装饰模式满足“开-闭原则”。不必修改具体组件，就可以增加新的针对该具体组件的装饰。</p>
+</li>
+<li><p>可以使用多个具体装饰来装饰具体组件的实例。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/uploads/qrcode_wechat.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/" rel="tag"># 编程思想</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/07/24/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%BE%E4%BE%8B-%E7%BB%9F%E8%AE%A1%E6%96%87%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D%E5%92%8C%E6%95%B0%E5%AD%97/" rel="prev" title="观察者模式举例-统计文本中的单词和数字">
+      <i class="fa fa-chevron-left"></i> 观察者模式举例-统计文本中的单词和数字
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/07/27/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" rel="next" title="责任链模式">
+      责任链模式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">结构与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UML%E7%B1%BB%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.2.</span> <span class="nav-text">结构的描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E8%A3%85%E9%A5%B0%E8%80%85"><span class="nav-number">3.</span> <span class="nav-text">使用多个装饰者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9"><span class="nav-number">4.</span> <span class="nav-text">优点</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CoderMeng"
+      src="/uploads/qrcode_wechat.jpg">
+  <p class="site-author-name" itemprop="name">CoderMeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备2023007649号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMeng</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '4603e8cb330c3bcec4e4',
+      clientSecret: 'fbdfd960cbce0f362ecc245824bd1ad113329092',
+      repo        : 'corly.cc',
+      owner       : 'CorlyDream',
+      admin       : ['CorlyDream'],
+      id          : 'a7a8786602f7e0ff46d2a9f7313bcc6c',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
